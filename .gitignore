@@ -10,7 +10,6 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 /Assets/SteamVR/
-/Assets/SteamVR.meta
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
