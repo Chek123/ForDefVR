@@ -29,6 +29,8 @@ public class PlacableObject : MonoBehaviour
             isScaled = false;
         }
         isGrabbed = true;
+
+        transform.localPosition += Vector3.up/100; // [FIX] vojak sa obcas zasekne do podlahy
     }
 
     private void ObjectUnGrabbed(object sender, InteractableObjectEventArgs e)
