@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 5478343}
   - component: {fileID: 5478342}
   - component: {fileID: 5478341}
-  - component: {fileID: 5478344}
   m_Layer: 0
   m_Name: Policko (22)
   m_TagString: Policko
@@ -140,9 +139,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5478339}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.002, y: 0.05, z: -0.002}
+  m_LocalPosition: {x: 1, y: 0.05, z: -0.002}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1652816571}
   m_Father: {fileID: 651378075}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -154,11 +154,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5478339}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &5478342
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -204,20 +204,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5478339}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &5478344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5478339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &35762942
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +216,6 @@ GameObject:
   - component: {fileID: 35762946}
   - component: {fileID: 35762945}
   - component: {fileID: 35762944}
-  - component: {fileID: 35762947}
   m_Layer: 0
   m_Name: Policko (14)
   m_TagString: Policko
@@ -246,9 +231,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35762942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.002, y: 0.05, z: 0.998}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0.998}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 727060771}
   m_Father: {fileID: 651378075}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -260,11 +246,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35762942}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &35762945
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -310,20 +296,64 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35762942}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &35762947
+--- !u!1 &50844910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 50844911}
+  - component: {fileID: 50844912}
+  - component: {fileID: 50844913}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &50844911
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50844910}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1564500064}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &50844912
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50844910}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &50844913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 35762942}
+  m_GameObject: {fileID: 50844910}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &54891415
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +368,7 @@ GameObject:
   - component: {fileID: 54891417}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Vojak
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -720,7 +750,6 @@ GameObject:
   - component: {fileID: 189283683}
   - component: {fileID: 189283682}
   - component: {fileID: 189283681}
-  - component: {fileID: 189283684}
   m_Layer: 0
   m_Name: Policko (15)
   m_TagString: Policko
@@ -736,9 +765,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189283679}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.502, y: 0.05, z: -0.998}
+  m_LocalPosition: {x: 0.5, y: 0.05, z: -0.998}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1848590009}
   m_Father: {fileID: 651378075}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -750,11 +780,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189283679}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &189283682
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -800,20 +830,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189283679}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &189283684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189283679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &208896472
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,6 +862,64 @@ Transform:
   m_Father: {fileID: 617288352}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &218278126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218278127}
+  - component: {fileID: 218278128}
+  - component: {fileID: 218278129}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &218278127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218278126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1639517312}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &218278128
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218278126}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &218278129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218278126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &220711616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,7 +1103,6 @@ GameObject:
   - component: {fileID: 273798527}
   - component: {fileID: 273798526}
   - component: {fileID: 273798525}
-  - component: {fileID: 273798528}
   m_Layer: 0
   m_Name: Policko (21)
   m_TagString: Policko
@@ -1045,9 +1118,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273798523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.002, y: 0.05, z: -0.498}
+  m_LocalPosition: {x: 1, y: 0.05, z: -0.498}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1116147005}
   m_Father: {fileID: 651378075}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1059,11 +1133,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273798523}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &273798526
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1109,20 +1183,64 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273798523}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &273798528
+--- !u!1 &301854289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 301854290}
+  - component: {fileID: 301854291}
+  - component: {fileID: 301854292}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &301854290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301854289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 786785561}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &301854291
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301854289}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &301854292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273798523}
+  m_GameObject: {fileID: 301854289}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &351566074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,7 +1334,6 @@ GameObject:
   - component: {fileID: 354149467}
   - component: {fileID: 354149466}
   - component: {fileID: 354149465}
-  - component: {fileID: 354149468}
   m_Layer: 0
   m_Name: Policko (9)
   m_TagString: Policko
@@ -1232,9 +1349,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354149463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.498, y: 0.05, z: 0.998}
+  m_LocalPosition: {x: -0.5, y: 0.05, z: 0.998}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1437712110}
   m_Father: {fileID: 651378075}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1246,11 +1364,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354149463}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &354149466
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1296,20 +1414,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354149463}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &354149468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354149463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &355656670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,7 +1738,6 @@ GameObject:
   - component: {fileID: 384388653}
   - component: {fileID: 384388652}
   - component: {fileID: 384388651}
-  - component: {fileID: 384388654}
   m_Layer: 0
   m_Name: Policko (23)
   m_TagString: Policko
@@ -1650,9 +1753,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384388649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.002, y: 0.05, z: 0.498}
+  m_LocalPosition: {x: 1, y: 0.05, z: 0.498}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1965621156}
   m_Father: {fileID: 651378075}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1664,11 +1768,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384388649}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &384388652
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1714,20 +1818,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384388649}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &384388654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384388649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &395339700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,6 +1934,122 @@ Transform:
   m_Father: {fileID: 1265924966}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &451508646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 451508647}
+  - component: {fileID: 451508648}
+  - component: {fileID: 451508649}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &451508647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451508646}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1124296351}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &451508648
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451508646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &451508649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451508646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
+--- !u!1 &454107449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 454107450}
+  - component: {fileID: 454107451}
+  - component: {fileID: 454107452}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &454107450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454107449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1334234149}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &454107451
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454107449}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &454107452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454107449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &477959448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,7 +2294,6 @@ GameObject:
   - component: {fileID: 550448398}
   - component: {fileID: 550448397}
   - component: {fileID: 550448396}
-  - component: {fileID: 550448399}
   m_Layer: 0
   m_Name: Policko (20)
   m_TagString: Policko
@@ -2104,9 +2309,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550448394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.002, y: 0.05, z: -0.998}
+  m_LocalPosition: {x: 1, y: 0.05, z: -0.998}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 910010394}
   m_Father: {fileID: 651378075}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2118,11 +2324,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550448394}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &550448397
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2168,20 +2374,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550448394}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &550448399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 550448394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &569811956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,6 +2643,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &647510099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 647510100}
+  - component: {fileID: 647510101}
+  - component: {fileID: 647510102}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &647510100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647510099}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 966661380}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &647510101
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647510099}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &647510102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647510099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &651378074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,7 +2710,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 651378075}
-  - component: {fileID: 651378076}
   m_Layer: 0
   m_Name: Ihrisko
   m_TagString: Ihrisko
@@ -2508,19 +2757,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &651378076
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651378074}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.82, y: 0.1, z: 2.82}
-  m_Center: {x: 0, y: 0.01, z: 0}
 --- !u!1 &656432277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2533,7 +2769,6 @@ GameObject:
   - component: {fileID: 656432281}
   - component: {fileID: 656432280}
   - component: {fileID: 656432279}
-  - component: {fileID: 656432282}
   m_Layer: 0
   m_Name: Policko (12)
   m_TagString: Policko
@@ -2549,9 +2784,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656432277}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.002, y: 0.05, z: -0.002}
+  m_LocalPosition: {x: 0, y: 0.05, z: -0.002}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1865240773}
   m_Father: {fileID: 651378075}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2563,11 +2799,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656432277}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &656432280
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2613,20 +2849,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656432277}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &656432282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656432277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &691362390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,6 +3083,64 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704205269}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &710950719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 710950720}
+  - component: {fileID: 710950721}
+  - component: {fileID: 710950722}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &710950720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710950719}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1504872719}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &710950721
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710950719}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &710950722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710950719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &715312358
 GameObject:
   m_ObjectHideFlags: 0
@@ -3059,6 +3339,122 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &727060770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 727060771}
+  - component: {fileID: 727060772}
+  - component: {fileID: 727060773}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &727060771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727060770}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 35762943}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &727060772
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727060770}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &727060773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727060770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
+--- !u!1 &738265157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 738265158}
+  - component: {fileID: 738265159}
+  - component: {fileID: 738265160}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &738265158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738265157}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1855013901}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &738265159
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738265157}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &738265160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738265157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &752279694
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,7 +3466,7 @@ GameObject:
   - component: {fileID: 752279695}
   m_Layer: 0
   m_Name: snap
-  m_TagString: Vojak
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3184,7 +3580,6 @@ GameObject:
   - component: {fileID: 786785564}
   - component: {fileID: 786785563}
   - component: {fileID: 786785562}
-  - component: {fileID: 786785565}
   m_Layer: 0
   m_Name: Policko (11)
   m_TagString: Policko
@@ -3200,9 +3595,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786785560}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.002, y: 0.05, z: -0.498}
+  m_LocalPosition: {x: 0, y: 0.05, z: -0.498}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 301854290}
   m_Father: {fileID: 651378075}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3214,11 +3610,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786785560}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &786785563
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3264,20 +3660,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786785560}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &786785565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786785560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &791259359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3541,7 +3923,6 @@ GameObject:
   - component: {fileID: 848202888}
   - component: {fileID: 848202887}
   - component: {fileID: 848202886}
-  - component: {fileID: 848202890}
   m_Layer: 0
   m_Name: Policko (1)
   m_TagString: Policko
@@ -3557,9 +3938,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848202884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.998, y: 0.05, z: -0.498}
+  m_LocalPosition: {x: -1, y: 0.05, z: -0.498}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1322462591}
   m_Father: {fileID: 651378075}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3571,11 +3953,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848202884}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &848202887
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3621,20 +4003,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848202884}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &848202890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848202884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &868030655
 GameObject:
   m_ObjectHideFlags: 0
@@ -3796,6 +4164,64 @@ MonoBehaviour:
   gripAxisName: LeftGrip
   touchpadHorizontalAxisName: LeftTrackpadHorizontal
   touchpadVerticalAxisName: LeftTrackpadVertical
+--- !u!1 &910010393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 910010394}
+  - component: {fileID: 910010395}
+  - component: {fileID: 910010396}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &910010394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910010393}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 550448395}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &910010395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910010393}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &910010396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910010393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &925695190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3808,7 +4234,6 @@ GameObject:
   - component: {fileID: 925695194}
   - component: {fileID: 925695193}
   - component: {fileID: 925695192}
-  - component: {fileID: 925695195}
   m_Layer: 0
   m_Name: Policko (6)
   m_TagString: Policko
@@ -3824,9 +4249,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925695190}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.498, y: 0.05, z: -0.498}
+  m_LocalPosition: {x: -0.5, y: 0.05, z: -0.498}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1218144438}
   m_Father: {fileID: 651378075}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3838,11 +4264,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925695190}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &925695193
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3888,20 +4314,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925695190}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &925695195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 925695190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &950061461
 GameObject:
   m_ObjectHideFlags: 0
@@ -4038,7 +4450,6 @@ GameObject:
   - component: {fileID: 966661383}
   - component: {fileID: 966661382}
   - component: {fileID: 966661381}
-  - component: {fileID: 966661384}
   m_Layer: 0
   m_Name: Policko (8)
   m_TagString: Policko
@@ -4054,9 +4465,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966661379}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.498, y: 0.05, z: 0.498}
+  m_LocalPosition: {x: -0.5, y: 0.05, z: 0.498}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 647510100}
   m_Father: {fileID: 651378075}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4068,11 +4480,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966661379}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &966661382
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4118,20 +4530,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966661379}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &966661384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966661379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &975066029
 GameObject:
   m_ObjectHideFlags: 0
@@ -4579,6 +4977,64 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1026809758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1026809759}
+  - component: {fileID: 1026809760}
+  - component: {fileID: 1026809761}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1026809759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026809758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1481553813}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1026809760
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026809758}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1026809761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026809758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &1032919509
 GameObject:
   m_ObjectHideFlags: 0
@@ -4801,6 +5257,64 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1099317376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1099317377}
+  - component: {fileID: 1099317378}
+  - component: {fileID: 1099317379}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1099317377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099317376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1990602880}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1099317378
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099317376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1099317379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099317376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &1107188289
 GameObject:
   m_ObjectHideFlags: 0
@@ -4993,6 +5507,64 @@ Transform:
   m_Father: {fileID: 238808064}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1116147004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1116147005}
+  - component: {fileID: 1116147006}
+  - component: {fileID: 1116147007}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1116147005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116147004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 273798524}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1116147006
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116147004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1116147007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116147004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &1122313604
 GameObject:
   m_ObjectHideFlags: 0
@@ -5249,7 +5821,6 @@ GameObject:
   - component: {fileID: 1124296354}
   - component: {fileID: 1124296353}
   - component: {fileID: 1124296352}
-  - component: {fileID: 1124296355}
   m_Layer: 0
   m_Name: Policko
   m_TagString: Policko
@@ -5265,9 +5836,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1124296350}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.998, y: 0.05, z: -0.998}
+  m_LocalPosition: {x: -1, y: 0.05, z: -0.998}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 451508647}
   m_Father: {fileID: 651378075}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5279,11 +5851,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1124296350}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1124296353
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5329,20 +5901,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1124296350}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1124296355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124296350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &1141982098
 GameObject:
   m_ObjectHideFlags: 0
@@ -5812,6 +6370,64 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1218144437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1218144438}
+  - component: {fileID: 1218144439}
+  - component: {fileID: 1218144440}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1218144438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218144437}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 925695191}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1218144439
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218144437}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1218144440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218144437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &1236687868
 GameObject:
   m_ObjectHideFlags: 0
@@ -6090,7 +6706,7 @@ GameObject:
   - component: {fileID: 1281607565}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Vojak
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6257,6 +6873,64 @@ MonoBehaviour:
     fallbackTypeName: VRTK.SDK_FallbackController
     typeName: VRTK.SDK_UnityController
     descriptionIndex: 1
+--- !u!1 &1322462590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1322462591}
+  - component: {fileID: 1322462592}
+  - component: {fileID: 1322462593}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1322462591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322462590}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 848202885}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1322462592
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322462590}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1322462593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322462590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &1325269630
 GameObject:
   m_ObjectHideFlags: 0
@@ -6307,36 +6981,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &1331335491
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1331335492}
-  m_Layer: 0
-  m_Name: SnapPolicko
-  m_TagString: Vojak
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1331335492
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331335491}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1579050192}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1334234148
 GameObject:
   m_ObjectHideFlags: 0
@@ -6349,7 +6993,6 @@ GameObject:
   - component: {fileID: 1334234152}
   - component: {fileID: 1334234151}
   - component: {fileID: 1334234150}
-  - component: {fileID: 1334234153}
   m_Layer: 0
   m_Name: Policko (18)
   m_TagString: Policko
@@ -6365,9 +7008,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334234148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.502, y: 0.05, z: 0.498}
+  m_LocalPosition: {x: 0.5, y: 0.05, z: 0.498}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 454107450}
   m_Father: {fileID: 651378075}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6379,11 +7023,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334234148}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1334234151
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6429,20 +7073,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334234148}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1334234153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334234148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &1375112422
 GameObject:
   m_ObjectHideFlags: 0
@@ -6581,7 +7211,7 @@ GameObject:
   - component: {fileID: 1383848241}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Vojak
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6775,7 +7405,6 @@ GameObject:
   - component: {fileID: 1387398907}
   - component: {fileID: 1387398906}
   - component: {fileID: 1387398905}
-  - component: {fileID: 1387398908}
   m_Layer: 0
   m_Name: Policko (13)
   m_TagString: Policko
@@ -6791,9 +7420,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387398903}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.002, y: 0.05, z: 0.498}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0.498}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1456566026}
   m_Father: {fileID: 651378075}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6805,11 +7435,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387398903}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1387398906
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6855,20 +7485,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387398903}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1387398908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1387398903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &1392037285
 GameObject:
   m_ObjectHideFlags: 0
@@ -7237,6 +7853,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockPhysicsUpdateRateToRenderFrequency: 1
+--- !u!1 &1437712109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1437712110}
+  - component: {fileID: 1437712111}
+  - component: {fileID: 1437712112}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1437712110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437712109}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 354149464}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1437712111
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437712109}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1437712112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437712109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &1450891440
 GameObject:
   m_ObjectHideFlags: 0
@@ -7249,7 +7923,6 @@ GameObject:
   - component: {fileID: 1450891444}
   - component: {fileID: 1450891443}
   - component: {fileID: 1450891442}
-  - component: {fileID: 1450891445}
   m_Layer: 0
   m_Name: Policko (4)
   m_TagString: Policko
@@ -7265,9 +7938,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450891440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.998, y: 0.05, z: 0.998}
+  m_LocalPosition: {x: -1, y: 0.05, z: 0.998}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1827329450}
   m_Father: {fileID: 651378075}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7279,11 +7953,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450891440}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1450891443
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7329,20 +8003,64 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450891440}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1450891445
+--- !u!1 &1456566025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1456566026}
+  - component: {fileID: 1456566027}
+  - component: {fileID: 1456566028}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1456566026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456566025}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1387398904}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1456566027
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456566025}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1456566028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450891440}
+  m_GameObject: {fileID: 1456566025}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &1456963035
 GameObject:
   m_ObjectHideFlags: 0
@@ -7434,6 +8152,64 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456963035}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1467628087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1467628088}
+  - component: {fileID: 1467628089}
+  - component: {fileID: 1467628090}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1467628088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467628087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2135280628}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1467628089
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467628087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1467628090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467628087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &1476750427
 GameObject:
   m_ObjectHideFlags: 0
@@ -7561,7 +8337,6 @@ GameObject:
   - component: {fileID: 1481553816}
   - component: {fileID: 1481553815}
   - component: {fileID: 1481553814}
-  - component: {fileID: 1481553817}
   m_Layer: 0
   m_Name: Policko (19)
   m_TagString: Policko
@@ -7577,9 +8352,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481553812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.502, y: 0.05, z: 0.998}
+  m_LocalPosition: {x: 0.5, y: 0.05, z: 0.998}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1026809759}
   m_Father: {fileID: 651378075}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7591,11 +8367,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481553812}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1481553815
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7641,20 +8417,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481553812}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1481553817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481553812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &1500158666
 GameObject:
   m_ObjectHideFlags: 0
@@ -7742,7 +8504,6 @@ GameObject:
   - component: {fileID: 1500282545}
   - component: {fileID: 1500282544}
   - component: {fileID: 1500282543}
-  - component: {fileID: 1500282546}
   m_Layer: 0
   m_Name: Policko (2)
   m_TagString: Policko
@@ -7758,9 +8519,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500282541}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.998, y: 0.05, z: -0.002}
+  m_LocalPosition: {x: -1, y: 0.05, z: -0.002}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 2025686111}
   m_Father: {fileID: 651378075}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7772,11 +8534,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500282541}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1500282544
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7822,20 +8584,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500282541}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1500282546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500282541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &1504872718
 GameObject:
   m_ObjectHideFlags: 0
@@ -7848,7 +8596,6 @@ GameObject:
   - component: {fileID: 1504872722}
   - component: {fileID: 1504872721}
   - component: {fileID: 1504872720}
-  - component: {fileID: 1504872723}
   m_Layer: 0
   m_Name: Policko (16)
   m_TagString: Policko
@@ -7864,9 +8611,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504872718}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.502, y: 0.05, z: -0.498}
+  m_LocalPosition: {x: 0.5, y: 0.05, z: -0.498}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 710950720}
   m_Father: {fileID: 651378075}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7878,11 +8626,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504872718}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1504872721
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7928,20 +8676,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504872718}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1504872723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504872718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &1519362029
 GameObject:
   m_ObjectHideFlags: 0
@@ -8218,7 +8952,6 @@ GameObject:
   - component: {fileID: 1564500067}
   - component: {fileID: 1564500066}
   - component: {fileID: 1564500065}
-  - component: {fileID: 1564500068}
   m_Layer: 0
   m_Name: Policko (3)
   m_TagString: Policko
@@ -8234,9 +8967,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564500063}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.998, y: 0.05, z: 0.498}
+  m_LocalPosition: {x: -1, y: 0.05, z: 0.498}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 50844911}
   m_Father: {fileID: 651378075}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8248,11 +8982,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564500063}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1564500066
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8298,20 +9032,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564500063}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1564500068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564500063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &1566608570
 GameObject:
   m_ObjectHideFlags: 0
@@ -8496,7 +9216,7 @@ Transform:
   - {fileID: 1383848240}
   - {fileID: 54891416}
   - {fileID: 752279695}
-  - {fileID: 1331335492}
+  - {fileID: 2115787522}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8512,7 +9232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b172526883d12445af75b21a74c0652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snap: {fileID: 1331335492}
+  isScaled: 0
 --- !u!1 &1609818654
 GameObject:
   m_ObjectHideFlags: 0
@@ -8781,7 +9501,6 @@ GameObject:
   - component: {fileID: 1639517315}
   - component: {fileID: 1639517314}
   - component: {fileID: 1639517313}
-  - component: {fileID: 1639517316}
   m_Layer: 0
   m_Name: Policko (24)
   m_TagString: Policko
@@ -8797,9 +9516,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639517311}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.002, y: 0.05, z: 0.998}
+  m_LocalPosition: {x: 1, y: 0.05, z: 0.998}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 218278127}
   m_Father: {fileID: 651378075}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8811,11 +9531,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639517311}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1639517314
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8861,20 +9581,64 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639517311}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1639517316
+--- !u!1 &1652816570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1652816571}
+  - component: {fileID: 1652816572}
+  - component: {fileID: 1652816573}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1652816571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652816570}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5478340}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1652816572
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652816570}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1652816573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639517311}
+  m_GameObject: {fileID: 1652816570}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &1674479312
 GameObject:
   m_ObjectHideFlags: 0
@@ -9043,6 +9807,64 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682370734}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1688720393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688720394}
+  - component: {fileID: 1688720395}
+  - component: {fileID: 1688720396}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1688720394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688720393}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1720945007}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1688720395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688720393}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1688720396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688720393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &1720945006
 GameObject:
   m_ObjectHideFlags: 0
@@ -9055,7 +9877,6 @@ GameObject:
   - component: {fileID: 1720945010}
   - component: {fileID: 1720945009}
   - component: {fileID: 1720945008}
-  - component: {fileID: 1720945011}
   m_Layer: 0
   m_Name: Policko (5)
   m_TagString: Policko
@@ -9071,9 +9892,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720945006}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.498, y: 0.05, z: -0.998}
+  m_LocalPosition: {x: -0.5, y: 0.05, z: -0.998}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1688720394}
   m_Father: {fileID: 651378075}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9085,11 +9907,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720945006}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1720945009
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9135,20 +9957,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720945006}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1720945011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720945006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &1774565521
 GameObject:
   m_ObjectHideFlags: 0
@@ -9420,6 +10228,64 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1827329449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1827329450}
+  - component: {fileID: 1827329451}
+  - component: {fileID: 1827329452}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1827329450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827329449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1450891441}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1827329451
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827329449}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1827329452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827329449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &1829443870
 GameObject:
   m_ObjectHideFlags: 0
@@ -9551,6 +10417,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847602269}
   m_CullTransparentMesh: 0
+--- !u!1 &1848590008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1848590009}
+  - component: {fileID: 1848590010}
+  - component: {fileID: 1848590011}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1848590009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848590008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 189283680}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1848590010
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848590008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1848590011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848590008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &1851642582
 GameObject:
   m_ObjectHideFlags: 0
@@ -9639,7 +10563,6 @@ GameObject:
   - component: {fileID: 1855013904}
   - component: {fileID: 1855013903}
   - component: {fileID: 1855013902}
-  - component: {fileID: 1855013905}
   m_Layer: 0
   m_Name: Policko (10)
   m_TagString: Policko
@@ -9655,9 +10578,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855013900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.002, y: 0.05, z: -0.998}
+  m_LocalPosition: {x: 0, y: 0.05, z: -0.998}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 738265158}
   m_Father: {fileID: 651378075}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9669,11 +10593,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855013900}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1855013903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9719,20 +10643,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855013900}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1855013905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855013900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
 --- !u!1 &1856493743
 GameObject:
   m_ObjectHideFlags: 0
@@ -9779,6 +10689,64 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1865240772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1865240773}
+  - component: {fileID: 1865240774}
+  - component: {fileID: 1865240775}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1865240773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865240772}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 656432278}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1865240774
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865240772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1865240775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865240772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &1870161003
 GameObject:
   m_ObjectHideFlags: 0
@@ -9925,6 +10893,64 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1965621155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1965621156}
+  - component: {fileID: 1965621157}
+  - component: {fileID: 1965621158}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1965621156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965621155}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 384388650}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1965621157
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965621155}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1965621158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965621155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &1976496353
 GameObject:
   m_ObjectHideFlags: 0
@@ -10007,7 +11033,6 @@ GameObject:
   - component: {fileID: 1990602883}
   - component: {fileID: 1990602882}
   - component: {fileID: 1990602881}
-  - component: {fileID: 1990602884}
   m_Layer: 0
   m_Name: Policko (17)
   m_TagString: Policko
@@ -10023,9 +11048,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990602879}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.502, y: 0.05, z: -0.002}
+  m_LocalPosition: {x: 0.5, y: 0.05, z: -0.002}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1099317377}
   m_Father: {fileID: 651378075}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10037,11 +11063,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990602879}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1990602882
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10087,20 +11113,64 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990602879}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1990602884
+--- !u!1 &2025686110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2025686111}
+  - component: {fileID: 2025686112}
+  - component: {fileID: 2025686113}
+  m_Layer: 0
+  m_Name: TriggerZone
+  m_TagString: Policko
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2025686111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025686110}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1500282542}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2025686112
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025686110}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 500, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2025686113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990602879}
+  m_GameObject: {fileID: 2025686110}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}
+  selectedColor: {r: 0.047296926, g: 0.990566, b: 0, a: 1}
 --- !u!1 &2031679467
 GameObject:
   m_ObjectHideFlags: 0
@@ -10761,6 +11831,50 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2115787521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2115787522}
+  - component: {fileID: 2115787523}
+  m_Layer: 0
+  m_Name: VojakStred
+  m_TagString: VojakStred
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2115787522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115787521}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1579050192}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2115787523
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115787521}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2126239654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10829,7 +11943,6 @@ GameObject:
   - component: {fileID: 2135280631}
   - component: {fileID: 2135280630}
   - component: {fileID: 2135280629}
-  - component: {fileID: 2135280632}
   m_Layer: 0
   m_Name: Policko (7)
   m_TagString: Policko
@@ -10845,9 +11958,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135280627}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.498, y: 0.05, z: -0.002}
+  m_LocalPosition: {x: -0.5, y: 0.05, z: -0.002}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1467628088}
   m_Father: {fileID: 651378075}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10859,11 +11973,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135280627}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 500, z: 0.4}
-  m_Center: {x: 0, y: 250, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2135280630
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10909,17 +12023,3 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135280627}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2135280632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2135280627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342fc8224a62e9341b532ba5fc9f9d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selected: {fileID: 2100000, guid: 09fa092877ce247489f9df5a0938a86e, type: 2}
-  notSelected: {fileID: 2100000, guid: 794329e502a3a8c4d865e10f35ef3df8, type: 2}

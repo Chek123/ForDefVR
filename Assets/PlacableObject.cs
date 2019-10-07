@@ -7,9 +7,12 @@ public class PlacableObject : MonoBehaviour
 {
     public const float SizeOfSquare = 0.5f;
 
-    private bool isScaled = false;
+    public bool isScaled = false;
     private bool isGrabbed = false;
-    public Transform snap;
+
+    private bool onCollision = false;
+    private Transform lastCollisionObj;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,45 +27,49 @@ public class PlacableObject : MonoBehaviour
         {
             this.transform.localScale /= 5;
             isScaled = false;
-            isGrabbed = true;
         }
+        isGrabbed = true;
     }
 
     private void ObjectUnGrabbed(object sender, InteractableObjectEventArgs e)
     {
         isGrabbed = false;
+        if (onCollision)
+        {
+            SnapToObject();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ihrisko")
+        if (collision.gameObject.tag == "Policko")
         {
-            if (!isScaled && !isGrabbed)
+            lastCollisionObj = collision.transform;
+            if ( !isGrabbed)
             {
-                // ToDo: Pri polozeni na podlozku a pusteni, grabnuty objekt sa nezvacsi
-                this.transform.localScale *= 5;
-                //                this.transform.position = collision.transform.position + new Vector3(0f, collision.transform.localScale.y / 2, 0f)
-                //                + new Vector3(0f, transform.localScale.y / 2, 0f);
-
-                this.transform.position = new Vector3( (((int)(this.transform.position.x / SizeOfSquare))*SizeOfSquare), this.transform.localScale.y / 2, (((int)(this.transform.position.z / SizeOfSquare)) * SizeOfSquare));
-                this.transform.rotation = Quaternion.identity;
-                GetComponent<Rigidbody>().velocity = Vector3.zero;
-                GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-
-                isScaled = true;
+                SnapToObject();
             }
-
-
-
-
+            onCollision = true;
         }
     }
-
-
-
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionExit(Collision collision)
     {
-        
+        onCollision = false;
+    }
+
+    private void SnapToObject()
+    {
+        if (!isScaled)
+        {
+            this.transform.localScale *= 5;
+            this.transform.position = lastCollisionObj.position + new Vector3(0f, lastCollisionObj.localScale.y / 2, 0f)
+                + new Vector3(0f, transform.localScale.y / 2, 0f);
+            this.transform.rotation = Quaternion.identity;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            lastCollisionObj.GetComponentInChildren<Square>().ResetColor();
+            isScaled = true;
+        }
+
     }
 }

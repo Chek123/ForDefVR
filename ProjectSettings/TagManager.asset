@@ -18,6 +18,7 @@ TagManager:
   - Head
   - Vojak
   - Ihrisko
+  - VojakStred
   layers:
   - Default
   - TransparentFX

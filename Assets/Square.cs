@@ -4,36 +4,34 @@ using UnityEngine;
 
 public class Square : MonoBehaviour
 {
+    public Color selectedColor;
+    private Color originalColor;
 
-    public Material Selected;
-    public Material notSelected;
     // Start is called before the first frame update
     void Start()
     {
-
+        originalColor = transform.parent.GetComponent<MeshRenderer>().material.color;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.tag);
-        if (other.gameObject.tag == "Vojak")
+        if (other.gameObject.tag == "VojakStred")
         {
-            this.GetComponent<MeshRenderer>().material = Selected;
+            transform.parent.GetComponent<MeshRenderer>().material.color = selectedColor;
         }
         
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Vojak")
+        if (other.gameObject.tag == "VojakStred")
         {
-            this.GetComponent<MeshRenderer>().material = notSelected;
+            ResetColor();
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResetColor()
     {
-
+        transform.parent.GetComponent<MeshRenderer>().material.color = originalColor;
     }
 }
