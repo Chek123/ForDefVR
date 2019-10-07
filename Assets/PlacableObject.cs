@@ -7,11 +7,12 @@ public class PlacableObject : MonoBehaviour
 {
     public const float SizeOfSquare = 0.5f;
 
-    public bool isScaled = false;
-    private bool isGrabbed = false;
+    private bool isScaled = false;
+    public bool isGrabbed = false;
 
     private bool onCollision = false;
     private Transform lastCollisionObj;
+    private Transform snappedOn;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,8 @@ public class PlacableObject : MonoBehaviour
         isGrabbed = true;
 
         transform.localPosition += Vector3.up/100; // [FIX] vojak sa obcas zasekne do podlahy
+
+        snappedOn?.GetComponentInChildren<Square>()?.HighLight();
     }
 
     private void ObjectUnGrabbed(object sender, InteractableObjectEventArgs e)
@@ -47,6 +50,7 @@ public class PlacableObject : MonoBehaviour
         if (collision.gameObject.tag == "Policko")
         {
             lastCollisionObj = collision.transform;
+
             if ( !isGrabbed)
             {
                 SnapToObject();
@@ -71,6 +75,7 @@ public class PlacableObject : MonoBehaviour
             GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             lastCollisionObj.GetComponentInChildren<Square>().ResetColor();
             isScaled = true;
+            snappedOn = lastCollisionObj;
         }
 
     }

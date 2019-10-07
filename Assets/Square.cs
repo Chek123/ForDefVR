@@ -15,9 +15,9 @@ public class Square : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "VojakStred")
+        if (other.gameObject.tag == "VojakStred" && other.GetComponentInParent<PlacableObject>().isGrabbed)
         {
-            transform.parent.GetComponent<MeshRenderer>().material.color = selectedColor;
+            HighLight();
         }
         
     }
@@ -33,5 +33,11 @@ public class Square : MonoBehaviour
     public void ResetColor()
     {
         transform.parent.GetComponent<MeshRenderer>().material.color = originalColor;
+    }
+
+    public void HighLight()
+    {
+        transform.parent.GetComponent<MeshRenderer>().material.color = selectedColor;
+
     }
 }
