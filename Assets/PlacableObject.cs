@@ -5,6 +5,7 @@ using VRTK;
 
 public class PlacableObject : MonoBehaviour
 {
+    public const float SizeOfSquare = 0.5f;
 
     private bool isScaled = false;
     private bool isGrabbed = false;
@@ -34,14 +35,16 @@ public class PlacableObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Policko")
+        if (collision.gameObject.tag == "Ihrisko")
         {
             if (!isScaled && !isGrabbed)
             {
                 // ToDo: Pri polozeni na podlozku a pusteni, grabnuty objekt sa nezvacsi
                 this.transform.localScale *= 5;
-                this.transform.position = collision.transform.position + new Vector3(0f, collision.transform.localScale.y / 2, 0f)
-                + new Vector3(0f, transform.localScale.y / 2, 0f);
+                //                this.transform.position = collision.transform.position + new Vector3(0f, collision.transform.localScale.y / 2, 0f)
+                //                + new Vector3(0f, transform.localScale.y / 2, 0f);
+
+                this.transform.position = new Vector3( (((int)(this.transform.position.x / SizeOfSquare))*SizeOfSquare), this.transform.localScale.y / 2, (((int)(this.transform.position.z / SizeOfSquare)) * SizeOfSquare));
                 this.transform.rotation = Quaternion.identity;
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
                 GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
