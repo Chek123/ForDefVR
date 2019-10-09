@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Square : MonoBehaviour
+public class CubeHighlighter : MonoBehaviour
 {
     public Color selectedColor;
     private Color originalColor;

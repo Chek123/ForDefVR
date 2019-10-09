@@ -33,7 +33,7 @@ public class PlacableObject : MonoBehaviour
 
         transform.localPosition += Vector3.up/100; // [FIX] vojak sa obcas zasekne do podlahy
 
-        snappedOn?.GetComponentInChildren<Square>()?.HighLight();
+        snappedOn?.GetComponentInChildren<CubeHighlighter>()?.HighLight();
     }
 
     private void ObjectUnGrabbed(object sender, InteractableObjectEventArgs e)
@@ -73,7 +73,7 @@ public class PlacableObject : MonoBehaviour
             this.transform.rotation = Quaternion.identity;
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            lastCollisionObj.GetComponentInChildren<Square>().ResetColor();
+            lastCollisionObj.GetComponentInChildren<CubeHighlighter>().ResetColor();
             isScaled = true;
             snappedOn = lastCollisionObj;
         }
