@@ -7,6 +7,8 @@ public class PlacableObject : MonoBehaviour
 {
     public const float SizeOfSquare = 0.5f;
 
+    public GameObject vojakDestroy;
+
     private bool isScaled = false;
     public bool isGrabbed = false;
 
@@ -19,7 +21,7 @@ public class PlacableObject : MonoBehaviour
     {
         GetComponent<VRTK_InteractableObject>().InteractableObjectGrabbed += ObjectGrabbed;
         GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += ObjectUnGrabbed;
-
+        vojakDestroy = GameObject.Find("Kos");
     }
 
     private void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
@@ -28,6 +30,7 @@ public class PlacableObject : MonoBehaviour
         {
             this.transform.localScale /= 5;
             isScaled = false;
+            vojakDestroy.GetComponent<VojakDestroy>().destroyed = false;
         }
         isGrabbed = true;
 

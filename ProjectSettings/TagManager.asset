@@ -11,6 +11,12 @@ TagManager:
   - Vojak
   - Ihrisko
   - VojakStred
+  - Vojak_typ_1
+  - Pocetnost
+  - Vojat_typ_2
+  - Vojak_typ_2
+  - VojakModel1
+  - VojakModel2
   layers:
   - Default
   - TransparentFX
