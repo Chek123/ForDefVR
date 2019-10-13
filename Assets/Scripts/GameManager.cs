@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
         gamemode = GameMode.ROLEPLAYING;
         foreach(var go in GameObject.FindGameObjectsWithTag("Vojak"))
         {
+            Debug.Log("Changing object: " + go.name);
             go.GetComponent<PlacableObject>().enabled = false;
             go.GetComponent<PlayableObject>().enabled = true;
 
