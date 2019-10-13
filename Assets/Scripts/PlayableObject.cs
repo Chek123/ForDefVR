@@ -18,16 +18,15 @@ public class PlayableObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<VRTK_InteractableObject>().InteractableObjectUnused += ObjectUnused;
+        GetComponent<VRTK_InteractableObject>().InteractableObjectUnused += ObjectChoosenToPlay;
     }
 
-    private void ObjectUnused(object sender, InteractableObjectEventArgs e)
+    private void ObjectChoosenToPlay(object sender, InteractableObjectEventArgs e)
     {
         sceneObjects.localScale *= 3;
+        VRTK_DeviceFinder.PlayAreaTransform().position = transform.position; //teleport to soldier place 
         soldierModel.SetActive(false);
-        VRTK_DeviceFinder.PlayAreaTransform().position = transform.position; //teleport to soldier place
         weapon.GetComponent<VRTK_InteractableObject>().isGrabbable = true;
-        //weapon.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     // Update is called once per frame
