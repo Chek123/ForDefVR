@@ -9,8 +9,9 @@ public class PlacableObject : MonoBehaviour
 
     public GameObject vojakDestroy;
 
-    private bool isScaled = false;
+    public bool isScaled = false;
     public bool isGrabbed = false;
+    public bool wasChanged = false;
 
     private bool onCollision = false;
     private Transform lastCollisionObj;
@@ -33,6 +34,7 @@ public class PlacableObject : MonoBehaviour
             vojakDestroy.GetComponent<VojakDestroy>().destroyed = false;
         }
         isGrabbed = true;
+        wasChanged = true;
 
         transform.localPosition += Vector3.up/100; // [FIX] vojak sa obcas zasekne do podlahy
 

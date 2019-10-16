@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Spawning : MonoBehaviour
 {
-
-    public string vojakTag;
     public GameObject vojak;
     public int vojakSpawnPocetnost;
 
@@ -24,6 +22,7 @@ public class Spawning : MonoBehaviour
 
     public GameObject vojakPreFab;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,14 +34,29 @@ public class Spawning : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log(other.gameObject.tag);
-        if (vojakSpawnPocetnost > 0 && ((vojakSpawned != null && vojakSpawned.GetComponent<PlacableObject>().isGrabbed) || !spawned) && other.gameObject.tag == vojakTag)
+        if (vojakSpawnPocetnost > 0 && ((vojakSpawned != null && vojakSpawned.GetComponent<PlacableObject>().isGrabbed) || !spawned) && other.gameObject.transform.parent.name == vojak.name)
         {
             vojakSpawned = Instantiate(vojakPreFab, vojakPosition, vojakRotation) as GameObject;
+            vojakSpawned.name = vojak.name;
             spawned = true;
             decreaseCounter();
+        }      
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        //Debug.Log(other.gameObject.name);
+        PlacableObject placableObject = null;
+        if ((placableObject = other.gameObject.transform.parent.GetComponent<PlacableObject>()) != null && placableObject.wasChanged && !placableObject.isGrabbed && !placableObject.isScaled && spawned)
+        {
+            Debug.Log(other.gameObject.name);
+            Destroy(vojakSpawned);
+            increaseCounter();
+            other.gameObject.transform.parent.transform.position = vojakPosition;
+            other.gameObject.transform.parent.transform.rotation = vojakRotation;
+            placableObject.wasChanged = false;
+            spawned = false;
         }
-        
     }
 
     public void increaseCounter()

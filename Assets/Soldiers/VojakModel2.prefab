@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 6371775396528692641}
   m_Layer: 0
   m_Name: VojakModel2
-  m_TagString: VojakModel2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,6 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vojakDestroy: {fileID: 0}
   isGrabbed: 0
+  wasChanged: 0
 --- !u!114 &6371775396528692641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +374,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneObjects: {fileID: 0}
+  soldierModel: {fileID: 0}
+  weapon: {fileID: 0}
 --- !u!1 &6371775396856631876
 GameObject:
   m_ObjectHideFlags: 0
