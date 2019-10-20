@@ -23,6 +23,6 @@ public class Shooter : MonoBehaviour
     private void Shoot(object sender, InteractableObjectEventArgs e)
     {
         var bullet = GameObject.Instantiate(bulletPrefab, shootPoint.transform.position, shootPoint.transform.rotation);
-        bullet.GetComponent<Rigidbody>().velocity += Vector3.forward * bulletSpeed;
+        bullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletSpeed;
     }
 }
