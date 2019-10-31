@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653037079}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0126, y: 0.0216, z: 0.4204}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.0126, y: 0.0216, z: 0.468}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8482558199404685705}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6965765665197031993
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &1013603337208531392
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,9 +38,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6965765665196678681}
-  - component: {fileID: 6965765665195908665}
-  - component: {fileID: 6965765665194777849}
+  - component: {fileID: 1013603337208108512}
+  - component: {fileID: 1013603337205241280}
+  - component: {fileID: 1013603337206339328}
   m_Layer: 0
   m_Name: M4
   m_TagString: Untagged
@@ -48,13 +48,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6965765665196678681
+--- !u!4 &1013603337208108512
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6965765665197031993}
+  m_GameObject: {fileID: 1013603337208531392}
   m_LocalRotation: {x: 0.4937347, y: 0.20185564, z: 0.44438693, w: -0.7197226}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.010000002, y: 0.01, z: 0.0100000035}
@@ -62,21 +62,21 @@ Transform:
   m_Father: {fileID: 8482558199404685705}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 242.88701, y: -521.016, z: -255.06}
---- !u!33 &6965765665195908665
+--- !u!33 &1013603337205241280
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6965765665197031993}
+  m_GameObject: {fileID: 1013603337208531392}
   m_Mesh: {fileID: 4300000, guid: bbd31298a384678428be6cbb988076f4, type: 3}
---- !u!23 &6965765665194777849
+--- !u!23 &1013603337206339328
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6965765665197031993}
+  m_GameObject: {fileID: 1013603337208531392}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -134,13 +134,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8482558197886138016}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.345}
+  m_LocalRotation: {x: -0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: -0.0472, z: -0.084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8482558199404685705}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -45, y: 0, z: 0}
 --- !u!1 &8482558198093442395
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,8 +348,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8482558198693717209}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26, y: 0.9837, z: -1.2425}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 8482558198628407589}
@@ -444,7 +444,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vojakDestroy: {fileID: 0}
+  isScaled: 0
   isGrabbed: 0
+  wasChanged: 0
 --- !u!114 &8482558198693717191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,7 +461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneObjects: {fileID: 0}
   soldierModel: {fileID: 8482558199418622850}
-  weapon: {fileID: 8482558199404685710}
+  weapon: {fileID: 0}
 --- !u!1 &8482558198924959899
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,17 +519,17 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8482558199404685710}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.346, y: 1.267, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 1, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6965765665196678681}
+  - {fileID: 1013603337208108512}
   - {fileID: 8482558198093442394}
   - {fileID: 8482558197886138019}
   - {fileID: 653037080}
   m_Father: {fileID: 8482558198693717189}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!54 &8482558199404685706
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -560,13 +562,13 @@ MonoBehaviour:
   allowedNearTouchControllers: 0
   allowedTouchControllers: 0
   ignoredColliders: []
-  isGrabbable: 0
+  isGrabbable: 1
   holdButtonToGrab: 0
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
+  grabAttachMechanicScript: {fileID: 8482558199404685704}
   secondaryGrabActionScript: {fileID: 0}
   isUsable: 1
   holdButtonToUse: 0
@@ -607,10 +609,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead843138c846c641a77bac2aab39a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 653037079}
   bulletPrefab: {fileID: 7329639199113623320, guid: 77183286a9a4b2242ad719c6b131dd04,
     type: 3}
-  bulletSpeed: 0
+  bulletSpeed: 3
 --- !u!1 &8482558199418622850
 GameObject:
   m_ObjectHideFlags: 0
