@@ -17,10 +17,10 @@ public class HealthControl : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
         if (health <= 0)
         {
-            Destroy(this);  //FIXME
+            Destroy(gameObject);
         }
     }
 
