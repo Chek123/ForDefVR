@@ -8,20 +8,28 @@ public class PlacableObject : MonoBehaviour
     public const float SizeOfSquare = 0.5f;
 
     public GameObject vojakDestroy;
+    public GameObject spawner;
 
     public bool isScaled = false;
     public bool isGrabbed = false;
     public bool wasChanged = false;
+    private bool wasDestroyed = false;
 
     private bool onCollision = false;
     private Transform lastCollisionObj;
     private Transform snappedOn;
+
+    public Spawning spawning;
+    private Rigidbody rigidBody;
+
 
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<VRTK_InteractableObject>().InteractableObjectGrabbed += ObjectGrabbed;
         GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += ObjectUnGrabbed;
+        spawning = spawner.gameObject.GetComponent<Spawning>();
+        rigidBody = GetComponent<Rigidbody>();
         vojakDestroy = GameObject.Find("Kos");
     }
 
@@ -55,12 +63,17 @@ public class PlacableObject : MonoBehaviour
         if (collision.gameObject.tag == "Policko")
         {
             lastCollisionObj = collision.transform;
-
             if ( !isGrabbed)
             {
-                SnapToObject();
+                    SnapToObject();   
             }
             onCollision = true;
+        }
+        else if (collision.gameObject.tag == "Ground" && !wasDestroyed)
+        {
+            Destroy(this.gameObject);
+            spawning.OnWrongPlacement();
+            wasDestroyed = true;
         }
     }
     private void OnCollisionExit(Collision collision)
