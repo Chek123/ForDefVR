@@ -6,7 +6,7 @@ using VRTK;
 public class GameManager : MonoBehaviour
 {
     public GameMode gamemode = GameMode.LAYOUTING;
-    public Animator anim;
+    public GameObject wall;
 
     public enum GameMode
     {
@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour
     public void SetRolePlayMode()
     {
         gamemode = GameMode.ROLEPLAYING;
-        anim.enabled = true;
+        wall.GetComponent<Animator>().enabled = true;
+        wall.GetComponent<AudioScript>().playSound = true;
+
         foreach(var go in GameObject.FindGameObjectsWithTag("Vojak"))
         {
             Debug.Log("Changing object: " + go.name);
