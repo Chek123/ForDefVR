@@ -333,6 +333,11 @@ MonoBehaviour:
   isGrabbed: 0
   wasChanged: 0
   spawning: {fileID: 0}
+  boxColliders:
+  - {fileID: 9184698958710735376}
+  - {fileID: 9184698958267693221}
+  - {fileID: 9184698957716636394}
+  cube: {fileID: 9184698958710735378}
 --- !u!114 &9184698958682338989
 MonoBehaviour:
   m_ObjectHideFlags: 0

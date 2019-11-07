@@ -359,8 +359,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vojakDestroy: {fileID: 0}
+  spawner: {fileID: 0}
+  isScaled: 0
   isGrabbed: 0
   wasChanged: 0
+  spawning: {fileID: 0}
+  boxColliders:
+  - {fileID: 6371775396506577180}
+  - {fileID: 6371775395879031721}
+  - {fileID: 6371775395479054822}
+  cube: {fileID: 6371775396506577182}
 --- !u!114 &6371775396528692641
 MonoBehaviour:
   m_ObjectHideFlags: 0

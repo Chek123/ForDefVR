@@ -28,10 +28,13 @@ public class Spawning : MonoBehaviour
     private BoxCollider boxCollider2;
     private BoxCollider boxCollider3;
 
-    private Stack<BoxCollider> boxColliders = new Stack<BoxCollider>();
-    private HashSet<BoxCollider> boxCollidersSet = new HashSet<BoxCollider>(); 
+    private List<BoxCollider> enteredVojakBoxColliders;
+    private List<BoxCollider> currentVojakBoxColliders;
 
+    private HashSet<String> colliders;
 
+    const int expectedHashSetSize = 3;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -40,11 +43,11 @@ public class Spawning : MonoBehaviour
         vojakName = vojak.name;
 
         pocetnostCounter.text = "" + vojakSpawnPocetnost;
-        Debug.Log(vojak.transform.GetChild(3));
+        colliders = new HashSet<String>();
 
-        boxCollider1 = vojak.transform.GetChild(0).GetComponent<BoxCollider>();
-        boxCollider2 = vojak.transform.GetChild(2).GetComponent<BoxCollider>();
-        boxCollider3 = vojak.transform.GetChild(4).GetComponent<BoxCollider>();
+        currentVojakBoxColliders = vojak.GetComponent<PlacableObject>().getColliders();
+        enteredVojakBoxColliders = null;
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -58,17 +61,25 @@ public class Spawning : MonoBehaviour
                 vojakSpawned.name = vojakName;
                 vojakSpawned.transform.parent = this.transform.parent;
                 vojakSpawned.GetComponent<PlacableObject>().spawner = this.gameObject;
-                boxCollider1 = vojakSpawned.transform.GetChild(0).GetComponent<BoxCollider>();
-                boxCollider2 = vojakSpawned.transform.GetChild(2).GetComponent<BoxCollider>();
-                boxCollider3 = vojakSpawned.transform.GetChild(4).GetComponent<BoxCollider>();
+                enteredVojakBoxColliders = currentVojakBoxColliders;
+                currentVojakBoxColliders = vojakSpawned.GetComponent<PlacableObject>().getColliders();
+                controlColliders(true);
+
                 spawned = true;
             }
             other.gameObject.transform.parent.transform.parent = this.transform.parent.transform.parent;
             decreaseCounter();
         }
-        if (boxColliders.Count == 3)
+        if (enteredVojakBoxColliders != null && other.gameObject.transform.parent.GetComponent<PlacableObject>() != null)
         {
-            controllColliders(other.gameObject, true);
+            colliders.Add(other.gameObject.name);
+                
+            if (colliders.Count == expectedHashSetSize)
+            {
+                //controlColliders(false);
+                enteredVojakBoxColliders = null;
+                colliders.Clear();
+            }
         }
 
     }
@@ -76,32 +87,27 @@ public class Spawning : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         PlacableObject placableObject = null;
-        if ((placableObject = other.gameObject.transform.parent.GetComponent<PlacableObject>()) != null && placableObject.wasChanged && !placableObject.isGrabbed && !placableObject.isScaled && spawned)
+        if ((placableObject = other.gameObject.transform.parent.GetComponent<PlacableObject>()) != null && placableObject.wasChanged && !placableObject.isGrabbed && !placableObject.isScaled && spawned && other.gameObject.transform.parent.name == vojakName)
         {
             Destroy(vojakSpawned);
             increaseCounter();
             other.gameObject.transform.parent.transform.position = vojakPosition;
             other.gameObject.transform.parent.transform.rotation = vojakRotation;
-            boxCollider1 = other.gameObject.transform.GetChild(0).GetComponent<BoxCollider>();
-            boxCollider2 = other.gameObject.transform.GetChild(2).GetComponent<BoxCollider>();
-            boxCollider3 = other.gameObject.transform.GetChild(4).GetComponent<BoxCollider>();
+            currentVojakBoxColliders = placableObject.boxColliders;
+            enteredVojakBoxColliders = null;
             placableObject.wasChanged = false;
             spawned = false;
         }
 
-        if (boxColliders.Count != 3 && (placableObject = other.gameObject.transform.parent.GetComponent<PlacableObject>()) != null && placableObject.isGrabbed)
-        {
-            Debug.Log(other.gameObject);
-            controllColliders(other.gameObject, false);
-        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         PlacableObject placableObject = null;
-        if (boxColliders.Count != 3 && (placableObject = other.gameObject.transform.parent.GetComponent<PlacableObject>()) != null && placableObject.isGrabbed)
+        if ((placableObject = other.gameObject.transform.parent.GetComponent<PlacableObject>()) != null && placableObject.isGrabbed)
         {
-            controllColliders(other.gameObject, false);
+            enteredVojakBoxColliders = placableObject.getColliders();
+            controlColliders(true);
         }
     }
 
@@ -129,7 +135,7 @@ public class Spawning : MonoBehaviour
         vojakDestroy.GetComponent<VojakDestroy>().destroyed = false;
         pocetnostCounter.text = "" + vojakSpawnPocetnost;
     }
-
+/*
     private void controllColliders(GameObject toIgnore, bool state)
     {
         BoxCollider boxCollider = toIgnore.GetComponent<BoxCollider>();
@@ -155,7 +161,31 @@ public class Spawning : MonoBehaviour
             boxCollidersSet.Clear();
         }
     }
+*/
 
+    private void controlColliders(bool state) {
+
+        if (state)
+        {
+            foreach (BoxCollider current in currentVojakBoxColliders)
+            {
+                foreach (BoxCollider entered in enteredVojakBoxColliders)
+                {
+                    Physics.IgnoreCollision(current, entered);
+                }
+            }
+        }
+        else
+        {
+            foreach (BoxCollider current in currentVojakBoxColliders)
+            {
+                foreach (BoxCollider entered in enteredVojakBoxColliders)
+                {
+                    Physics.IgnoreCollision(current, entered, false);
+                }
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()
