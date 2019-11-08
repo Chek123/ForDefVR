@@ -40,40 +40,43 @@ public class Spawning : MonoBehaviour
         {
             if (vojakSpawnPocetnost > 1)
             {
-                vojakSpawned = Instantiate(vojakPreFab, vojakPosition, vojakRotation) as GameObject;
-                vojakSpawned.name = vojakName;
-                vojakSpawned.transform.parent = this.transform.parent;
-                vojakSpawned.GetComponent<PlacableObject>().spawner = this.gameObject;
-                spawned = true;
+                spawnVojak();
             }
             other.gameObject.transform.parent.transform.parent = this.transform.parent.transform.parent;
             decreaseCounter();
         }
     }
 
-    public void OnWrongPlacement()
+    public void onWrongPlacement()
     {
         if (vojakSpawnPocetnost == 0)
         {
-            vojakSpawned = Instantiate(vojakPreFab, vojakPosition, vojakRotation) as GameObject;
-            vojakSpawned.name = vojakName;
-            spawned = true;
+            spawnVojak();
         }
         increaseCounter();
         spawned = false;
 
     }
 
-    public void increaseCounter()
+    private void increaseCounter()
     {
         vojakSpawnPocetnost += 1;
         pocetnostCounter.text = "" + vojakSpawnPocetnost;
     }
 
-    public void decreaseCounter()
+    private void decreaseCounter()
     {
         vojakSpawnPocetnost -= 1;
         pocetnostCounter.text = "" + vojakSpawnPocetnost;
+    }
+
+    private void spawnVojak()
+    {
+        vojakSpawned = Instantiate(vojakPreFab, vojakPosition, vojakRotation) as GameObject;
+        vojakSpawned.name = vojakName;
+        vojakSpawned.transform.parent = this.transform.parent;
+        vojakSpawned.GetComponent<PlacableObject>().spawner = this.gameObject;
+        spawned = true;
     }
 
     // Update is called once per frame

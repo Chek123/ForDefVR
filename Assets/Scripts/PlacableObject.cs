@@ -8,6 +8,7 @@ public class PlacableObject : MonoBehaviour
     public const float SizeOfSquare = 0.5f;
 
     public GameObject spawner;
+    public float yCoordinate;
 
     public bool isScaled = false;
     public bool isGrabbed = false;
@@ -53,16 +54,17 @@ public class PlacableObject : MonoBehaviour
     private void ObjectUnGrabbed(object sender, InteractableObjectEventArgs e)
     {
         isGrabbed = false;
-        rigidBody.isKinematic = false;  
+        rigidBody.isKinematic = false;
+        if (enteredSpawningArea)
+        {
+            Destroy(this.gameObject);
+            spawning.onWrongPlacement();
+        }
         if (onCollision)
         {
             SnapToObject();
         }
-        if (enteredSpawningArea)
-        {
-            Destroy(this.gameObject);
-            spawning.OnWrongPlacement();
-        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -70,7 +72,6 @@ public class PlacableObject : MonoBehaviour
         if (collision.gameObject.tag == "Policko")
         {
             CubeHighlighter cubeHighlighter = collision.gameObject.transform.GetChild(0).GetComponent<CubeHighlighter>();
-            lastCollisionObj = collision.transform;
             if ( !isGrabbed)
             {
                 if (cubeHighlighter.occupyingObject == null || cubeHighlighter.occupyingObject == this.gameObject)
@@ -78,7 +79,7 @@ public class PlacableObject : MonoBehaviour
                     if (targetPolicko == null)
                     {
                         targetPolicko = collision.gameObject;
-                        Debug.Log("Targetpolicko" + targetPolicko);
+                        lastCollisionObj = targetPolicko.transform;
                     }
                     if (targetPolicko == collision.gameObject)
                     {
@@ -90,7 +91,7 @@ public class PlacableObject : MonoBehaviour
                 else if (!wasDestroyed && targetPolicko == collision.gameObject)
                 {
                     Destroy(this.gameObject);
-                    spawning.OnWrongPlacement();
+                    spawning.onWrongPlacement();
                     wasDestroyed = true;
                 }
                     
@@ -100,7 +101,7 @@ public class PlacableObject : MonoBehaviour
         else if (collision.gameObject.tag == "Ground" && !wasDestroyed)
         {
             Destroy(this.gameObject);
-            spawning.OnWrongPlacement();
+            spawning.onWrongPlacement();
             wasDestroyed = true;
         }
     }
@@ -110,7 +111,6 @@ public class PlacableObject : MonoBehaviour
         
         if (collision.gameObject.tag == "Policko")
         {
-
             CubeHighlighter cubeHighlighter = collision.gameObject.transform.GetChild(0).GetComponent<CubeHighlighter>();
             if (cubeHighlighter.occupyingObject == this.gameObject && isGrabbed)
             {
@@ -118,7 +118,6 @@ public class PlacableObject : MonoBehaviour
                 cubeHighlighter.occupyingObject = null;
                 cubeHighlighter.placableObject = null;
             }
-
         }
     }
 
@@ -142,16 +141,13 @@ public class PlacableObject : MonoBehaviour
     {
         if (!isScaled)
         {
+            rigidBody.isKinematic = true;           
             this.transform.localScale *= 5;
-            this.transform.position = lastCollisionObj.position + new Vector3(0f, lastCollisionObj.localScale.y / 2 - cube.transform.localScale.y , 0f)
-                + new Vector3(0f, transform.localScale.y / 2, 0f);
+            this.transform.position = lastCollisionObj.position + new Vector3(0f, lastCollisionObj.localScale.y*3, 0f);                
             this.transform.rotation = Quaternion.identity;
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             lastCollisionObj.GetComponentInChildren<CubeHighlighter>().ResetColor();
             isScaled = true;
-            snappedOn = lastCollisionObj;           
+            snappedOn = lastCollisionObj;
         }
-
     }
 }

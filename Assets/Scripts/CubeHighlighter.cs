@@ -22,10 +22,6 @@ public class CubeHighlighter : MonoBehaviour
         {
             HighLight();
         }
-        if (occupyingObject != null && other.gameObject != occupyingObject && other.gameObject.transform.parent.gameObject != occupyingObject)
-        {
-            placableObject.rigidBody.isKinematic = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)
