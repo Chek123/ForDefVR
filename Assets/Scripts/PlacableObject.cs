@@ -7,26 +7,26 @@ public class PlacableObject : MonoBehaviour
 {
     public const float SizeOfSquare = 0.5f;
 
-    public GameObject vojakDestroy;
     public GameObject spawner;
 
     public bool isScaled = false;
     public bool isGrabbed = false;
-    public bool wasChanged = false;
     private bool wasDestroyed = false;
+    private bool enteredSpawningArea = false;
 
     private bool onCollision = false;
     private Transform lastCollisionObj;
 
     private GameObject targetPolicko;
     private Transform snappedOn;
-    
+ 
 
     public Spawning spawning;
-    private Rigidbody rigidBody;
+    public Rigidbody rigidBody;
 
-    public List<BoxCollider> boxColliders;
+    //public List<BoxCollider> boxColliders;
     public GameObject cube;
+
     
 
     // Start is called before the first frame update
@@ -35,43 +35,38 @@ public class PlacableObject : MonoBehaviour
         GetComponent<VRTK_InteractableObject>().InteractableObjectGrabbed += ObjectGrabbed;
         GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += ObjectUnGrabbed;
         spawning = spawner.gameObject.GetComponent<Spawning>();
-        rigidBody = GetComponent<Rigidbody>();
-        vojakDestroy = GameObject.Find("Kos");
+
     }
 
-    public List<BoxCollider> getColliders()
-    {
-        return this.boxColliders;
-    }
-
+    
     private void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
         if (isScaled)
         {
             this.transform.localScale /= 5;
             isScaled = false;
-            vojakDestroy.GetComponent<VojakDestroy>().destroyed = false;
         }
         isGrabbed = true;
-        wasChanged = true;
-
-//        transform.localPosition += Vector3.up/100; // [FIX] vojak sa obcas zasekne do podlahy
-
         snappedOn?.GetComponentInChildren<CubeHighlighter>()?.HighLight();
     }
 
     private void ObjectUnGrabbed(object sender, InteractableObjectEventArgs e)
     {
         isGrabbed = false;
+        rigidBody.isKinematic = false;  
         if (onCollision)
         {
             SnapToObject();
+        }
+        if (enteredSpawningArea)
+        {
+            Destroy(this.gameObject);
+            spawning.OnWrongPlacement();
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject);
         if (collision.gameObject.tag == "Policko")
         {
             CubeHighlighter cubeHighlighter = collision.gameObject.transform.GetChild(0).GetComponent<CubeHighlighter>();
@@ -88,6 +83,7 @@ public class PlacableObject : MonoBehaviour
                     if (targetPolicko == collision.gameObject)
                     {
                         cubeHighlighter.occupyingObject = this.gameObject;
+                        cubeHighlighter.placableObject = this;
                         SnapToObject();
                     }
                 }
@@ -114,14 +110,32 @@ public class PlacableObject : MonoBehaviour
         
         if (collision.gameObject.tag == "Policko")
         {
-            targetPolicko = null;
-            collision.gameObject.transform.GetChild(0).GetComponent<CubeHighlighter>().occupyingObject = null;
+
+            CubeHighlighter cubeHighlighter = collision.gameObject.transform.GetChild(0).GetComponent<CubeHighlighter>();
+            if (cubeHighlighter.occupyingObject == this.gameObject && isGrabbed)
+            {
+                targetPolicko = null;
+                cubeHighlighter.occupyingObject = null;
+                cubeHighlighter.placableObject = null;
+            }
+
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.tag == "Spawning")
+        {
+            enteredSpawningArea = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == spawner)
+        {
+            enteredSpawningArea = false;
+        }
     }
 
     private void SnapToObject()
@@ -136,7 +150,7 @@ public class PlacableObject : MonoBehaviour
             GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             lastCollisionObj.GetComponentInChildren<CubeHighlighter>().ResetColor();
             isScaled = true;
-            snappedOn = lastCollisionObj;
+            snappedOn = lastCollisionObj;           
         }
 
     }

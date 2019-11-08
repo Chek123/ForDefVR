@@ -7,7 +7,7 @@ public class CubeHighlighter : MonoBehaviour
     public Color selectedColor;
     private Color originalColor;
     public GameObject occupyingObject;
-    private PlacableObject placableObject;
+    public PlacableObject placableObject;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,10 @@ public class CubeHighlighter : MonoBehaviour
         if (other.gameObject.tag == "VojakStred" && other.GetComponentInParent<PlacableObject>().isGrabbed && occupyingObject == null)
         {
             HighLight();
+        }
+        if (occupyingObject != null && other.gameObject != occupyingObject && other.gameObject.transform.parent.gameObject != occupyingObject)
+        {
+            placableObject.rigidBody.isKinematic = true;
         }
     }
 

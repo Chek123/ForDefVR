@@ -256,7 +256,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -327,16 +327,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b172526883d12445af75b21a74c0652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vojakDestroy: {fileID: 0}
   spawner: {fileID: 0}
   isScaled: 0
   isGrabbed: 0
   wasChanged: 0
   spawning: {fileID: 0}
-  boxColliders:
-  - {fileID: 9184698958710735376}
-  - {fileID: 9184698958267693221}
-  - {fileID: 9184698957716636394}
+  rigidBody: {fileID: 9184698958682338985}
   cube: {fileID: 9184698958710735378}
 --- !u!114 &9184698958682338989
 MonoBehaviour:

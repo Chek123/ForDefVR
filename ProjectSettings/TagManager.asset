@@ -18,6 +18,7 @@ TagManager:
   - VojakModel1
   - VojakModel2
   - Bullet_M4
+  - Spawning
   layers:
   - Default
   - TransparentFX
