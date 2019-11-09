@@ -550,6 +550,12 @@ PrefabInstance:
       objectReference: {fileID: 279064589}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 273c1ded590f3b0438e5015ae80ee6c8, type: 3}
+--- !u!1 &200653792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6371775396528692643, guid: 63bac5358732fc94d88fe1c2754a2f5c,
+    type: 3}
+  m_PrefabInstance: {fileID: 367674992}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &200653793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6371775396528692640, guid: 63bac5358732fc94d88fe1c2754a2f5c,
@@ -1581,30 +1587,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: VojakModel2
       objectReference: {fileID: 0}
-    - target: {fileID: 6371775396528692643, guid: 63bac5358732fc94d88fe1c2754a2f5c,
-        type: 3}
-      propertyPath: m_TagString
-      value: Vojat_typ_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6371775396528692643, guid: 63bac5358732fc94d88fe1c2754a2f5c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6371775396528692640, guid: 63bac5358732fc94d88fe1c2754a2f5c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.252879
+      value: -0.251579
       objectReference: {fileID: 0}
     - target: {fileID: 6371775396528692640, guid: 63bac5358732fc94d88fe1c2754a2f5c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3228643
+      value: -0.326
       objectReference: {fileID: 0}
     - target: {fileID: 6371775396528692640, guid: 63bac5358732fc94d88fe1c2754a2f5c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.69160527
+      value: -0.6897053
       objectReference: {fileID: 0}
     - target: {fileID: 6371775396528692640, guid: 63bac5358732fc94d88fe1c2754a2f5c,
         type: 3}
@@ -1648,24 +1644,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6371775396528692646, guid: 63bac5358732fc94d88fe1c2754a2f5c,
         type: 3}
-      propertyPath: vojakDestroy
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6371775396528692646, guid: 63bac5358732fc94d88fe1c2754a2f5c,
-        type: 3}
-      propertyPath: Spawner
-      value: 
-      objectReference: {fileID: 1838175818}
-    - target: {fileID: 6371775396528692646, guid: 63bac5358732fc94d88fe1c2754a2f5c,
-        type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1838175818}
-    - target: {fileID: 6371775395479054817, guid: 63bac5358732fc94d88fe1c2754a2f5c,
+    - target: {fileID: 6371775396528692646, guid: 63bac5358732fc94d88fe1c2754a2f5c,
         type: 3}
-      propertyPath: m_TagString
-      value: Vojak_typ_2
-      objectReference: {fileID: 0}
+      propertyPath: spawning
+      value: 
+      objectReference: {fileID: 1838175820}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63bac5358732fc94d88fe1c2754a2f5c, type: 3}
 --- !u!1 &405449347 stripped
@@ -2081,7 +2067,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795109646}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.085, y: 0.19079995, z: -0.014666715}
+  m_LocalPosition: {x: 0.085, y: 0.416, z: -0.014666715}
   m_LocalScale: {x: 3.333333, y: 2, z: 3.333333}
   m_Children: []
   m_Father: {fileID: 1838175819}
@@ -5131,7 +5117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1838175819
 Transform:
   m_ObjectHideFlags: 0
@@ -5140,7 +5126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838175818}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.251579, y: -0.20026422, z: -0.6897053}
+  m_LocalPosition: {x: -0.251579, y: -0.326, z: -0.6897053}
   m_LocalScale: {x: 0.3, y: 0.5, z: 0.3}
   m_Children:
   - {fileID: 795109647}
@@ -5161,8 +5147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vojakSpawnPocetnost: 10
   pocetnostCounter: {fileID: 795109648}
-  lastVojakSpawned: {fileID: 0}
-  vojakPrefab: {fileID: 0}
+  lastVojakSpawned: {fileID: 200653792}
+  vojakPrefab: {fileID: 6371775396528692643, guid: 63bac5358732fc94d88fe1c2754a2f5c,
+    type: 3}
 --- !u!65 &1838175821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5175,7 +5162,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.24, z: 0}
 --- !u!4 &1937548464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6371775396528692640, guid: 273c1ded590f3b0438e5015ae80ee6c8,
