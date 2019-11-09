@@ -5,20 +5,21 @@ using VRTK;
 
 public class PlayableObject : MonoBehaviour
 {
-
-    [SerializeField]
-    private Transform sceneObjects;
-
     [SerializeField]
     private GameObject soldierModel;
 
     [SerializeField]
     private GameObject weapon;
 
+    private Transform sceneObjects;
+
+
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<VRTK_InteractableObject>().InteractableObjectUnused += ObjectChoosenToPlay;
+
+        sceneObjects = GameObject.FindGameObjectWithTag("SceneObjects").transform;
     }
 
     private void ObjectChoosenToPlay(object sender, InteractableObjectEventArgs e)

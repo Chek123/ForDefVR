@@ -26,7 +26,6 @@ public class PlacableObject : MonoBehaviour
     public Rigidbody rigidBody;
 
     //public List<BoxCollider> boxColliders;
-    public GameObject cube;
 
     
 
@@ -58,7 +57,7 @@ public class PlacableObject : MonoBehaviour
         if (enteredSpawningArea)
         {
             Destroy(this.gameObject);
-            spawning.onWrongPlacement();
+            spawning.onWrongPlacement(gameObject);
         }
         if (onCollision)
         {
@@ -91,7 +90,7 @@ public class PlacableObject : MonoBehaviour
                 else if (!wasDestroyed && targetPolicko == collision.gameObject)
                 {
                     Destroy(this.gameObject);
-                    spawning.onWrongPlacement();
+                    spawning.onWrongPlacement(gameObject);
                     wasDestroyed = true;
                 }
                     
@@ -101,7 +100,7 @@ public class PlacableObject : MonoBehaviour
         else if (collision.gameObject.tag == "Ground" && !wasDestroyed)
         {
             Destroy(this.gameObject);
-            spawning.onWrongPlacement();
+            spawning.onWrongPlacement(gameObject);
             wasDestroyed = true;
         }
     }
