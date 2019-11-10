@@ -69,6 +69,6 @@ public class Spawning : MonoBehaviour
     {
         lastVojakSpawned = Instantiate(vojakPrefab, transform.position, transform.rotation) as GameObject;
         lastVojakSpawned.transform.parent = transform.parent;
-        lastVojakSpawned.GetComponent<PlacableObject>().spawner = gameObject;
+        lastVojakSpawned.GetComponent<PlacableObject>().spawning = this;
     }
 }

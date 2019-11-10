@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlacableObject : MonoBehaviour
 {
-    public const float SizeOfSquare = 0.5f;
+    [SerializeField]
+    public Spawning spawning;
 
-    public GameObject spawner;
-    public float yCoordinate;
-
-    public bool isScaled = false;
-    public bool isGrabbed = false;
+    private bool isScaled = false;
     private bool wasDestroyed = false;
     private bool enteredSpawningArea = false;
 
@@ -20,25 +18,20 @@ public class PlacableObject : MonoBehaviour
 
     private GameObject targetPolicko;
     private Transform snappedOn;
- 
 
-    public Spawning spawning;
-    public Rigidbody rigidBody;
+    private Rigidbody rigidBody;
 
-    //public List<BoxCollider> boxColliders;
-
-    
+    public bool isGrabbed = false;
 
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<VRTK_InteractableObject>().InteractableObjectGrabbed += ObjectGrabbed;
         GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += ObjectUnGrabbed;
-        spawning = spawner.gameObject.GetComponent<Spawning>();
-
+        rigidBody = GetComponent<Rigidbody>();
     }
 
-    
+
     private void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
         if (isScaled)
@@ -71,7 +64,7 @@ public class PlacableObject : MonoBehaviour
         if (collision.gameObject.tag == "Policko")
         {
             CubeHighlighter cubeHighlighter = collision.gameObject.transform.GetChild(0).GetComponent<CubeHighlighter>();
-            if ( !isGrabbed)
+            if (!isGrabbed)
             {
                 if (cubeHighlighter.occupyingObject == null || cubeHighlighter.occupyingObject == this.gameObject)
                 {
@@ -89,25 +82,25 @@ public class PlacableObject : MonoBehaviour
                 }
                 else if (!wasDestroyed && targetPolicko == collision.gameObject)
                 {
-                    Destroy(this.gameObject);
+                    Destroy(this.gameObject); 
                     spawning.onWrongPlacement(gameObject);
                     wasDestroyed = true;
                 }
-                    
+
             }
             onCollision = true;
         }
         else if (collision.gameObject.tag == "Ground" && !wasDestroyed)
         {
-            Destroy(this.gameObject);
             spawning.onWrongPlacement(gameObject);
+            Destroy(this.gameObject);
             wasDestroyed = true;
         }
     }
     private void OnCollisionExit(Collision collision)
     {
         onCollision = false;
-        
+
         if (collision.gameObject.tag == "Policko")
         {
             CubeHighlighter cubeHighlighter = collision.gameObject.transform.GetChild(0).GetComponent<CubeHighlighter>();
@@ -130,7 +123,7 @@ public class PlacableObject : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == spawner)
+        if (other.gameObject == spawning.gameObject)
         {
             enteredSpawningArea = false;
         }
@@ -140,9 +133,9 @@ public class PlacableObject : MonoBehaviour
     {
         if (!isScaled)
         {
-            rigidBody.isKinematic = true;           
+            rigidBody.isKinematic = true;
             this.transform.localScale *= 5;
-            this.transform.position = lastCollisionObj.position + new Vector3(0f, lastCollisionObj.localScale.y*3, 0f);                
+            this.transform.position = lastCollisionObj.position;
             this.transform.rotation = Quaternion.identity;
             lastCollisionObj.GetComponentInChildren<CubeHighlighter>().ResetColor();
             isScaled = true;
