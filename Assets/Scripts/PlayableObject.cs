@@ -11,6 +11,9 @@ public class PlayableObject : MonoBehaviour
     [SerializeField]
     private GameObject weapon;
 
+    private Vector3 originalWeaponPosition;
+    private Quaternion originalWeaponRotation;
+
     private Transform sceneObjects;
 
 
@@ -20,6 +23,8 @@ public class PlayableObject : MonoBehaviour
         GetComponent<VRTK_InteractableObject>().InteractableObjectUnused += ObjectChoosenToPlay;
 
         sceneObjects = GameObject.FindGameObjectWithTag("SceneObjects").transform;
+        originalWeaponPosition = weapon.transform.position;
+        originalWeaponRotation = weapon.transform.rotation;
     }
 
     private void ObjectChoosenToPlay(object sender, InteractableObjectEventArgs e)
@@ -30,9 +35,14 @@ public class PlayableObject : MonoBehaviour
         weapon.GetComponent<VRTK_InteractableObject>().isGrabbable = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AfterFinishedAction()
     {
-        
+        sceneObjects.localScale /= 3;
+        VRTK_DeviceFinder.PlayAreaTransform().position = Vector3.zero;
+        soldierModel.SetActive(true);
+        weapon.GetComponent<VRTK_InteractableObject>().isGrabbable = false;
+        weapon.transform.position = originalWeaponPosition;
+        weapon.transform.rotation = originalWeaponRotation;
+
     }
 }
