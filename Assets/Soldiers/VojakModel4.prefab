@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 6371775396528692641}
   m_Layer: 0
   m_Name: VojakModel4
-  m_TagString: Untagged
+  m_TagString: Vojak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,13 +358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b172526883d12445af75b21a74c0652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  isScaled: 0
-  isGrabbed: 0
-  wasChanged: 0
   spawning: {fileID: 0}
-  rigidBody: {fileID: 6371775396528692645}
-  cube: {fileID: 6371775396506577182}
+  isGrabbed: 0
 --- !u!114 &6371775396528692641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f861a68e8c5b5154c9dd8ef0884e94ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneObjects: {fileID: 0}
   soldierModel: {fileID: 0}
   weapon: {fileID: 0}
 --- !u!1 &6371775396856631876

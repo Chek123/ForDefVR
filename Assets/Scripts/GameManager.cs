@@ -20,9 +20,17 @@ public class GameManager : MonoBehaviour
         wall.GetComponent<Animator>().enabled = true;
         wall.GetComponent<AudioScript>().source.Play();
 
-        foreach(var go in GameObject.FindGameObjectsWithTag("Vojak"))
+        DestroyPolickaObjects();
+
+        foreach (var go in GameObject.FindGameObjectsWithTag("Vojak"))
         {
             Debug.Log("Changing object: " + go.name);
+            Debug.Log(go.GetComponent<PlacableObject>().getIsScaled());
+            if (!go.GetComponent<PlacableObject>().getIsScaled())
+            {
+                Destroy(go.gameObject);
+                continue;
+            }
             go.GetComponent<PlacableObject>().enabled = false;
             go.GetComponent<PlayableObject>().enabled = true;
 
@@ -42,6 +50,17 @@ public class GameManager : MonoBehaviour
             go.GetComponent<PlacableObject>().enabled = true;
             var interactable = go.GetComponent<VRTK_InteractableObject>();
             interactable.isGrabbable = true;
+        }
+    }
+
+    private void DestroyPolickaObjects()
+    {
+        // couldnt find a way to refactor more :(
+        Destroy(GameObject.Find("Policka").gameObject);
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Spawning");
+        for (var i = 0; i < gameObjects.Length; i++)
+        {
+            Destroy(gameObjects[i]);
         }
     }
 
