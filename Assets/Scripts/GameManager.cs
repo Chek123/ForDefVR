@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
             }
             go.GetComponent<PlacableObject>().enabled = false;
             go.GetComponent<PlayableObject>().enabled = true;
-
+            go.GetComponent<HealthControl>().enabled = true;
             var interactable = go.GetComponent<VRTK_InteractableObject>();
             interactable.isGrabbable = false;
         }
