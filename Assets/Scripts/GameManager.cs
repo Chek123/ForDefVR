@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour
     public void SetRolePlayMode()
     {
         gamemode = GameMode.ROLEPLAYING;
-        //wall.GetComponent<Animator>().enabled = true;
-        //wall.GetComponent<AudioScript>().playSound = true;
+        wall.GetComponent<Animator>().enabled = true;
+        wall.GetComponent<AudioScript>().source.Play();
 
         foreach(var go in GameObject.FindGameObjectsWithTag("Vojak"))
         {
