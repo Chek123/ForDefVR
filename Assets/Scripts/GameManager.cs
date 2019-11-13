@@ -20,7 +20,11 @@ public class GameManager : MonoBehaviour
         wall.GetComponent<Animator>().enabled = true;
         wall.GetComponent<AudioScript>().source.Play();
 
-        DestroyPolickaObjects();
+        // ak vymazem spawning a prevtelim sa potom do vojaka, hadze to errory. Preto zatial iba schovam objekty
+        // po zacati hry, a ak by sa to vyriesilo tak ich rovno mozeme mazat.
+
+        //DestroyPolickaObjects();
+        HidePolickaObjects();
 
         foreach (var go in GameObject.FindGameObjectsWithTag("Vojak"))
         {
@@ -28,7 +32,8 @@ public class GameManager : MonoBehaviour
             Debug.Log(go.GetComponent<PlacableObject>().getIsScaled());
             if (!go.GetComponent<PlacableObject>().getIsScaled())
             {
-                Destroy(go.gameObject);
+                //Destroy(go.gameObject);
+                go.gameObject.SetActive(false);
                 continue;
             }
             go.GetComponent<PlacableObject>().enabled = false;
@@ -63,6 +68,19 @@ public class GameManager : MonoBehaviour
             Destroy(gameObjects[i]);
         }
     }
+
+    private void HidePolickaObjects()
+    {
+     
+        Destroy(GameObject.Find("Policka").gameObject);
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Spawning");
+        for (var i = 0; i < gameObjects.Length; i++)
+        {
+            gameObjects[i].SetActive(false);
+        }
+    }
+
+
 
     // Start is called before the first frame update
     void Start()
