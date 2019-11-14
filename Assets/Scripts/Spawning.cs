@@ -14,6 +14,9 @@ public class Spawning : MonoBehaviour
     [SerializeField]
     private GameObject vojakPrefab;
 
+    [SerializeField]
+    private WeaponController weaponController;
+
     void Start()
     {
         pocetnostCounter.text = "" + vojakSpawnPocetnost;
@@ -70,5 +73,6 @@ public class Spawning : MonoBehaviour
         lastVojakSpawned = Instantiate(vojakPrefab, transform.position, transform.rotation) as GameObject;
         lastVojakSpawned.transform.parent = transform.parent;
         lastVojakSpawned.GetComponent<PlacableObject>().spawning = this;
+        lastVojakSpawned.GetComponent<PlayableObject>().weaponController = this.weaponController;
     }
 }

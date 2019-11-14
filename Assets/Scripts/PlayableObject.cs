@@ -11,6 +11,8 @@ public class PlayableObject : MonoBehaviour
     [SerializeField]
     private GameObject weapon;
 
+    public WeaponController weaponController;
+
     private Vector3 originalWeaponPosition;
     private Quaternion originalWeaponRotation;
 
@@ -33,6 +35,7 @@ public class PlayableObject : MonoBehaviour
         VRTK_DeviceFinder.PlayAreaTransform().position = transform.position; //teleport to soldier place 
         soldierModel.SetActive(false);
         weapon.GetComponent<VRTK_InteractableObject>().isGrabbable = true;
+        weaponController.setPosition(transform.position.x, transform.position.z);
     }
 
     public void AfterFinishedAction()
@@ -45,4 +48,5 @@ public class PlayableObject : MonoBehaviour
         weapon.transform.rotation = originalWeaponRotation;
 
     }
+
 }

@@ -20,6 +20,16 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private PlayableObject playableObject;
 
+    [SerializeField]
+    private GameObject disabledWeapon;
+
+    [SerializeField]
+    private GameObject enabledWeapon;
+
+    public WeaponController weaponController;
+
+    private bool shootingEnabled = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +40,7 @@ public class Shooter : MonoBehaviour
 
     private void Shoot(object sender, InteractableObjectEventArgs e)
     {
-        if (bulletCount > 0)
+        if (bulletCount > 0 && shootingEnabled)
         {
             var bullet = GameObject.Instantiate(bulletPrefab, shootPoint.transform.position, shootPoint.transform.rotation);
             bullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletSpeed;
@@ -49,4 +59,16 @@ public class Shooter : MonoBehaviour
             playableObject.AfterFinishedAction();
         }
     }
+
+    public void ControlShooting(bool value)
+    {
+        if (value != shootingEnabled)
+        {
+            shootingEnabled = value;
+            enabledWeapon.SetActive(value);
+            disabledWeapon.SetActive(!value);
+        }
+
+    }
+
 }
