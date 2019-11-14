@@ -38,7 +38,7 @@ public class EnemyDataController : MonoBehaviour
 
     public void LoadData()
     {
-        string path = "Assets/Database/real.json";
+        string path = "Assets/Database/data.json";
         StreamReader reader = new StreamReader(path);
         string json = reader.ReadToEnd();
         Data data = JsonUtility.FromJson<Data>(json);
