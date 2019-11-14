@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public GameMode gamemode = GameMode.LAYOUTING;
     public GameObject wall;
+    private EnemyDataController data;
 
     public enum GameMode
     {
@@ -17,8 +18,15 @@ public class GameManager : MonoBehaviour
     public void SetRolePlayMode()
     {
         gamemode = GameMode.ROLEPLAYING;
-        wall.GetComponent<Animator>().enabled = true;
-        wall.GetComponent<AudioScript>().source.Play();
+        data = new EnemyDataController();
+        data.LoadData();
+
+        return;
+        //wall.GetComponent<Animator>().enabled = true;
+        //wall.GetComponent<AudioScript>().source.Play();
+
+
+
 
         // ak vymazem spawning a prevtelim sa potom do vojaka, hadze to errory. Preto zatial iba schovam objekty
         // po zacati hry, a ak by sa to vyriesilo tak ich rovno mozeme mazat.
