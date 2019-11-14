@@ -12,7 +12,6 @@ public class Data
 [System.Serializable]
 public class Level
 {
-    public int number_of_grids;
     public Grid[] grids;
 }
 
@@ -46,7 +45,7 @@ public class EnemyDataController : MonoBehaviour
         // treba mat premennu current_level, potom nacitanie:
         //Debug.Log(data.levels[current_level - 1])
         Level level = data.levels[0];
-        int grid_id = Random.Range(0, level.number_of_grids);
+        int grid_id = Random.Range(0, level.grids.Length);
         Square[] square = level.grids[grid_id].square;
 
         foreach (var obj in square)
