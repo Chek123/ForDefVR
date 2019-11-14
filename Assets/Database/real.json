@@ -2,212 +2,262 @@
    "number_of_levels":2,
    "levels":[ 
       { 
-		 "number_of_grids": 2,
+         "number_of_grids":2,
          "grids":[ 
             { 
-               "policko":[ 
+               "square":[ 
                   { 
-                     "policko_id":1,
+                     "x":-1,
+                     "z":-1,
                      "vojak":2
                   },
                   { 
-                     "policko_id":2,
+                     "x":-1,
+                     "z":-0.5,
                      "vojak":2
                   },
                   { 
-                     "policko_id":3,
+                     "x":-1,
+                     "z":0,
                      "vojak":2
                   },
                   { 
-                     "policko_id":4,
+                     "x":-1,
+                     "z":0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":5,
+                     "x":-1,
+                     "z":1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":6,
+                     "x":-0.5,
+                     "z":-1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":7,
+                     "x":-0.5,
+                     "z":-0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":8,
+                     "x":-0.5,
+                     "z":0,
                      "vojak":0
                   },
                   { 
-                     "policko_id":9,
+                     "x":-0.5,
+                     "z":0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":10,
+                     "x":-0.5,
+                     "z":1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":11,
+                     "x":0,
+                     "z":-1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":12,
+                     "x":0,
+                     "z":-0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":13,
+                     "x":0,
+                     "z":0,
                      "vojak":0
                   },
                   { 
-                     "policko_id":14,
+                     "x":0,
+                     "z":0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":15,
+                     "x":0,
+                     "z":1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":16,
+                     "x":0.5,
+                     "z":-1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":17,
+                     "x":0.5,
+                     "z":-0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":18,
+                     "x":0.5,
+                     "z":0,
                      "vojak":0
                   },
                   { 
-                     "policko_id":19,
+                     "x":0.5,
+                     "z":0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":20,
+                     "x":0.5,
+                     "z":1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":21,
+                     "x":1,
+                     "z":-1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":22,
+                     "x":1,
+                     "z":-0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":23,
+                     "x":1,
+                     "z":0,
                      "vojak":0
                   },
                   { 
-                     "policko_id":24,
+                     "x":1,
+                     "z":0.5,
                      "vojak":2
                   },
                   { 
-                     "policko_id":25,
+                     "x":1,
+                     "z":1,
                      "vojak":2
                   }
                ]
             },
             { 
-               "policko":[ 
+               "square":[ 
                   { 
-                     "policko_id":1,
+                     "x":-1,
+                     "z":-1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":2,
+                     "x":-1,
+                     "z":-0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":3,
+                     "x":-1,
+                     "z":0,
                      "vojak":0
                   },
                   { 
-                     "policko_id":4,
+                     "x":-1,
+                     "z":0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":5,
+                     "x":-1,
+                     "z":1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":6,
+                     "x":-0.5,
+                     "z":-1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":7,
+                     "x":-0.5,
+                     "z":-0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":8,
+                     "x":-0.5,
+                     "z":0,
                      "vojak":0
                   },
                   { 
-                     "policko_id":9,
+                     "x":-0.5,
+                     "z":0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":10,
+                     "x":-0.5,
+                     "z":1,
+                     "vojak":0
+                  },
+                  { 
+                     "x":0,
+                     "z":-1,
+                     "vojak":0
+                  },
+                  { 
+                     "x":0,
+                     "z":-0.5,
+                     "vojak":0
+                  },
+                  { 
+                     "x":0,
+                     "z":0,
                      "vojak":2
                   },
                   { 
-                     "policko_id":11,
-                     "vojak":2
-                  },
-                  { 
-                     "policko_id":12,
+                     "x":0,
+                     "z":0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":13,
+                     "x":0,
+                     "z":1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":14,
+                     "x":0.5,
+                     "z":-1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":15,
+                     "x":0.5,
+                     "z":-0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":16,
+                     "x":0.5,
+                     "z":0,
                      "vojak":0
                   },
                   { 
-                     "policko_id":17,
+                     "x":0.5,
+                     "z":0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":18,
+                     "x":0.5,
+                     "z":1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":19,
+                     "x":1,
+                     "z":-1,
                      "vojak":0
                   },
                   { 
-                     "policko_id":20,
+                     "x":1,
+                     "z":-0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":21,
+                     "x":1,
+                     "z":0,
                      "vojak":0
                   },
                   { 
-                     "policko_id":22,
+                     "x":1,
+                     "z":0.5,
                      "vojak":0
                   },
                   { 
-                     "policko_id":23,
-                     "vojak":0
-                  },
-                  { 
-                     "policko_id":24,
-                     "vojak":0
-                  },
-                  { 
-                     "policko_id":25,
+                     "x":1,
+                     "z":1,
                      "vojak":0
                   }
                ]

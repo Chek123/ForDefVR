@@ -36,6 +36,11 @@ public class PlacableObject : MonoBehaviour
         return isScaled;
     }
 
+    public void setIsScaled(bool isScaled)
+    {
+        this.isScaled = isScaled;
+    }
+
     private void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
         if (isScaled)

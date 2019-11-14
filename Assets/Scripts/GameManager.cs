@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using VRTK;
+[RequireComponent(typeof(EnemyDataController))]
 public class GameManager : MonoBehaviour
 {
     public GameMode gamemode = GameMode.LAYOUTING;
     public GameObject wall;
-    private EnemyDataController data;
+    private EnemyDataController edc;
 
     public enum GameMode
     {
@@ -18,19 +19,11 @@ public class GameManager : MonoBehaviour
     public void SetRolePlayMode()
     {
         gamemode = GameMode.ROLEPLAYING;
-        data = new EnemyDataController();
-        data.LoadData();
+        edc.LoadData();
 
-        return;
-        //wall.GetComponent<Animator>().enabled = true;
-        //wall.GetComponent<AudioScript>().source.Play();
-
-
-
-
-        // ak vymazem spawning a prevtelim sa potom do vojaka, hadze to errory. Preto zatial iba schovam objekty
-        // po zacati hry, a ak by sa to vyriesilo tak ich rovno mozeme mazat.
-
+        wall.GetComponent<Animator>().enabled = true;
+        wall.GetComponent<AudioScript>().source.Play();
+       
         //DestroyPolickaObjects();
         HidePolickaObjects();
 
@@ -66,7 +59,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void DestroyPolickaObjects()
+    /*private void DestroyPolickaObjects()
     {
         // couldnt find a way to refactor more :(
         Destroy(GameObject.Find("Policka").gameObject);
@@ -75,7 +68,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObjects[i]);
         }
-    }
+    }*/
 
     private void HidePolickaObjects()
     {
@@ -88,11 +81,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-
     // Start is called before the first frame update
     void Start()
     {
+        edc = GetComponent<EnemyDataController>();
     }
 
     // Update is called once per frame
