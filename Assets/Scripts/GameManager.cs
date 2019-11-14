@@ -6,6 +6,7 @@ using VRTK;
 public class GameManager : MonoBehaviour
 {
     public GameMode gamemode = GameMode.LAYOUTING;
+    public GameObject wall;
 
     public enum GameMode
     {
@@ -16,16 +17,18 @@ public class GameManager : MonoBehaviour
     public void SetRolePlayMode()
     {
         gamemode = GameMode.ROLEPLAYING;
+        wall.GetComponent<Animator>().enabled = true;
+        wall.GetComponent<AudioScript>().playSound = true;
+
         foreach(var go in GameObject.FindGameObjectsWithTag("Vojak"))
         {
+            Debug.Log("Changing object: " + go.name);
             go.GetComponent<PlacableObject>().enabled = false;
             go.GetComponent<PlayableObject>().enabled = true;
 
             var interactable = go.GetComponent<VRTK_InteractableObject>();
             interactable.isGrabbable = false;
         }
-        
-
     }
 
     public void SetLayoutMode()
@@ -43,7 +46,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame

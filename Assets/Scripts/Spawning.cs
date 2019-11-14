@@ -1,67 +1,74 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 
 public class Spawning : MonoBehaviour
 {
+    [SerializeField]
+    private int vojakSpawnPocetnost;
 
-    public string vojakTag;
-    public GameObject vojak;
-    public int vojakSpawnPocetnost;
+    [SerializeField]
+    private TextMesh pocetnostCounter;
 
-    public TextMesh pocetnostCounter;
+    [SerializeField]
+    private GameObject lastVojakSpawned;
 
-    public GameObject vojakDestroy;
+    [SerializeField]
+    private GameObject vojakPrefab;
 
-    
-    private GameObject vojakSpawned;
-    private Vector3 vojakPosition;
-    private Quaternion vojakRotation;
-        
-    private bool spawned = false;
-
-    public GameObject vojakPreFab;
-
-    // Start is called before the first frame update
     void Start()
     {
-        vojakPosition = vojak.transform.position;
-        vojakRotation = vojak.transform.rotation;
-
         pocetnostCounter.text = "" + vojakSpawnPocetnost;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log(other.gameObject.tag);
-        if (vojakSpawnPocetnost > 0 && ((vojakSpawned != null && vojakSpawned.GetComponent<PlacableObject>().isGrabbed) || !spawned) && other.gameObject.tag == vojakTag)
+        if (other.name == "VojakStred" && other.transform.parent.gameObject.Equals(lastVojakSpawned))
         {
-            vojakSpawned = Instantiate(vojakPreFab, vojakPosition, vojakRotation) as GameObject;
-            spawned = true;
+            if (vojakSpawnPocetnost > 1)
+            {
+                spawnVojak();
+            }
+            else
+            {
+                lastVojakSpawned = null;
+            }
             decreaseCounter();
         }
-        
     }
 
-    public void increaseCounter()
+    public void onWrongPlacement(GameObject vojak)
     {
-        vojakSpawnPocetnost += 1;
-        pocetnostCounter.text = "" + vojakSpawnPocetnost;
+        // ked posledny vojak bol zle umiestneny
+        if (vojakSpawnPocetnost == 0)
+        {
+            spawnVojak();
+            increaseCounter();
+        }
+        // ked vojak neopustil spawnovaci collider (nevyvolal OnTriggerExit)
+        else if (vojak.Equals(lastVojakSpawned))
+        {
+            spawnVojak();
+        }
+        else
+        {
+            increaseCounter();
+        }
     }
 
-    public void decreaseCounter()
+    private void increaseCounter()
     {
-        vojakSpawnPocetnost -= 1;
-        vojakDestroy.GetComponent<VojakDestroy>().destroyed = false;
-        pocetnostCounter.text = "" + vojakSpawnPocetnost;
+        pocetnostCounter.text = "" + (++vojakSpawnPocetnost);
+
     }
 
-
-    // Update is called once per frame
-    void Update()
+    private void decreaseCounter()
     {
-        
+        pocetnostCounter.text = "" + (--vojakSpawnPocetnost);
+    }
+
+    private void spawnVojak()
+    {
+        lastVojakSpawned = Instantiate(vojakPrefab, transform.position, transform.rotation) as GameObject;
+        lastVojakSpawned.transform.parent = transform.parent;
+        lastVojakSpawned.GetComponent<PlacableObject>().spawning = this;
     }
 }
