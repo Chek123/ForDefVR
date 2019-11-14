@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour
     public void SetRolePlayMode()
     {
         gamemode = GameMode.ROLEPLAYING;
-        //wall.GetComponent<Animator>().enabled = true;
-        //wall.GetComponent<AudioScript>().playSound = true;
+        wall.GetComponent<Animator>().enabled = true;
+        wall.GetComponent<AudioScript>().playSound = true;
 
         foreach(var go in GameObject.FindGameObjectsWithTag("Vojak"))
         {
@@ -29,8 +29,6 @@ public class GameManager : MonoBehaviour
             var interactable = go.GetComponent<VRTK_InteractableObject>();
             interactable.isGrabbable = false;
         }
-        
-
     }
 
     public void SetLayoutMode()
