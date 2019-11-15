@@ -7,52 +7,33 @@ public class WeaponController : MonoBehaviour
 
     private Shooter shooterScript;
     private GameObject weapon;
-    // Start is called before the first frame update
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public BoxCollider collider;
 
     private void OnTriggerEnter(Collider other)
     {
-        /*
-        Debug.Log(other.gameObject.transform.parent.name);
-        if (other.gameObject.transform.parent.name == "Weapon")
-        {
-            other.gameObject.transform.parent.GetComponent<Shooter>().ControlShooting(true);
-        }*/
-        ControlShooting(other.gameObject.transform.parent, true);
+        ShootingController(other.gameObject, true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        /*
-        Debug.Log(other.gameObject.transform.parent.name);
-        if (other.gameObject.transform.parent.name == "Weapon")
-        {
-            other.gameObject.transform.parent.GetComponent<Shooter>().ControlShooting(false);
-        }
-        */
-        ControlShooting(other.gameObject.transform.parent, false);
+        ShootingController(other.gameObject, false);
     }
-
-    private void ControlShooting(Transform parent, bool flag)
+        
+    private void ShootingController(GameObject collidingObject, bool flag)
     {
-        if (parent.name == "Weapon")
+        if (collidingObject.tag == "ShootControl")
         {
-            if (weapon == null || !parent.Equals(weapon))
+            Transform parent = collidingObject.transform.parent;
+            if (parent.tag == "Weapon")
             {
-                weapon = parent.gameObject;
-                shooterScript = parent.GetComponent<Shooter>();
+                if (weapon == null || !parent.Equals(weapon))
+                {
+                    weapon = parent.gameObject;
+                    shooterScript = parent.GetComponent<Shooter>();
+                }
+                shooterScript.ControlShooting(flag);
             }
-            shooterScript.ControlShooting(flag);
         }
     }
 

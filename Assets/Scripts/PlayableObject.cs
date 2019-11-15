@@ -11,6 +11,9 @@ public class PlayableObject : MonoBehaviour
     [SerializeField]
     private GameObject weapon;
 
+    [SerializeField]
+    private Shooter shooterScript;
+
     public WeaponController weaponController;
 
     private Vector3 originalWeaponPosition;
@@ -36,6 +39,7 @@ public class PlayableObject : MonoBehaviour
         soldierModel.SetActive(false);
         weapon.GetComponent<VRTK_InteractableObject>().isGrabbable = true;
         weaponController.setPosition(transform.position.x, transform.position.z);
+        weaponController.collider.enabled = true;
     }
 
     public void AfterFinishedAction()
@@ -46,7 +50,7 @@ public class PlayableObject : MonoBehaviour
         weapon.GetComponent<VRTK_InteractableObject>().isGrabbable = false;
         weapon.transform.position = originalWeaponPosition;
         weapon.transform.rotation = originalWeaponRotation;
-
+        weaponController.collider.enabled = false;
     }
 
 }
