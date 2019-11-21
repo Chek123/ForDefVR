@@ -43,8 +43,6 @@ public class GameManager : MonoBehaviour
             var interactable = go.GetComponent<VRTK_InteractableObject>();
             interactable.isGrabbable = false;
         }
-        
-
     }
 
     public void SetLayoutMode()
