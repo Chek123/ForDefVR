@@ -10,10 +10,7 @@ public class PlayableObject : MonoBehaviour
 
     [SerializeField]
     private GameObject weapon;
-/*
-    [SerializeField]
-    private Shooter shooterScript;
-    */
+
     public WeaponController weaponController;
 
     private Vector3 originalWeaponPosition;
