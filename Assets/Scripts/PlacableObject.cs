@@ -31,6 +31,15 @@ public class PlacableObject : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
 
+    public bool getIsScaled()
+    {
+        return isScaled;
+    }
+
+    public void setIsScaled(bool isScaled)
+    {
+        this.isScaled = isScaled;
+    }
 
     private void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
