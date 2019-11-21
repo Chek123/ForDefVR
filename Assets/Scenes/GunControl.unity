@@ -284,7 +284,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shooterScript
       value: 
-      objectReference: {fileID: 795419426}
+      objectReference: {fileID: 0}
     - target: {fileID: 8482558199404685711, guid: 4337c3c41f19ce540a18b23a8444ec41,
         type: 3}
       propertyPath: weaponController
@@ -2283,18 +2283,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &795419426 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8482558199404685711, guid: 4337c3c41f19ce540a18b23a8444ec41,
-    type: 3}
-  m_PrefabInstance: {fileID: 67160934}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ead843138c846c641a77bac2aab39a81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &799565081
 PrefabInstance:
   m_ObjectHideFlags: 0

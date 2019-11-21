@@ -51,7 +51,6 @@ public class Shooter : MonoBehaviour
     {
         if (bulletCount > 0 && shootingEnabled)
         {
-            Debug.Log(bulletCount + " " + shootingEnabled);
             var bullet = GameObject.Instantiate(bulletPrefab, shootPoint.transform.position, shootPoint.transform.rotation);
             bullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletSpeed;
             bulletCount--;
