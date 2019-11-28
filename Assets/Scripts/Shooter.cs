@@ -20,12 +20,14 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private PlayableObject playableObject;
 
+    private int originalBulletCount;
+
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<VRTK_InteractableObject>().InteractableObjectUsed += Shoot;
         GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += ObjectUngrabbed;
-
+        originalBulletCount = bulletCount;
     }
 
     private void Shoot(object sender, InteractableObjectEventArgs e)
@@ -48,5 +50,9 @@ public class Shooter : MonoBehaviour
         {
             playableObject.AfterFinishedAction();
         }
+    }
+
+    public void ResetWeapon() {
+        bulletCount = originalBulletCount;
     }
 }

@@ -43,6 +43,6 @@ public class PlayableObject : MonoBehaviour
         weapon.GetComponent<VRTK_InteractableObject>().isGrabbable = false;
         weapon.transform.position = originalWeaponPosition;
         weapon.transform.rotation = originalWeaponRotation;
-
+        weapon.GetComponent<Shooter>().ResetWeapon();
     }
 }
