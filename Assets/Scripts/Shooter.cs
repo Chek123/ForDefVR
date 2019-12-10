@@ -9,6 +9,9 @@ public class Shooter : MonoBehaviour
     private GameObject shootPoint;
 
     [SerializeField]
+    private GameObject RaycastPoint;
+
+    [SerializeField]
     private GameObject bulletPrefab;
 
     [SerializeField]
@@ -26,12 +29,18 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private Material disabledColor;
 
+    [SerializeField]
+    private GameObject Pointer;
+
+    
+    public bool rayCast = false;
 
     private bool shootingEnabled = true;
     private Material[] materialsOriginal;
     private Material[] materialsDisabled;
 
     private int originalBulletCount;
+    private int layerMask = 1 << 8;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +61,24 @@ public class Shooter : MonoBehaviour
             materialsOriginal[i] = meshRenderer.materials[i];
         }
 
+    }
+
+    private void Update()
+    {
+        RaycastHit hit;
+
+        //hits = Physics.RaycastAll(RaycastPoint.transform.position, RaycastPoint.transform.forward, 100);
+
+        if (rayCast && Physics.Raycast(RaycastPoint.transform.position, RaycastPoint.transform.forward, out hit, 100, layerMask))
+        {
+            Pointer.transform.position = hit.point;
+            Pointer.SetActive(true);
+        }
+        else
+        {
+            Pointer.SetActive(false);
+        }
+        
     }
 
     private void Shoot(object sender, InteractableObjectEventArgs e)

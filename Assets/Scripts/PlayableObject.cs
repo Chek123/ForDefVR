@@ -13,6 +13,9 @@ public class PlayableObject : MonoBehaviour
 
     public WeaponController weaponController;
 
+    [SerializeField]
+    private Shooter shooterController;
+
     private Vector3 originalWeaponPosition;
     private Quaternion originalWeaponRotation;
 
@@ -38,6 +41,8 @@ public class PlayableObject : MonoBehaviour
 
         weaponController.setPosition(transform.position.x, transform.position.z);
         weaponController.collider.enabled = true; // collider control
+
+        shooterController.rayCast = true;
     }
 
     public void AfterFinishedAction()
@@ -51,6 +56,7 @@ public class PlayableObject : MonoBehaviour
 
         weapon.GetComponent<Shooter>().ResetWeapon();
         weaponController.collider.enabled = false; // disabling collider to avoid disabling a weapon when collider is moving around the playground
+        shooterController.rayCast = false;
     }
 }
 
