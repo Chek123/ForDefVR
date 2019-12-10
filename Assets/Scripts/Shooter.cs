@@ -67,8 +67,6 @@ public class Shooter : MonoBehaviour
     {
         RaycastHit hit;
 
-        //hits = Physics.RaycastAll(RaycastPoint.transform.position, RaycastPoint.transform.forward, 100);
-
         if (rayCast && Physics.Raycast(RaycastPoint.transform.position, RaycastPoint.transform.forward, out hit, 100, layerMask))
         {
             Pointer.transform.position = hit.point;
@@ -78,15 +76,22 @@ public class Shooter : MonoBehaviour
         {
             Pointer.SetActive(false);
         }
-        
+       
     }
 
     private void Shoot(object sender, InteractableObjectEventArgs e)
     {
         if (bulletCount > 0 && shootingEnabled)
         {
-            var bullet = GameObject.Instantiate(bulletPrefab, shootPoint.transform.position, shootPoint.transform.rotation);
-            bullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletSpeed;
+            RaycastHit hit;
+            if (Physics.Raycast(RaycastPoint.transform.position, RaycastPoint.transform.forward, out hit, 100, layerMask))
+            {
+                HealthControl healthControl = hit.transform.GetComponent<HealthControl>();
+                if (healthControl != null)
+                {
+                    healthControl.HitSoldier();
+                }
+            }
             bulletCount--;
         }
         else

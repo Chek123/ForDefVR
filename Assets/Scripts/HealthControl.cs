@@ -24,7 +24,7 @@ public class HealthControl : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.collider.tag);
@@ -33,5 +33,11 @@ public class HealthControl : MonoBehaviour
             health -= hit;
             healthBar.transform.localScale -= new Vector3(0, 0, hit * hit_scale);
         }
+    }
+    */
+    public void HitSoldier()
+    {
+        health -= hit;
+        healthBar.transform.localScale -= new Vector3(0, 0, hit * hit_scale);
     }
 }
