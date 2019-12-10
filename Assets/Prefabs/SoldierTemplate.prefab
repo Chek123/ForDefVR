@@ -461,6 +461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soldierModel: {fileID: 8482558199418622850}
   weapon: {fileID: 8482558199404685710}
+  weaponController: {fileID: 0}
 --- !u!114 &7594646014240522190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,6 +611,8 @@ MonoBehaviour:
   bulletSpeed: 3
   bulletCount: 3
   playableObject: {fileID: 8482558198693717191}
+  meshRenderer: {fileID: 1013603337206339328}
+  disabledColor: {fileID: 2100000, guid: 82b7ac99985e797469000ed12ec965b4, type: 2}
 --- !u!1 &8482558199418622850
 GameObject:
   m_ObjectHideFlags: 0

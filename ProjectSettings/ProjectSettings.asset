@@ -659,7 +659,7 @@ PlayerSettings:
     Game_Performance: 0
     Hub: 0
     Purchasing: 0
-    UNet: 0
+    UNet: 1
     Unity_Ads: 0
   luminIcon:
     m_Name: 
@@ -680,10 +680,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 7f1942b2-3a6d-434b-b7aa-08ff53d70f94
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: NAVPH
+  organizationId: unity_yiwfvktpdu_gba
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

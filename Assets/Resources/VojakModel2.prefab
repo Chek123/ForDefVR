@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 35229113}
   - component: {fileID: 35229112}
   - component: {fileID: 35229111}
+  - component: {fileID: 780480552484825983}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -106,6 +107,21 @@ MonoBehaviour:
   bulletSpeed: 3
   bulletCount: 3
   playableObject: {fileID: 6371775396528692641}
+  meshRenderer: {fileID: 907826821}
+  disabledColor: {fileID: 2100000, guid: 82b7ac99985e797469000ed12ec965b4, type: 2}
+--- !u!114 &780480552484825983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35229109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa4f01659fda7b449f0f3b68b9090a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 1203392070}
 --- !u!1 &907826819
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,6 +684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soldierModel: {fileID: 6371775395479054817}
   weapon: {fileID: 35229109}
+  weaponController: {fileID: 780480552484825983}
 --- !u!114 &200653795
 MonoBehaviour:
   m_ObjectHideFlags: 0
