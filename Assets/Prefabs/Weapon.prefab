@@ -209,7 +209,7 @@ MonoBehaviour:
   allowedNearTouchControllers: 0
   allowedTouchControllers: 0
   ignoredColliders: []
-  isGrabbable: 1
+  isGrabbable: 0
   holdButtonToGrab: 0
   stayGrabbedOnTeleport: 1
   validDrop: 1
@@ -257,9 +257,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 4878189768743013683}
-  bulletPrefab: {fileID: 7329639199113623320, guid: 77183286a9a4b2242ad719c6b131dd04,
+  bulletPrefab: {fileID: 335173685076281257, guid: 109191dc14f02fc458ca28d046514304,
     type: 3}
-  bulletSpeed: 3
+  bulletSpeed: 10
   bulletCount: 3
   playableObject: {fileID: 0}
   meshRenderer: {fileID: 0}
