@@ -31,17 +31,22 @@ public class PlayableObject : MonoBehaviour
 
     private void ObjectChoosenToPlay(object sender, InteractableObjectEventArgs e)
     {
-        sceneObjects.localScale *= 3;
-        VRTK_DeviceFinder.PlayAreaTransform().position = transform.position; //teleport to soldier place 
-        soldierModel.SetActive(false);
-        weapon.GetComponent<VRTK_InteractableObject>().isGrabbable = true;
+        if (GameManager.Instance.gamemode == GameManager.GameMode.ENEMY_CHOOSING)
+        {
+            GameManager.Instance.SetRolePlayMode();
+            sceneObjects.localScale *= 3;
+            VRTK_DeviceFinder.PlayAreaTransform().position = transform.position; //teleport to soldier place 
+            soldierModel.SetActive(false);
+            weapon.GetComponent<VRTK_InteractableObject>().isGrabbable = true;
 
-        weaponController.setPosition(transform.position.x, transform.position.z);
-        weaponController.collider.enabled = true; // collider control
+            weaponController.setPosition(transform.position.x, transform.position.z);
+            weaponController.collider.enabled = true; // collider control
+        }
     }
 
     public void AfterFinishedAction()
     {
+        GameManager.Instance.SetEnemyChoosingMode();
         sceneObjects.localScale /= 3;
         VRTK_DeviceFinder.PlayAreaTransform().position = Vector3.zero;
         soldierModel.SetActive(true);

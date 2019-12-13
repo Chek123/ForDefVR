@@ -247,10 +247,10 @@ GameObject:
   - component: {fileID: 6371775396528692640}
   - component: {fileID: 6371775396528692645}
   - component: {fileID: 6371775396528692644}
-  - component: {fileID: 6371775396528692647}
   - component: {fileID: 6371775396528692646}
   - component: {fileID: 6371775396528692641}
   - component: {fileID: 200653795}
+  - component: {fileID: 3876014226814235110}
   m_Layer: 0
   m_Name: VojakModel2
   m_TagString: Vojak
@@ -316,7 +316,7 @@ MonoBehaviour:
   validDrop: 1
   grabOverrideButton: 3
   allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 6371775396528692647}
+  grabAttachMechanicScript: {fileID: 0}
   secondaryGrabActionScript: {fileID: 0}
   isUsable: 1
   holdButtonToUse: 1
@@ -327,28 +327,6 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
---- !u!114 &6371775396528692647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6371775396528692643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a1ebaa51525b734287157cb3f53f958, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  precisionGrab: 0
-  rightSnapHandle: {fileID: 6371775396856631877}
-  leftSnapHandle: {fileID: 6371775396856631877}
-  throwVelocityWithAttachDistance: 0
-  throwMultiplier: 1
-  onGrabCollisionDelay: 0
-  detachDistance: 1
-  velocityLimit: Infinity
-  angularVelocityLimit: Infinity
-  maxDistanceDelta: 1000
 --- !u!114 &6371775396528692646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,6 +369,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 975730459}
+--- !u!114 &3876014226814235110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371775396528692643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec2ac476f2fc9a45a4e69712580a603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  precisionGrab: 0
+  rightSnapHandle: {fileID: 6371775396856631877}
+  leftSnapHandle: {fileID: 6371775396856631877}
+  throwVelocityWithAttachDistance: 0
+  throwMultiplier: 1
+  onGrabCollisionDelay: 0
 --- !u!1 &6371775396856631876
 GameObject:
   m_ObjectHideFlags: 0

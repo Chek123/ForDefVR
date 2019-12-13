@@ -10,20 +10,32 @@ public class GameManager : MonoBehaviour
     public GameObject wall;
     private EnemyDataController edc;
 
+    private static GameManager instance = null;
+    public static GameManager Instance
+    {
+        get {
+            if(instance == null)
+            {
+                instance = GameObject.FindObjectOfType<GameManager>();
+            }
+            return instance;
+        }
+    }
+
     public enum GameMode
     {
         LAYOUTING, //TODO: vymysliet lepsi nazov pre rozkladanie panacikou po hracej ploche
+        ENEMY_CHOOSING,
         ROLEPLAYING
     }
 
-    public void SetRolePlayMode()
+    public void StartLevel()
     {
-        gamemode = GameMode.ROLEPLAYING;
         edc.LoadData();
 
         wall.GetComponent<Animator>().enabled = true;
         wall.GetComponent<AudioScript>().source.Play();
-       
+
         //DestroyPolickaObjects();
         HidePolickaObjects();
 
@@ -43,6 +55,19 @@ public class GameManager : MonoBehaviour
             var interactable = go.GetComponent<VRTK_InteractableObject>();
             interactable.isGrabbable = false;
         }
+    }
+
+    public void SetEnemyChoosingMode()
+    {
+        gamemode = GameMode.ENEMY_CHOOSING;
+    }
+
+    public void SetRolePlayMode()
+    {
+        gamemode = GameMode.ROLEPLAYING;
+
+        // maybe set actual soldier object..
+
     }
 
     public void SetLayoutMode()
