@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public void SetRolePlayMode()
     {
         gamemode = GameMode.ROLEPLAYING;
-//        edc.LoadData();
+        edc.LoadData();
 
         wall.GetComponent<Animator>().enabled = true;
         wall.GetComponent<AudioScript>().source.Play();
