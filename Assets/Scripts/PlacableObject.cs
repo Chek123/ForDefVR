@@ -52,7 +52,7 @@ public class PlacableObject : MonoBehaviour
             isScaled = false;
         }
         isGrabbed = true;
-        snappedOn?.GetComponentInChildren<CubeHighlighter>()?.HighLight();
+        //snappedOn?.GetComponentInChildren<CubeHighlighter>()?.HighLight();
     }
 
     private void ObjectUnGrabbed(object sender, InteractableObjectEventArgs e)
@@ -63,10 +63,6 @@ public class PlacableObject : MonoBehaviour
         {
             Destroy(this.gameObject);
             spawning.onWrongPlacement(gameObject);
-        }
-        if (onCollision)
-        {
-            SnapToObject();
         }
 
     }
@@ -113,7 +109,7 @@ public class PlacableObject : MonoBehaviour
 
     private void SnapToObject()
     {
-        if (!isScaled)
+        if (!isScaled && targetPolicko != null && lastCollisionObj.position == targetPolicko.transform.position)
         {
             rigidBody.isKinematic = true;
             this.transform.localScale *= 5;
