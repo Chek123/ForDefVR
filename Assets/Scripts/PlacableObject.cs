@@ -79,29 +79,10 @@ public class PlacableObject : MonoBehaviour
             CubeHighlighter cubeHighlighter = collision.gameObject.transform.GetChild(0).GetComponent<CubeHighlighter>();
             if (!isGrabbed)
             {
-                /*
-                if (cubeHighlighter.occupyingObject == null || cubeHighlighter.occupyingObject == this.gameObject)
-                {*/
-                    Debug.Log("TargetPolicko " + this.targetPolicko);
-                    if (targetPolicko != null)
-                    {
-                        //lastCollisionObj = collision.gameObject.transform;
-                        SnapToObject();
-                    }
-/*                    if (targetPolicko == collision.gameObject)
-                    {
-                        cubeHighlighter.occupyingObject = this.gameObject;
-                        cubeHighlighter.placableObject = this;
-                        SnapToObject();
-                    }*/
-//                } else 
-/*                if (!wasDestroyed && targetPolicko == collision.gameObject)
+                if (targetPolicko != null)
                 {
-                    Destroy(this.gameObject); 
-                    spawning.onWrongPlacement(gameObject);
-                    wasDestroyed = true;
+                    SnapToObject();
                 }
-                */
             }
             onCollision = true;
         }
@@ -138,7 +119,13 @@ public class PlacableObject : MonoBehaviour
             this.transform.localScale *= 5;
             this.transform.position = lastCollisionObj.position;
             this.transform.rotation = Quaternion.identity;
-            lastCollisionObj.GetComponentInChildren<CubeHighlighter>().ResetColor();
+            CubeHighlighter cubeHighlighter = lastCollisionObj.GetComponentInChildren<CubeHighlighter>();
+
+            if (cubeHighlighter != null)
+            {
+                cubeHighlighter.ResetColor();
+            }
+                
             isScaled = true;
             snappedOn = lastCollisionObj;
         }

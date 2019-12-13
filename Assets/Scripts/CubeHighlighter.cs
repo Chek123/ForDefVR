@@ -21,15 +21,12 @@ public class CubeHighlighter : MonoBehaviour
         PlacableObject placableObject;
         if (other.gameObject.tag == "VojakStred" && !(placableObject = other.GetComponentInParent<PlacableObject>()).getIsScaled())
         {
-            //Debug.Log("OnTriggerEnter " + this.transform.parent.gameObject + " occupying object " + this.occupyingObject);
             if (occupyingObject == null)
             {
                 HighLight();
                 placableObject.lastCollisionObj = transform.parent.transform;
                 placableObject.targetPolicko = this.transform.parent.gameObject;
                 this.occupyingObject = other.transform.parent.gameObject;
-                //Debug.Log("OnTriggerEnter " + this.transform.parent.gameObject);
-
             }
             else
             {
@@ -45,9 +42,6 @@ public class CubeHighlighter : MonoBehaviour
             if (occupyingObject == other.gameObject.transform.parent.gameObject)
             {
                 PlacableObject placableObject = other.GetComponentInParent<PlacableObject>();
-                /*
-                placableObject.targetPolicko = placableObject.targetPolicko == this.transform.parent.gameObject ? null : placableObject.targetPolicko;
-                placableObject.lastCollisionObj = placableObject.lastCollisionObj == this.transform.parent.transform ? placableObject.transform : placableObject.lastCollisionObj;*/
                 placableObject.onCollision = false;
                 this.occupyingObject = null;
             }
