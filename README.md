@@ -1,3 +1,4 @@
+
 # ForDefVR
 
 Turn based strategy game
@@ -16,8 +17,9 @@ Hra je určená pre jedného hráča. Jeho cieľom je na začiatku rozmiestniť 
 
 ## Dependecies
 
-- VRTK (3.3.0)
-- SteamVR (version 1.2.3), for build for SteamVR platform (and openVR maybe)
+- **VRTK** (3.3.0) [Asset Store](https://assetstore.unity.com/packages/tools/integration/vrtk-virtual-reality-toolkit-vr-toolkit-64131) 
+- **SteamVR** (version 1.2.3), for build for SteamVR platform (and openVR maybe)
 not included because of size of package
-- Soldiers models: ?TODO?
+[Download](https://github.com/ValveSoftware/steamvr_unity_plugin/releases/download/1.2.3/SteamVR.Plugin.unitypackage)
+- **Soldiers models**: ?TODO?
 
