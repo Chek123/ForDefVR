@@ -18,9 +18,23 @@ public class CubeHighlighter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "VojakStred" && other.GetComponentInParent<PlacableObject>().isGrabbed && occupyingObject == null)
+        PlacableObject placableObject;
+        if (other.gameObject.tag == "VojakStred" && !(placableObject = other.GetComponentInParent<PlacableObject>()).getIsScaled())
         {
-            HighLight();
+            //Debug.Log("OnTriggerEnter " + this.transform.parent.gameObject + " occupying object " + this.occupyingObject);
+            if (occupyingObject == null)
+            {
+                HighLight();
+                placableObject.lastCollisionObj = transform.parent.transform;
+                placableObject.targetPolicko = this.transform.parent.gameObject;
+                this.occupyingObject = other.transform.parent.gameObject;
+                //Debug.Log("OnTriggerEnter " + this.transform.parent.gameObject);
+
+            }
+            else
+            {
+                placableObject.lastCollisionObj = placableObject.transform;
+            }
         }
     }
 
@@ -28,8 +42,18 @@ public class CubeHighlighter : MonoBehaviour
     {
         if (other.gameObject.tag == "VojakStred")
         {
+            if (occupyingObject == other.gameObject.transform.parent.gameObject)
+            {
+                PlacableObject placableObject = other.GetComponentInParent<PlacableObject>();
+                /*
+                placableObject.targetPolicko = placableObject.targetPolicko == this.transform.parent.gameObject ? null : placableObject.targetPolicko;
+                placableObject.lastCollisionObj = placableObject.lastCollisionObj == this.transform.parent.transform ? placableObject.transform : placableObject.lastCollisionObj;*/
+                placableObject.onCollision = false;
+                this.occupyingObject = null;
+            }
             ResetColor();
         }
+        
     }
 
     public void ResetColor()

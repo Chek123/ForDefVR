@@ -27,7 +27,6 @@ public class HealthControl : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.collider.tag);
         if (collision.collider.tag == "Bullet_M4")
         {
             health -= hit;

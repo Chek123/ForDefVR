@@ -13,15 +13,18 @@ public class PlacableObject : MonoBehaviour
     private bool wasDestroyed = false;
     private bool enteredSpawningArea = false;
 
-    private bool onCollision = false;
-    private Transform lastCollisionObj;
+   //private Transform lastCollisionObj;
 
-    private GameObject targetPolicko;
+    
     private Transform snappedOn;
+    
 
     private Rigidbody rigidBody;
 
     public bool isGrabbed = false;
+    public Transform lastCollisionObj;
+    public GameObject targetPolicko;
+    public bool onCollision = false;
 
     // Start is called before the first frame update
     void Start()
@@ -70,32 +73,35 @@ public class PlacableObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Policko")
         {
             CubeHighlighter cubeHighlighter = collision.gameObject.transform.GetChild(0).GetComponent<CubeHighlighter>();
             if (!isGrabbed)
             {
+                /*
                 if (cubeHighlighter.occupyingObject == null || cubeHighlighter.occupyingObject == this.gameObject)
-                {
-                    if (targetPolicko == null)
+                {*/
+                    Debug.Log("TargetPolicko " + this.targetPolicko);
+                    if (targetPolicko != null)
                     {
-                        targetPolicko = collision.gameObject;
-                        lastCollisionObj = targetPolicko.transform;
+                        //lastCollisionObj = collision.gameObject.transform;
+                        SnapToObject();
                     }
-                    if (targetPolicko == collision.gameObject)
+/*                    if (targetPolicko == collision.gameObject)
                     {
                         cubeHighlighter.occupyingObject = this.gameObject;
                         cubeHighlighter.placableObject = this;
                         SnapToObject();
-                    }
-                }
-                else if (!wasDestroyed && targetPolicko == collision.gameObject)
+                    }*/
+//                } else 
+/*                if (!wasDestroyed && targetPolicko == collision.gameObject)
                 {
                     Destroy(this.gameObject); 
                     spawning.onWrongPlacement(gameObject);
                     wasDestroyed = true;
                 }
-
+                */
             }
             onCollision = true;
         }
@@ -106,21 +112,7 @@ public class PlacableObject : MonoBehaviour
             wasDestroyed = true;
         }
     }
-    private void OnCollisionExit(Collision collision)
-    {
-        onCollision = false;
 
-        if (collision.gameObject.tag == "Policko")
-        {
-            CubeHighlighter cubeHighlighter = collision.gameObject.transform.GetChild(0).GetComponent<CubeHighlighter>();
-            if (cubeHighlighter.occupyingObject == this.gameObject && isGrabbed)
-            {
-                targetPolicko = null;
-                cubeHighlighter.occupyingObject = null;
-                cubeHighlighter.placableObject = null;
-            }
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
