@@ -1136,6 +1136,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114586912766495932, guid: eb6748575a8fce346b19dff6cb1471ec,
+        type: 3}
+      propertyPath: drawInGame
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586912766495932, guid: eb6748575a8fce346b19dff6cb1471ec,
+        type: 3}
+      propertyPath: size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb6748575a8fce346b19dff6cb1471ec, type: 3}
 --- !u!1 &253860405
@@ -5059,6 +5069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamemode: 0
   wall: {fileID: 1915168}
+  sceneObjects: {fileID: 1375112422}
 --- !u!4 &1671262551
 Transform:
   m_ObjectHideFlags: 0

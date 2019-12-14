@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using VRTK;
+
+
+
 [RequireComponent(typeof(EnemyDataController))]
 public class GameManager : MonoBehaviour
 {
     public GameMode gamemode = GameMode.LAYOUTING;
     public GameObject wall;
+    public GameObject sceneObjects;
     private EnemyDataController edc;
 
     private static GameManager instance = null;
@@ -108,11 +112,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         edc = GetComponent<EnemyDataController>();
+        //sceneObjects.transform.localScale = PlayAreaRealSize.GetScaleFactor();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
