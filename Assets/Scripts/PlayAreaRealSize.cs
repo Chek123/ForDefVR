@@ -14,20 +14,26 @@ public static class PlayAreaRealSize
     {
 #if USE_STEAMVR
         var rect = new HmdQuad_t();
-        SteamVR_PlayArea.GetBounds(SteamVR_PlayArea.Size.Calibrated, ref rect);
+        if (SteamVR_PlayArea.GetBounds(SteamVR_PlayArea.Size.Calibrated, ref rect))
+        {
 
-        float countx = Mathf.Abs(convertValveVector(rect.vCorners0).x)
-            + Mathf.Abs(convertValveVector(rect.vCorners1).x)
-            + Mathf.Abs(convertValveVector(rect.vCorners2).x)
-            + Mathf.Abs(convertValveVector(rect.vCorners3).x);
+            float countx = Mathf.Abs(convertValveVector(rect.vCorners0).x)
+                + Mathf.Abs(convertValveVector(rect.vCorners1).x)
+                + Mathf.Abs(convertValveVector(rect.vCorners2).x)
+                + Mathf.Abs(convertValveVector(rect.vCorners3).x);
 
-        float countz = Mathf.Abs(convertValveVector(rect.vCorners0).z)
-            + Mathf.Abs(convertValveVector(rect.vCorners1).z)
-            + Mathf.Abs(convertValveVector(rect.vCorners2).z)
-            + Mathf.Abs(convertValveVector(rect.vCorners3).z);
-        Debug.Log("sum: x=" + (countx / 2) / optimalPlayAreaSize.x + ", y=" + (countz / 2) / optimalPlayAreaSize.z);
+            float countz = Mathf.Abs(convertValveVector(rect.vCorners0).z)
+                + Mathf.Abs(convertValveVector(rect.vCorners1).z)
+                + Mathf.Abs(convertValveVector(rect.vCorners2).z)
+                + Mathf.Abs(convertValveVector(rect.vCorners3).z);
+            Debug.Log("Counting scaleFactor; sum: x=" + (countx / 2) / optimalPlayAreaSize.x + ", y=" + (countz / 2) / optimalPlayAreaSize.z);
 
-        return Mathf.Min((countx / 2) / optimalPlayAreaSize.x, (countz / 2) / optimalPlayAreaSize.z);
+            return Mathf.Min((countx / 2) / optimalPlayAreaSize.x, (countz / 2) / optimalPlayAreaSize.z);
+        }
+        else
+        {
+            return 1f;
+        }
 #else
         return 1f;
 #endif
