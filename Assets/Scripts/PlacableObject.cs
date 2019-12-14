@@ -13,15 +13,18 @@ public class PlacableObject : MonoBehaviour
     private bool wasDestroyed = false;
     private bool enteredSpawningArea = false;
 
-    private bool onCollision = false;
-    private Transform lastCollisionObj;
+   //private Transform lastCollisionObj;
 
-    private GameObject targetPolicko;
+    
     private Transform snappedOn;
+    
 
     private Rigidbody rigidBody;
 
     public bool isGrabbed = false;
+    public Transform lastCollisionObj;
+    public GameObject targetPolicko;
+    public bool onCollision = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,15 @@ public class PlacableObject : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
 
+    public bool getIsScaled()
+    {
+        return isScaled;
+    }
+
+    public void setIsScaled(bool isScaled)
+    {
+        this.isScaled = isScaled;
+    }
 
     private void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
@@ -40,7 +52,7 @@ public class PlacableObject : MonoBehaviour
             isScaled = false;
         }
         isGrabbed = true;
-        snappedOn?.GetComponentInChildren<CubeHighlighter>()?.HighLight();
+        //snappedOn?.GetComponentInChildren<CubeHighlighter>()?.HighLight();
     }
 
     private void ObjectUnGrabbed(object sender, InteractableObjectEventArgs e)
@@ -52,41 +64,21 @@ public class PlacableObject : MonoBehaviour
             Destroy(this.gameObject);
             spawning.onWrongPlacement(gameObject);
         }
-        if (onCollision)
-        {
-            SnapToObject();
-        }
 
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Policko")
         {
             CubeHighlighter cubeHighlighter = collision.gameObject.transform.GetChild(0).GetComponent<CubeHighlighter>();
             if (!isGrabbed)
             {
-                if (cubeHighlighter.occupyingObject == null || cubeHighlighter.occupyingObject == this.gameObject)
+                if (targetPolicko != null)
                 {
-                    if (targetPolicko == null)
-                    {
-                        targetPolicko = collision.gameObject;
-                        lastCollisionObj = targetPolicko.transform;
-                    }
-                    if (targetPolicko == collision.gameObject)
-                    {
-                        cubeHighlighter.occupyingObject = this.gameObject;
-                        cubeHighlighter.placableObject = this;
-                        SnapToObject();
-                    }
+                    SnapToObject();
                 }
-                else if (!wasDestroyed && targetPolicko == collision.gameObject)
-                {
-                    Destroy(this.gameObject); 
-                    spawning.onWrongPlacement(gameObject);
-                    wasDestroyed = true;
-                }
-
             }
             onCollision = true;
         }
@@ -97,21 +89,7 @@ public class PlacableObject : MonoBehaviour
             wasDestroyed = true;
         }
     }
-    private void OnCollisionExit(Collision collision)
-    {
-        onCollision = false;
 
-        if (collision.gameObject.tag == "Policko")
-        {
-            CubeHighlighter cubeHighlighter = collision.gameObject.transform.GetChild(0).GetComponent<CubeHighlighter>();
-            if (cubeHighlighter.occupyingObject == this.gameObject && isGrabbed)
-            {
-                targetPolicko = null;
-                cubeHighlighter.occupyingObject = null;
-                cubeHighlighter.placableObject = null;
-            }
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -131,13 +109,19 @@ public class PlacableObject : MonoBehaviour
 
     private void SnapToObject()
     {
-        if (!isScaled)
+        if (!isScaled && targetPolicko != null && lastCollisionObj.position == targetPolicko.transform.position)
         {
             rigidBody.isKinematic = true;
             this.transform.localScale *= 5;
             this.transform.position = lastCollisionObj.position;
             this.transform.rotation = Quaternion.identity;
-            lastCollisionObj.GetComponentInChildren<CubeHighlighter>().ResetColor();
+            CubeHighlighter cubeHighlighter = lastCollisionObj.GetComponentInChildren<CubeHighlighter>();
+
+            if (cubeHighlighter != null)
+            {
+                cubeHighlighter.ResetColor();
+            }
+                
             isScaled = true;
             snappedOn = lastCollisionObj;
         }

@@ -6,7 +6,6 @@ public class AudioScript : MonoBehaviour
 {
     public AudioClip clip;
     public AudioSource source;
-    public bool playSound = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +16,5 @@ public class AudioScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playSound)
-        {
-            source.Play();
-            playSound = false;
-        }
     }
 }
