@@ -58,7 +58,7 @@ public class Shooter : MonoBehaviour
     {
         if (bulletCount > 0 && shootingEnabled)
         {
-            var bullet = GameObject.Instantiate(bulletPrefab, shootPoint.transform.position, shootPoint.transform.rotation);
+            var bullet = GameManager.InstantateScaled(bulletPrefab, shootPoint.transform.position, shootPoint.transform.rotation);
             bullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletSpeed;
             bulletCount--;
         }
@@ -80,6 +80,7 @@ public class Shooter : MonoBehaviour
     public void ResetWeapon() {
         bulletCount = originalBulletCount;
     }
+
     public void ControlShooting(bool value)
     {
         // To avoid a sequence of coincident changes

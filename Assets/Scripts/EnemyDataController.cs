@@ -52,8 +52,8 @@ public class EnemyDataController : MonoBehaviour
         {
             if (obj.vojak != 0)
             {
-                var prefab = Resources.Load("VojakModel" + obj.vojak, typeof(GameObject));
-                GameObject soldier = Instantiate(prefab, enemyPlayground) as GameObject;
+                var prefab = Resources.Load("VojakModel" + obj.vojak, typeof(GameObject)) as GameObject;
+                GameObject soldier = GameManager.InstantateScaled(prefab, enemyPlayground);
                 soldier.transform.localPosition = new Vector3(obj.x, 0.05f, obj.z);
                 soldier.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 soldier.transform.localScale *= 5;

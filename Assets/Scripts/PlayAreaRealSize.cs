@@ -10,7 +10,7 @@ public static class PlayAreaRealSize
     //Optimalna velkost plochy vo VR v metroch (3x3 metre)
     private static Vector3 optimalPlayAreaSize = new Vector3(3f, 0f, 3f);
 
-    public static Vector3 GetScaleFactor()
+    public static float GetFactor()
     {
 #if USE_STEAMVR
         var rect = new HmdQuad_t();
@@ -27,10 +27,18 @@ public static class PlayAreaRealSize
             + Mathf.Abs(convertValveVector(rect.vCorners3).z);
         Debug.Log("sum: x=" + (countx / 2) / optimalPlayAreaSize.x + ", y=" + (countz / 2) / optimalPlayAreaSize.z);
 
-        return new Vector3((countx / 2) / optimalPlayAreaSize.x, 1f, (countz / 2) / optimalPlayAreaSize.z);
+        return Mathf.Min((countx / 2) / optimalPlayAreaSize.x, (countz / 2) / optimalPlayAreaSize.z);
 #else
-        return Vector3.one;
+        return 1f;
 #endif
+    }
+
+    public static Vector3 GetScaleFactor()
+    {
+        float factor = GetFactor();
+
+        return new Vector3(factor, factor, factor);
+
     }
 
     //helpers
