@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 6371775396528692641}
   - component: {fileID: 200653795}
   - component: {fileID: 3876014226814235110}
+  - component: {fileID: 2636037370709541165}
   m_Layer: 0
   m_Name: VojakModel2
   m_TagString: Vojak
@@ -341,6 +342,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawning: {fileID: 0}
   isGrabbed: 0
+  lastCollisionObj: {fileID: 0}
+  targetPolicko: {fileID: 0}
+  onCollision: 0
 --- !u!114 &6371775396528692641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,6 +391,18 @@ MonoBehaviour:
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0
+--- !u!114 &2636037370709541165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371775396528692643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fba6d85335b0648aa82c5f3b081af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6371775396856631876
 GameObject:
   m_ObjectHideFlags: 0
