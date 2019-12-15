@@ -35,6 +35,8 @@ public class EnemyDataController : MonoBehaviour
     [SerializeField]
     private Transform enemyPlayground;
 
+    private int enemySoldierCounter = 0;
+
     public void LoadData()
     {
         string path = "Assets/Database/data.json";
@@ -59,7 +61,9 @@ public class EnemyDataController : MonoBehaviour
                 soldier.transform.localScale *= 5;
                 soldier.tag = "EnemySoldier";
                 soldier.GetComponent<PlacableObject>().setIsScaled(true);
+                enemySoldierCounter++;
             }
         }
+        GameManager.Instance.SetSoldiersCount(enemySoldierCounter, "EnemySoldier");
     }
 }

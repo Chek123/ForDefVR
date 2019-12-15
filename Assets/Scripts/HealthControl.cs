@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthControl : MonoBehaviour
 {
     private int health = 5; // TODO: determine what type of soldier is active and load his max HP from DB
-    private int hit = 2;    // TODO: get power of weapon from DB also (bullet has to know from which weapon was shooted)
+    private int hit = 5;    // TODO: get power of weapon from DB also (bullet has to know from which weapon was shooted)
     public GameObject healthBar;
     private float hit_scale;
 
@@ -22,6 +22,22 @@ public class HealthControl : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            Debug.Log(this.tag);
+
+            if (this.tag == "EnemySoldier")
+            {
+                int currentCount = GameManager.Instance.GetSoldiersCount("EnemySoldier");
+                Debug.Log("Enemy soldiers " + currentCount);
+                GameManager.Instance.SetSoldiersCount(currentCount - 1,"EnemySoldier");
+                Debug.Log("Enemy soldiers new " + GameManager.Instance.GetSoldiersCount("EnemySoldier"));
+            }
+            else if (this.tag == "Vojak")
+            {
+                int currentCount = GameManager.Instance.GetSoldiersCount("PlayerSoldier");
+                Debug.Log("Player soldiers " + currentCount);
+                GameManager.Instance.SetSoldiersCount(currentCount - 1, "PlayerSoldier");
+                Debug.Log("Player soldiers new " + GameManager.Instance.GetSoldiersCount("PlayerSoldier"));
+            }
         }
     }
 

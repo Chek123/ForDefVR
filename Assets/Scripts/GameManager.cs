@@ -14,7 +14,12 @@ public class GameManager : MonoBehaviour
     public GameObject sceneObjects;
     private EnemyDataController edc;
 
+    private int playerSoldiersCount;
+    private int enemySoldiersCount;
+    private int currentLevel = 1;
+
     private static GameManager instance = null;
+
     public static GameManager Instance
     {
         get {
@@ -59,6 +64,8 @@ public class GameManager : MonoBehaviour
             go.GetComponent<HealthControl>().enabled = true;
             var interactable = go.GetComponent<VRTK_InteractableObject>();
             interactable.isGrabbable = false;
+
+            playerSoldiersCount++;
         }
     }
 
@@ -111,6 +118,30 @@ public class GameManager : MonoBehaviour
         for (var i = 0; i < gameObjects.Length; i++)
         {
             gameObjects[i].SetActive(false);
+        }
+    }
+
+    public void SetSoldiersCount(int newValue, string soldierType)
+    {
+        if (soldierType == "EnemySoldier")
+        {
+            this.enemySoldiersCount = newValue;
+        }
+        else
+        {
+            this.playerSoldiersCount = newValue;
+        }
+    }
+
+    public int GetSoldiersCount(string soldierType)
+    {
+        if (soldierType == "EnemySoldier")
+        {
+            return enemySoldiersCount;
+        }
+        else
+        {
+            return playerSoldiersCount;
         }
     }
 
