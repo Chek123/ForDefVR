@@ -15,7 +15,7 @@ public class Shooter : MonoBehaviour
     private float bulletSpeed;
 
     [SerializeField]
-    private int bulletCount = 3;
+    private int bulletCount = 1;
 
     [SerializeField]
     private PlayableObject playableObject;
@@ -65,6 +65,16 @@ public class Shooter : MonoBehaviour
         else
         {
             //TODO: upozornenie ze uz nema naboje a mal by pustit zbran
+        }
+    }
+
+    public void EnemyShoot()
+    {
+        if (bulletCount > 0 && shootingEnabled)
+        {
+            var bullet = GameManager.InstantateScaled(bulletPrefab, shootPoint.transform.position, shootPoint.transform.rotation);
+            bullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletSpeed;
+            bulletCount--;
         }
     }
 

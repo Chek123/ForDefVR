@@ -13,11 +13,14 @@ public class PlayableObject : MonoBehaviour
     private GameObject weapon;
 
     public WeaponController weaponController;
+    private Shooter shooter;
 
     private Vector3 originalWeaponPosition;
     private Quaternion originalWeaponRotation;
 
     private Transform sceneObjects;
+    private GameObject[] enemySoldiers;
+    private GameObject[] playerSoldiers;
 
 
     // Start is called before the first frame update
@@ -43,18 +46,39 @@ public class PlayableObject : MonoBehaviour
             weaponController.setPosition(transform.position.x, transform.position.z);
             weaponController.collider.enabled = true; // collider control
 
-            Debug.Log("Transform to soldier view");
         }
-        else if (GameManager.Instance.gamemode == GameManager.GameMode.ENEMY_TURN)
+    }
+
+    private void DoEnemyTurn()
+    {
+        Debug.Log("Its enemy turn :)");
+
+        //Random choose enemy soldier and target
+        //TODO: More intelligent solution
+
+        enemySoldiers = GameObject.FindGameObjectsWithTag("EnemySoldier");
+        int soldier_id = Random.Range(0, enemySoldiers.Length);
+        var enemy = enemySoldiers[soldier_id];
+
+        playerSoldiers = GameObject.FindGameObjectsWithTag("Vojak");
+        soldier_id = Random.Range(0, playerSoldiers.Length);
+        var player = playerSoldiers[soldier_id];
+
+
+        // Find weapon of chosen enemy soldier
+
+        foreach (Transform child in enemy.transform)
         {
-            Debug.Log("Its enemy turn :)");
-            Thread.Sleep(2000);
-            Debug.Log("2 seconds");
-
-
-
-            GameManager.Instance.SetEnemyChoosingMode();
+            if (child.name == "Weapon")
+            {
+                child.transform.LookAt(player.transform);
+                child.transform.localPosition += new Vector3(-0.15f, 0.3f, 0);  // Set weapon little bit higher - TODO: animation. 
+                shooter = child.GetComponent<Shooter>();
+                shooter.EnemyShoot();       // TODO: raycasting inside EnemyShoot method
+            }
         }
+
+        GameManager.Instance.SetEnemyChoosingMode();
     }
 
     public void AfterFinishedAction()
@@ -70,7 +94,8 @@ public class PlayableObject : MonoBehaviour
 
         weapon.GetComponent<Shooter>().ResetWeapon();
         weaponController.collider.enabled = false; // disabling collider to avoid disabling a weapon when collider is moving around the playground
-        Debug.Log("After soldier view");
+
+        Invoke("DoEnemyTurn", 5.0f);   //invokes DoEnemyTurn() method with 5 sec delay
     }
 }
 

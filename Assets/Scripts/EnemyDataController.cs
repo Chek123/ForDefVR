@@ -57,6 +57,7 @@ public class EnemyDataController : MonoBehaviour
                 soldier.transform.localPosition = new Vector3(obj.x, 0.05f, obj.z);
                 soldier.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 soldier.transform.localScale *= 5;
+                soldier.tag = "EnemySoldier";
                 soldier.GetComponent<PlacableObject>().setIsScaled(true);
             }
         }
