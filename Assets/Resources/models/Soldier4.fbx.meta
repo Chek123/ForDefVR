@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6769b1da5b6250c4485a47c4ec278fbd
+guid: 51a7056660138184d9625dc963d4dc50
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: Body
-    100002: Cube.1008
+    100002: Cube.000
     100004: Head
     100006: Head_end
     100008: Head_end_end
@@ -28,8 +28,9 @@ ModelImporter:
     100044: R Leg
     100046: //RootNode
     100048: WS2.016
+    100050: Cube.1008
     400000: Body
-    400002: Cube.1008
+    400002: Cube.000
     400004: Head
     400006: Head_end
     400008: Head_end_end
@@ -53,24 +54,42 @@ ModelImporter:
     400044: R Leg
     400046: //RootNode
     400048: WS2.016
-    2100000: Material.219
-    2100002: Material.216
-    2100004: Material.215
-    2100006: Material.224
-    2100008: Material.232
-    2100010: Material.221
-    2100012: Material.233
-    2100014: Material.222
-    2100016: Material.225
-    2100018: Material.254
-    2100020: Material.217
-    2100022: Material.234
-    2100024: Material.255
-    2100026: Material.252
-    2100028: Material.237
-    4300000: Cube.1008
+    400050: Cube.1008
+    2100000: Material.311
+    2100002: Material.314
+    2100004: Material.315
+    2100006: Material.306
+    2100008: Material.054
+    2100010: Material.309
+    2100012: Material.053
+    2100014: Material.308
+    2100016: Material.305
+    2100018: Material.048
+    2100020: Material.313
+    2100022: Material.052
+    2100024: Material.047
+    2100026: Material.049
+    2100028: Material.050
+    2100030: Material.219
+    2100032: Material.216
+    2100034: Material.215
+    2100036: Material.224
+    2100038: Material.232
+    2100040: Material.221
+    2100042: Material.233
+    2100044: Material.222
+    2100046: Material.225
+    2100048: Material.254
+    2100050: Material.217
+    2100052: Material.234
+    2100054: Material.255
+    2100056: Material.252
+    2100058: Material.237
+    4300000: Cube.000
+    4300002: Cube.1008
     9500000: //RootNode
-    13700000: Cube.1008
+    13700000: Cube.000
+    13700002: Cube.1008
   externalObjects: {}
   materials:
     importMaterials: 1
