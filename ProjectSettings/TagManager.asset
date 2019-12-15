@@ -22,6 +22,8 @@ TagManager:
   - SceneObjects
   - Weapon
   - ShootControl
+  - EnemySoldier
+  - EnemySoldierBody
   layers:
   - Default
   - TransparentFX
