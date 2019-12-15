@@ -1,72 +1,77 @@
 fileFormatVersion: 2
-guid: e2b70e549838baa4eae1679f38565547
+guid: 34c8717d9c425c64e93a457ba3f6bd01
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: Body
-    100002: Bone
-    100004: Bone_end
-    100006: Cube.1034
-    100008: Head
-    100010: Head_end
-    100012: "Ko\u015Bci genera\u0142.001"
-    100014: L Arm
-    100016: L Fingers
-    100018: L Fingers_end
+    100002: Camera
+    100004: Cube.1012
+    100006: Head
+    100008: Head_end
+    100010: Head_end_end
+    100012: L Arm
+    100014: L Fingers
+    100016: L Fingers_end
+    100018: L Fingers_end_end
     100020: L Foot
     100022: L Foot_end
-    100024: L Hand
-    100026: L Leg
-    100028: R Arm
-    100030: R Fingers
-    100032: R Fingers_end
-    100034: R Foot
-    100036: R Foot_end
-    100038: R Hand
-    100040: R Leg
-    100042: //RootNode
+    100024: L Foot_end_end
+    100026: L Hand
+    100028: L Leg
+    100030: Light
+    100032: R Arm
+    100034: R Fingers
+    100036: R Fingers_end
+    100038: R Fingers_end_end
+    100040: R Foot
+    100042: R Foot_end
+    100044: R Foot_end_end
+    100046: R Hand
+    100048: R Leg
+    100050: //RootNode
+    100052: WS2.016
     400000: Body
-    400002: Bone
-    400004: Bone_end
-    400006: Cube.1034
-    400008: Head
-    400010: Head_end
-    400012: "Ko\u015Bci genera\u0142.001"
-    400014: L Arm
-    400016: L Fingers
-    400018: L Fingers_end
+    400002: Camera
+    400004: Cube.1012
+    400006: Head
+    400008: Head_end
+    400010: Head_end_end
+    400012: L Arm
+    400014: L Fingers
+    400016: L Fingers_end
+    400018: L Fingers_end_end
     400020: L Foot
     400022: L Foot_end
-    400024: L Hand
-    400026: L Leg
-    400028: R Arm
-    400030: R Fingers
-    400032: R Fingers_end
-    400034: R Foot
-    400036: R Foot_end
-    400038: R Hand
-    400040: R Leg
-    400042: //RootNode
-    2100000: Material.008
-    2100002: Material.325
-    2100004: Material.328
-    2100006: Material.327
-    2100008: Material.326
-    2100010: Material
-    2100012: Material.077
-    2100014: Material.002
-    2100016: Lampa 1
-    2100018: Material.041
-    2100020: Material.145
-    2100022: Material.087
-    2100024: Material.096
-    2100026: Material.118
-    2100028: Material.120
-    2100030: Material.117
-    4300000: Cube.1034
+    400024: L Foot_end_end
+    400026: L Hand
+    400028: L Leg
+    400030: Light
+    400032: R Arm
+    400034: R Fingers
+    400036: R Fingers_end
+    400038: R Fingers_end_end
+    400040: R Foot
+    400042: R Foot_end
+    400044: R Foot_end_end
+    400046: R Hand
+    400048: R Leg
+    400050: //RootNode
+    400052: WS2.016
+    2000000: Camera
+    2100000: Material.042
+    2100002: Material.293
+    2100004: Material.294
+    2100006: Material.295
+    2100008: Material.292
+    2100010: Material.268
+    2100012: Material.271
+    2100014: Material.269
+    2100016: Material.272
+    2100018: Material.273
+    4300000: Cube.1012
     9500000: //RootNode
-    13700000: Cube.1034
-    2186277476908879412: ImportLogs
+    10800000: Light
+    13700000: Cube.1012
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -119,7 +124,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 0.01
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
