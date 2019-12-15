@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     {
         LAYOUTING, //TODO: vymysliet lepsi nazov pre rozkladanie panacikou po hracej ploche
         ENEMY_CHOOSING,
+        ENEMY_TURN,
         ROLEPLAYING
     }
 
@@ -72,6 +73,11 @@ public class GameManager : MonoBehaviour
 
         // maybe set actual soldier object..
 
+    }
+
+    public void SetEnemyTurnMode()
+    {
+        gamemode = GameMode.ENEMY_TURN;
     }
 
     public void SetLayoutMode()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
+using System.Threading;
 
 public class PlayableObject : MonoBehaviour
 {
@@ -41,12 +42,25 @@ public class PlayableObject : MonoBehaviour
 
             weaponController.setPosition(transform.position.x, transform.position.z);
             weaponController.collider.enabled = true; // collider control
+
+            Debug.Log("Transform to soldier view");
+        }
+        else if (GameManager.Instance.gamemode == GameManager.GameMode.ENEMY_TURN)
+        {
+            Debug.Log("Its enemy turn :)");
+            Thread.Sleep(2000);
+            Debug.Log("2 seconds");
+
+
+
+            GameManager.Instance.SetEnemyChoosingMode();
         }
     }
 
     public void AfterFinishedAction()
     {
-        GameManager.Instance.SetEnemyChoosingMode();
+        //GameManager.Instance.SetEnemyChoosingMode();
+        GameManager.Instance.SetEnemyTurnMode();
         sceneObjects.localScale /= 3 / PlayAreaRealSize.GetFactor();
         VRTK_DeviceFinder.PlayAreaTransform().position = Vector3.zero;
         soldierModel.SetActive(true);
@@ -56,6 +70,7 @@ public class PlayableObject : MonoBehaviour
 
         weapon.GetComponent<Shooter>().ResetWeapon();
         weaponController.collider.enabled = false; // disabling collider to avoid disabling a weapon when collider is moving around the playground
+        Debug.Log("After soldier view");
     }
 }
 
