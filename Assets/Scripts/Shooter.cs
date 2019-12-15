@@ -26,6 +26,8 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private Material disabledColor;
 
+    [SerializeField]
+    private ParticleSystem shotParticles;
 
     private bool shootingEnabled = true;
     private Material[] materialsOriginal;
@@ -38,6 +40,7 @@ public class Shooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shotParticles.Stop();
         GetComponent<VRTK_InteractableObject>().InteractableObjectUsed += Shoot;
 
         GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += ObjectUngrabbed;
@@ -60,8 +63,10 @@ public class Shooter : MonoBehaviour
     {
         if (bulletCount > 0 && shootingEnabled)
         {
+            shotParticles.Play();
 
             RaycastHit hit;
+
             if (Physics.Raycast(shootPoint.transform.position, shootPoint.transform.forward, out hit, 100, layerMask))
             {
                 HealthControl healthControl = hit.transform.GetComponent<HealthControl>();
