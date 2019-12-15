@@ -13,7 +13,6 @@ public class PlayableObject : MonoBehaviour
     private GameObject weapon;
 
     public WeaponController weaponController;
-    private Shooter shooter;
 
     private Vector3 originalWeaponPosition;
     private Quaternion originalWeaponRotation;
@@ -67,15 +66,14 @@ public class PlayableObject : MonoBehaviour
 
         // Find weapon of chosen enemy soldier
 
-        foreach (Transform child in enemy.transform)
+
+        var weapon = enemy.transform.Find("Weapon");
+        if (weapon)
         {
-            if (child.name == "Weapon")
-            {
-                child.transform.LookAt(player.transform);
-                child.transform.localPosition += new Vector3(-0.15f, 0.3f, 0);  // Set weapon little bit higher - TODO: animation. 
-                shooter = child.GetComponent<Shooter>();
-                shooter.EnemyShoot();       // TODO: raycasting inside EnemyShoot method
-            }
+            weapon.LookAt(player.transform);
+            weapon.localPosition += new Vector3(-0.15f, 0.3f, 0);  // Set weapon little bit higher - TODO: animation. 
+            var shooter = weapon.GetComponent<Shooter>();
+            shooter.EnemyShoot();       // TODO: raycasting inside EnemyShoot method
         }
 
         GameManager.Instance.SetEnemyChoosingMode();
