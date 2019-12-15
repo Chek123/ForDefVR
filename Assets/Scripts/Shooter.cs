@@ -33,6 +33,8 @@ public class Shooter : MonoBehaviour
 
     private int originalBulletCount;
 
+    private int layerMask = 1 << 8;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,14 +60,29 @@ public class Shooter : MonoBehaviour
     {
         if (bulletCount > 0 && shootingEnabled)
         {
-            var bullet = GameManager.InstantateScaled(bulletPrefab, shootPoint.transform.position, shootPoint.transform.rotation);
-            bullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletSpeed;
+
+            RaycastHit hit;
+            if (Physics.Raycast(shootPoint.transform.position, shootPoint.transform.forward, out hit, 100, layerMask))
+            {
+                HealthControl healthControl = hit.transform.GetComponent<HealthControl>();
+                Debug.Log(hit.transform.gameObject.name);
+                if (healthControl != null)
+                {
+                    healthControl.TakeDamage();
+                }
+            }
             bulletCount--;
         }
         else
         {
             //TODO: upozornenie ze uz nema naboje a mal by pustit zbran
         }
+    }
+
+   
+    void Update()
+    {
+        Debug.DrawRay(shootPoint.transform.position, shootPoint.transform.forward, Color.green);
     }
 
     private void ObjectUngrabbed(object sender, InteractableObjectEventArgs e)

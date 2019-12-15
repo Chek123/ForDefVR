@@ -25,6 +25,7 @@ public class HealthControl : MonoBehaviour
         }
     }
 
+/*
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Bullet_M4")
@@ -32,5 +33,11 @@ public class HealthControl : MonoBehaviour
             health -= hit;
             healthBar.transform.localScale -= new Vector3(0, 0, hit * hit_scale);
         }
+    }
+    */
+    public void TakeDamage()
+    {
+        health -= hit;
+        healthBar.transform.localScale -= new Vector3(0, 0, hit * hit_scale);
     }
 }
