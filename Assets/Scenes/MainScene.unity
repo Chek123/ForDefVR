@@ -2337,6 +2337,11 @@ PrefabInstance:
       propertyPath: spawning
       value: 
       objectReference: {fileID: 982698238}
+    - target: {fileID: 1979885266955330595, guid: 53f95e4b750f2d44eba1ec477988a168,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 1738844963}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53f95e4b750f2d44eba1ec477988a168, type: 3}
 --- !u!4 &462519907 stripped
@@ -4171,6 +4176,11 @@ PrefabInstance:
       propertyPath: spawning
       value: 
       objectReference: {fileID: 1838175820}
+    - target: {fileID: 5447618632122072233, guid: d42c54ac9d2c7ee458d79da370918c78,
+        type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 1738844963}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d42c54ac9d2c7ee458d79da370918c78, type: 3}
 --- !u!4 &870655316 stripped
