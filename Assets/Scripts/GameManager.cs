@@ -14,7 +14,12 @@ public class GameManager : MonoBehaviour
     public GameObject sceneObjects;
     private EnemyDataController edc;
 
+    private int playerSoldiersCount;
+    private int enemySoldiersCount;
+    private int currentLevel = 1;
+
     private static GameManager instance = null;
+
     public static GameManager Instance
     {
         get {
@@ -29,13 +34,16 @@ public class GameManager : MonoBehaviour
     public enum GameMode
     {
         LAYOUTING, //TODO: vymysliet lepsi nazov pre rozkladanie panacikou po hracej ploche
-        ENEMY_CHOOSING,
-        ROLEPLAYING
+        PLAYER_TURN,
+        ENEMY_TURN,
+        ROLEPLAYING,
+        MENU
     }
 
     public void StartLevel()
     {
         edc.LoadData();
+        gamemode = GameMode.PLAYER_TURN;
 
         wall.GetComponent<Animator>().enabled = true;
         wall.GetComponent<AudioScript>().source.Play();
@@ -58,12 +66,14 @@ public class GameManager : MonoBehaviour
             go.GetComponent<HealthControl>().enabled = true;
             var interactable = go.GetComponent<VRTK_InteractableObject>();
             interactable.isGrabbable = false;
+
+            playerSoldiersCount++;
         }
     }
 
-    public void SetEnemyChoosingMode()
+    public void SetPlayerTurnMode()
     {
-        gamemode = GameMode.ENEMY_CHOOSING;
+        gamemode = GameMode.PLAYER_TURN;
     }
 
     public void SetRolePlayMode()
@@ -72,6 +82,11 @@ public class GameManager : MonoBehaviour
 
         // maybe set actual soldier object..
 
+    }
+
+    public void SetEnemyTurnMode()
+    {
+        gamemode = GameMode.ENEMY_TURN;
     }
 
     public void SetLayoutMode()
@@ -106,6 +121,51 @@ public class GameManager : MonoBehaviour
         {
             gameObjects[i].SetActive(false);
         }
+    }
+
+    public void CheckWinner()
+    {
+        if (enemySoldiersCount == 0)
+        {
+            Debug.Log("Player wins");
+            
+            // enable winning animation
+            wall.GetComponent<Animator>().SetBool("GameFinished", true);
+            wall.GetComponent<Animator>().SetBool("WinLevel", true);
+
+            gamemode = GameMode.MENU;
+
+        }
+        else if (playerSoldiersCount == 0)
+        {
+            Debug.Log("Enemy wins");
+
+            // enable losing annimation
+            wall.GetComponent<Animator>().SetBool("GameFinished", true);
+            wall.GetComponent<Animator>().SetBool("LoseLevel", false);
+
+            gamemode = GameMode.MENU;
+        }
+    }
+
+    public void SetPlayerSoldiersCount(int newValue)
+    {
+        playerSoldiersCount = newValue;
+    }
+
+    public void SetEnemySoldiersCount(int newValue)
+    {
+        enemySoldiersCount = newValue;
+    }
+
+    public int GetPlayerSoldiersCount()
+    {
+        return playerSoldiersCount;
+    }
+
+    public int GetEnemySoldiersCount()
+    {
+        return enemySoldiersCount;
     }
 
     // Start is called before the first frame update

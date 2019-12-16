@@ -49,6 +49,8 @@ public class EnemyDataController : MonoBehaviour
         int grid_id = Random.Range(0, level.grids.Length);
         Square[] square = level.grids[grid_id].square;
 
+        int enemySoldierCounter = 0;
+
         foreach (var obj in square)
         {
             if (obj.vojak != 0)
@@ -58,8 +60,12 @@ public class EnemyDataController : MonoBehaviour
                 soldier.transform.localPosition = new Vector3(obj.x, 0.05f, obj.z);
                 soldier.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 soldier.transform.localScale *= 5;
+                soldier.tag = "EnemySoldier";
+                soldier.GetComponent<HealthControl>().enabled = true;
                 soldier.GetComponent<PlacableObject>().setIsScaled(true);
+                enemySoldierCounter++;
             }
         }
+        GameManager.Instance.SetEnemySoldiersCount(enemySoldierCounter);
     }
 }
