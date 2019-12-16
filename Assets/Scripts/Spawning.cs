@@ -70,7 +70,7 @@ public class Spawning : MonoBehaviour
 
     private void spawnVojak()
     {
-        lastVojakSpawned = Instantiate(vojakPrefab, transform.position, transform.rotation) as GameObject;
+        lastVojakSpawned = GameManager.InstantateScaled(vojakPrefab, transform.position, transform.rotation);
         lastVojakSpawned.transform.parent = transform.parent;
         lastVojakSpawned.GetComponent<PlacableObject>().spawning = this;
         lastVojakSpawned.GetComponent<PlayableObject>().weaponController = this.weaponController;

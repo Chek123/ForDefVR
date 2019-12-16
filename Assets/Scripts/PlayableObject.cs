@@ -34,7 +34,7 @@ public class PlayableObject : MonoBehaviour
         if (GameManager.Instance.gamemode == GameManager.GameMode.ENEMY_CHOOSING)
         {
             GameManager.Instance.SetRolePlayMode();
-            sceneObjects.localScale *= 3;
+            sceneObjects.localScale *= 3 * PlayAreaRealSize.GetFactor();
             VRTK_DeviceFinder.PlayAreaTransform().position = transform.position; //teleport to soldier place 
             soldierModel.SetActive(false);
             weapon.GetComponent<VRTK_InteractableObject>().isGrabbable = true;
@@ -47,7 +47,7 @@ public class PlayableObject : MonoBehaviour
     public void AfterFinishedAction()
     {
         GameManager.Instance.SetEnemyChoosingMode();
-        sceneObjects.localScale /= 3;
+        sceneObjects.localScale /= 3 / PlayAreaRealSize.GetFactor();
         VRTK_DeviceFinder.PlayAreaTransform().position = Vector3.zero;
         soldierModel.SetActive(true);
         weapon.GetComponent<VRTK_InteractableObject>().isGrabbable = false;
