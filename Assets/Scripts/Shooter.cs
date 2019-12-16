@@ -29,6 +29,12 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private ParticleSystem shotParticles;
 
+    [SerializeField]
+    private GameObject shotTrajectile;
+
+    [SerializeField]
+    private int damage;
+
     private bool shootingEnabled = true;
     private Material[] materialsOriginal;
     private Material[] materialsDisabled;
@@ -36,6 +42,8 @@ public class Shooter : MonoBehaviour
     private int originalBulletCount;
 
     private int layerMask = 1 << 8;
+
+    private Animator shotTrajectileAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +58,8 @@ public class Shooter : MonoBehaviour
 
         materialsOriginal = new Material[meshRenderer.materials.Length];
         materialsDisabled = new Material[meshRenderer.materials.Length];
+
+        shotTrajectileAnimator = shotTrajectile.GetComponent<Animator>();
         
         for (var i = 0; i < meshRenderer.materials.Length; i++)
         {
@@ -65,15 +75,16 @@ public class Shooter : MonoBehaviour
         {
             shotParticles.Play();
 
+            shotTrajectileAnimator.Play("Trajectile");
+
             RaycastHit hit;
 
             if (Physics.Raycast(shootPoint.transform.position, shootPoint.transform.forward, out hit, 100, layerMask))
             {
                 HealthControl healthControl = hit.transform.GetComponent<HealthControl>();
-                Debug.Log(hit.transform.gameObject.name);
                 if (healthControl != null)
                 {
-                    healthControl.TakeDamage();
+                    healthControl.TakeDamage(damage);
                 }
             }
             bulletCount--;
