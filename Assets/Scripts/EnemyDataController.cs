@@ -37,9 +37,10 @@ public class EnemyDataController : MonoBehaviour
 
     public void LoadData()
     {
-        string path = "Assets/Database/data.json";
-        StreamReader reader = new StreamReader(path);
-        string json = reader.ReadToEnd();
+        string path = "Database/data";
+
+        var textAsset = Resources.Load(path) as TextAsset;
+        string json = textAsset.text;
         Data data = JsonUtility.FromJson<Data>(json);
 
         // treba mat premennu current_level, potom nacitanie:
