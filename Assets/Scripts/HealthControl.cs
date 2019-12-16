@@ -30,6 +30,8 @@ public class HealthControl : MonoBehaviour
                 Debug.Log("Enemy soldiers " + currentCount);
                 GameManager.Instance.SetSoldiersCount(currentCount - 1,"EnemySoldier");
                 Debug.Log("Enemy soldiers new " + GameManager.Instance.GetSoldiersCount("EnemySoldier"));
+
+                GameManager.Instance.CheckWinner();
             }
             else if (this.tag == "Vojak")
             {
@@ -37,6 +39,8 @@ public class HealthControl : MonoBehaviour
                 Debug.Log("Player soldiers " + currentCount);
                 GameManager.Instance.SetSoldiersCount(currentCount - 1, "PlayerSoldier");
                 Debug.Log("Player soldiers new " + GameManager.Instance.GetSoldiersCount("PlayerSoldier"));
+
+                GameManager.Instance.CheckWinner();
             }
         }
     }

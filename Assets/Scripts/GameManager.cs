@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
         ROLEPLAYING
     }
 
+    public void LoadScene(int current_level)
+    {
+        //vymaz vsetko co na nej bolo.
+        //nastav veci ktore su tam stale.
+    }
+
     public void StartLevel()
     {
         edc.LoadData();
@@ -118,6 +124,27 @@ public class GameManager : MonoBehaviour
         for (var i = 0; i < gameObjects.Length; i++)
         {
             gameObjects[i].SetActive(false);
+        }
+    }
+
+    public void CheckWinner()
+    {
+        if (enemySoldiersCount == 0)
+        {
+            Debug.Log("Player wins");
+
+            GameObject.Find("SceneObjects/PostaPreTebaStena/WinPanel").SetActive(true);
+
+            wall.GetComponent<Animator>().SetBool("GameFinished", true);
+            //
+
+        }
+        else if (playerSoldiersCount == 0)
+        {
+            Debug.Log("Enemy wins");
+            GameObject.Find("SceneObjects/PostaPreTebaStena/LosePanel").SetActive(true);
+
+            wall.GetComponent<Animator>().SetBool("GameFinished", true);
         }
     }
 
