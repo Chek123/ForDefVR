@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Enemy wins");
 
             wall.GetComponent<Animator>().SetBool("GameFinished", true);
-            wall.GetComponent<Animator>().SetBool("LoseLevel", true);
+            wall.GetComponent<Animator>().SetBool("LoseLevel", false);
 
             gamemode = GameMode.ROLEPLAYING;
         }

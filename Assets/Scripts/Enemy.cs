@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
         if (weapon)
         {
             weapon.LookAt(player.transform);
-            weapon.localPosition += new Vector3(-0.15f, 0.3f, 0);  // Set weapon little bit higher - TODO: animation. 
+            weapon.localPosition = new Vector3(-0.3f, 0.5f, 0);  // Set weapon little bit higher - TODO: animation. 
             var shooter = weapon.GetComponent<Shooter>();
             shooter.EnemyShoot();       // TODO: raycasting inside EnemyShoot method
         }
