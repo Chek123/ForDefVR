@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthControl : MonoBehaviour
 {
     private int health = 5; // TODO: determine what type of soldier is active and load his max HP from DB
-    private int hit = 5;    // TODO: get power of weapon from DB also (bullet has to know from which weapon was shooted)
+//    private int hit = 2;    // TODO: get power of weapon from DB also (bullet has to know from which weapon was shooted)
     public GameObject healthBar;
     private float hit_scale;
 
@@ -42,6 +42,7 @@ public class HealthControl : MonoBehaviour
         }
     }
 
+/*
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Bullet_M4")
@@ -49,5 +50,11 @@ public class HealthControl : MonoBehaviour
             health -= hit;
             healthBar.transform.localScale -= new Vector3(0, 0, hit * hit_scale);
         }
+    }
+    */
+    public void TakeDamage(int hit)
+    {
+        health -= hit;
+        healthBar.transform.localScale -= new Vector3(0, 0, hit * hit_scale);
     }
 }

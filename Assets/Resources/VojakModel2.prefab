@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 6371775396506577250}
   - component: {fileID: 6371775396506577181}
   - component: {fileID: 6371775396506577180}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Podstavec
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,6 +343,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 3424729991071120440, guid: 8d3ab48a0c61d47479f0371b140e14a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3424729991071120447, guid: 8d3ab48a0c61d47479f0371b140e14a5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -398,6 +403,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3424729991050223181, guid: 8d3ab48a0c61d47479f0371b140e14a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424729991837016424, guid: 8d3ab48a0c61d47479f0371b140e14a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424729991868316249, guid: 8d3ab48a0c61d47479f0371b140e14a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424729992343402139, guid: 8d3ab48a0c61d47479f0371b140e14a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d3ab48a0c61d47479f0371b140e14a5, type: 3}
 --- !u!1 &975730459 stripped
@@ -433,6 +458,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894160136056613546, guid: 8e44ca547dbeb764b9645ef91005a90e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3894160136056613549, guid: 8e44ca547dbeb764b9645ef91005a90e,
         type: 3}
@@ -510,6 +540,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 335173685076281257, guid: 109191dc14f02fc458ca28d046514304,
         type: 3}
+    - target: {fileID: 4626346671792717914, guid: 8e44ca547dbeb764b9645ef91005a90e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878189768743013683, guid: 8e44ca547dbeb764b9645ef91005a90e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529212407400448285, guid: 8e44ca547dbeb764b9645ef91005a90e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894160134404273540, guid: 8e44ca547dbeb764b9645ef91005a90e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894160134206402175, guid: 8e44ca547dbeb764b9645ef91005a90e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e44ca547dbeb764b9645ef91005a90e, type: 3}
 --- !u!1 &8381509442147042840 stripped
