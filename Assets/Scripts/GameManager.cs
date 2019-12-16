@@ -133,18 +133,24 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Player wins");
 
-            GameObject.Find("SceneObjects/PostaPreTebaStena/WinPanel").SetActive(true);
+
 
             wall.GetComponent<Animator>().SetBool("GameFinished", true);
+            wall.GetComponent<Animator>().SetBool("WinLevel", true);
             //
+
+
+            gamemode = GameMode.ROLEPLAYING;
 
         }
         else if (playerSoldiersCount == 0)
         {
             Debug.Log("Enemy wins");
-            GameObject.Find("SceneObjects/PostaPreTebaStena/LosePanel").SetActive(true);
 
             wall.GetComponent<Animator>().SetBool("GameFinished", true);
+            wall.GetComponent<Animator>().SetBool("LoseLevel", true);
+
+            gamemode = GameMode.ROLEPLAYING;
         }
     }
 
