@@ -31,8 +31,9 @@ public class PlayableObject : MonoBehaviour
 
     private void ObjectChoosenToPlay(object sender, InteractableObjectEventArgs e)
     {
-        if (GameManager.Instance.gamemode == GameManager.GameMode.ENEMY_CHOOSING)
+        if (GameManager.Instance.gamemode == GameManager.GameMode.PLAYER_TURN)
         {
+            Debug.Log("Player turn");
             GameManager.Instance.SetRolePlayMode();
             sceneObjects.localScale *= 3 * PlayAreaRealSize.GetFactor();
             VRTK_DeviceFinder.PlayAreaTransform().position = transform.position; //teleport to soldier place 
@@ -47,7 +48,6 @@ public class PlayableObject : MonoBehaviour
 
     public void AfterFinishedAction()
     {
-        //GameManager.Instance.SetEnemyChoosingMode();
         GameManager.Instance.SetEnemyTurnMode();
         sceneObjects.localScale /= 3 / PlayAreaRealSize.GetFactor();
         VRTK_DeviceFinder.PlayAreaTransform().position = Vector3.zero;

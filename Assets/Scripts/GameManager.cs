@@ -34,20 +34,15 @@ public class GameManager : MonoBehaviour
     public enum GameMode
     {
         LAYOUTING, //TODO: vymysliet lepsi nazov pre rozkladanie panacikou po hracej ploche
-        ENEMY_CHOOSING,
+        PLAYER_TURN,
         ENEMY_TURN,
         ROLEPLAYING
-    }
-
-    public void LoadScene(int current_level)
-    {
-        //vymaz vsetko co na nej bolo.
-        //nastav veci ktore su tam stale.
     }
 
     public void StartLevel()
     {
         edc.LoadData();
+        gamemode = GameMode.PLAYER_TURN;
 
         wall.GetComponent<Animator>().enabled = true;
         wall.GetComponent<AudioScript>().source.Play();
@@ -75,9 +70,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetEnemyChoosingMode()
+    public void SetPlayerTurnMode()
     {
-        gamemode = GameMode.ENEMY_CHOOSING;
+        gamemode = GameMode.PLAYER_TURN;
     }
 
     public void SetRolePlayMode()

@@ -40,6 +40,6 @@ public class Enemy : MonoBehaviour
             shooter.EnemyShoot();       // TODO: raycasting inside EnemyShoot method
         }
 
-        GameManager.Instance.SetEnemyChoosingMode();
+        GameManager.Instance.SetPlayerTurnMode();
     }
 }
