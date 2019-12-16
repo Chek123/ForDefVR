@@ -6602,6 +6602,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPlayground: {fileID: 1553266030}
+  soldierTypes:
+  - {fileID: 0}
+  - {fileID: 870655317}
+  - {fileID: 462519908}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1689606454 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7716169372983085450, guid: 6f6cb80650558334098a011690689150,
