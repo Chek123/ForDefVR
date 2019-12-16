@@ -61,6 +61,7 @@ public class EnemyDataController : MonoBehaviour
                 soldier.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 soldier.transform.localScale *= 5;
                 soldier.tag = "EnemySoldier";
+                soldier.GetComponent<HealthControl>().enabled = true;
                 soldier.GetComponent<PlacableObject>().setIsScaled(true);
                 enemySoldierCounter++;
             }

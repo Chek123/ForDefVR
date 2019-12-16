@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3927547974021348188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3492995086181664998}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3492995086181798464}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3492995086181798464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 400038, guid: 3f7e1271f1f1da54090f665d0313cfeb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3492995086181664998}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3927547974021348188}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2969342777545125782}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5858904630837627837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3492995086181664998}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2969342777545125782}
+  m_Layer: 0
+  m_Name: Soldier4 (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2969342777545125782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3492995086181664998}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5858904630837627837}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3492995086181798464}
+  m_Father: {fileID: 6371775396528692640}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6371775395479054817
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +311,8 @@ GameObject:
   - component: {fileID: 6371775396528692647}
   - component: {fileID: 6371775396528692646}
   - component: {fileID: 6371775396528692641}
+  - component: {fileID: 345683537793749636}
+  - component: {fileID: 7677797109081902382}
   m_Layer: 0
   m_Name: VojakModel4
   m_TagString: Vojak
@@ -270,7 +334,7 @@ Transform:
   - {fileID: 6371775396506577183}
   - {fileID: 6371775396856631877}
   - {fileID: 6371775395879031720}
-  - {fileID: 3492995086181798464}
+  - {fileID: 2969342777545125782}
   - {fileID: 6371775395479287233}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -360,6 +424,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawning: {fileID: 0}
   isGrabbed: 0
+  lastCollisionObj: {fileID: 0}
+  targetPolicko: {fileID: 0}
+  onCollision: 0
 --- !u!114 &6371775396528692641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,6 +441,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soldierModel: {fileID: 0}
   weapon: {fileID: 0}
+  weaponController: {fileID: 0}
+--- !u!114 &345683537793749636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371775396528692643}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5fcc1876af5a54daf0482f58e1aa26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+--- !u!114 &7677797109081902382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371775396528692643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fba6d85335b0648aa82c5f3b081af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6371775396856631876
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,9 +566,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f7e1271f1f1da54090f665d0313cfeb, type: 3}
---- !u!4 &3492995086181798464 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400038, guid: 3f7e1271f1f1da54090f665d0313cfeb,
-    type: 3}
-  m_PrefabInstance: {fileID: 3492995086181664998}
-  m_PrefabAsset: {fileID: 0}

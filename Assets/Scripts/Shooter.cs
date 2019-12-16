@@ -15,7 +15,7 @@ public class Shooter : MonoBehaviour
     private float bulletSpeed;
 
     [SerializeField]
-    private int bulletCount = 3;
+    private int bulletCount = 1;
 
     [SerializeField]
     private PlayableObject playableObject;
@@ -78,7 +78,7 @@ public class Shooter : MonoBehaviour
 
     private void ObjectUngrabbed(object sender, InteractableObjectEventArgs e)
     {
-        if (bulletCount == 0)
+        if (bulletCount == 0 || GameManager.Instance.gamemode == GameManager.GameMode.MENU)
         {
             playableObject.AfterFinishedAction();
             ControlShooting(true);

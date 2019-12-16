@@ -58,7 +58,6 @@ public class PlayableObject : MonoBehaviour
         weapon.GetComponent<Shooter>().ResetWeapon();
         weaponController.collider.enabled = false; // disabling collider to avoid disabling a weapon when collider is moving around the playground
 
-
         // if gamemode is MENU (= level ended), enemy turn cannot be executed
         if (GameManager.Instance.gamemode != GameManager.GameMode.MENU)
         {
