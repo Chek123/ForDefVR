@@ -15,7 +15,7 @@ public class Shooter : MonoBehaviour
     private float bulletSpeed;
 
     [SerializeField]
-    private int bulletCount = 3;
+    private int bulletCount = 1;
 
     [SerializeField]
     private PlayableObject playableObject;
@@ -40,8 +40,6 @@ public class Shooter : MonoBehaviour
 
         GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += ObjectUngrabbed;
         originalBulletCount = bulletCount;
-
-        GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += ObjectUngrabbed;
 
         materialsOriginal = new Material[meshRenderer.materials.Length];
         materialsDisabled = new Material[meshRenderer.materials.Length];
@@ -68,9 +66,19 @@ public class Shooter : MonoBehaviour
         }
     }
 
+    public void EnemyShoot()
+    {
+        if (bulletCount > 0 && shootingEnabled)
+        {
+            var bullet = GameManager.InstantateScaled(bulletPrefab, shootPoint.transform.position, shootPoint.transform.rotation);
+            bullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletSpeed;
+            bulletCount--;
+        }
+    }
+
     private void ObjectUngrabbed(object sender, InteractableObjectEventArgs e)
     {
-        if (bulletCount == 0)
+        if (bulletCount == 0 || GameManager.Instance.gamemode == GameManager.GameMode.MENU)
         {
             playableObject.AfterFinishedAction();
             ControlShooting(true);
