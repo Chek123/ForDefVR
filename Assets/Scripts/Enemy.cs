@@ -34,7 +34,10 @@ public class Enemy : MonoBehaviour
             weapon.LookAt(player.transform);
             weapon.localPosition = new Vector3(-0.3f, 0.5f, 0);  // Set weapon little bit higher - TODO: animation. 
             var shooter = weapon.GetComponent<Shooter>();
-            shooter.EnemyShoot();       // TODO: raycasting inside EnemyShoot method
+            shooter.Shoot();
+        } else
+        {
+            Debug.LogError("Unable to find childred with name Weapon");
         }
         GameManager.Instance.SetPlayerTurnMode();
     }

@@ -48,10 +48,7 @@ public class Shooter : MonoBehaviour
     void Start()
     {
         shotParticles.Stop();
-        GetComponent<VRTK_InteractableObject>().InteractableObjectUsed += Shoot;
-
-        GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += ObjectUngrabbed;
-        originalBulletCount = bulletCount;
+        GetComponent<VRTK_InteractableObject>().InteractableObjectUsed += (object sender, InteractableObjectEventArgs e) => { Shoot(); };
 
         GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += ObjectUngrabbed;
         originalBulletCount = bulletCount;
@@ -67,7 +64,7 @@ public class Shooter : MonoBehaviour
 
     }
 
-    private void Shoot(object sender, InteractableObjectEventArgs e)
+    public void Shoot()
     {
         if (bulletCount > 0 && shootingEnabled)
         {
@@ -90,16 +87,6 @@ public class Shooter : MonoBehaviour
         else
         {
             //TODO: upozornenie ze uz nema naboje a mal by pustit zbran
-        }
-    }
-
-    public void EnemyShoot()
-    {
-        if (bulletCount > 0 && shootingEnabled)
-        {
-            var bullet = GameManager.InstantateScaled(bulletPrefab, shootPoint.transform.position, shootPoint.transform.rotation);
-            bullet.GetComponent<Rigidbody>().velocity += transform.forward * bulletSpeed;
-            bulletCount--;
         }
     }
   
