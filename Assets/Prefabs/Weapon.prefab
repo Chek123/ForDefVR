@@ -378,7 +378,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   disabledColor: {fileID: 0}
   shotParticles: {fileID: 5028327351571392046}
-  shotTrajectile: {fileID: 936556819586123929}
+  shotTrajectileAnimator: {fileID: 8354905506796781002}
   damage: 2
 --- !u!1 &4626346671792717914
 GameObject:
@@ -461,10 +461,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3894160136056613549}
     m_Modifications:
-    - target: {fileID: 100006, guid: 30b4cc2728d8cec499fad63ba93785a4, type: 3}
-      propertyPath: m_Name
-      value: WFX_MF FPS RIFLE1 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: 30b4cc2728d8cec499fad63ba93785a4, type: 3}
       propertyPath: looping
       value: 0
@@ -540,6 +536,10 @@ PrefabInstance:
     - target: {fileID: 400006, guid: 30b4cc2728d8cec499fad63ba93785a4, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 30b4cc2728d8cec499fad63ba93785a4, type: 3}
+      propertyPath: m_Name
+      value: WFX_MF FPS RIFLE1 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 30b4cc2728d8cec499fad63ba93785a4, type: 3}
       propertyPath: m_LocalScale.x

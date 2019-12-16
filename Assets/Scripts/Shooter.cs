@@ -30,7 +30,7 @@ public class Shooter : MonoBehaviour
     private ParticleSystem shotParticles;
 
     [SerializeField]
-    private GameObject shotTrajectile;
+    private Animator shotTrajectileAnimator;
 
     [SerializeField]
     private int damage;
@@ -43,7 +43,6 @@ public class Shooter : MonoBehaviour
 
     private int layerMask = 1 << 8;
 
-    private Animator shotTrajectileAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -58,8 +57,6 @@ public class Shooter : MonoBehaviour
 
         materialsOriginal = new Material[meshRenderer.materials.Length];
         materialsDisabled = new Material[meshRenderer.materials.Length];
-
-        shotTrajectileAnimator = shotTrajectile.GetComponent<Animator>();
         
         for (var i = 0; i < meshRenderer.materials.Length; i++)
         {
