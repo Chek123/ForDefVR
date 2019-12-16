@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private GameObject[] enemySoldiers;
-    private GameObject[] playerSoldiers;
-
     public void EnemyController()
     {
         Invoke("DoEnemyTurn", 5.0f);
@@ -19,11 +16,11 @@ public class Enemy : MonoBehaviour
         //Random choose enemy soldier and target
         //TODO: More intelligent solution
 
-        enemySoldiers = GameObject.FindGameObjectsWithTag("EnemySoldier");
+        var enemySoldiers = GameObject.FindGameObjectsWithTag("EnemySoldier");
         int soldier_id = Random.Range(0, enemySoldiers.Length);
         var enemy = enemySoldiers[soldier_id];
 
-        playerSoldiers = GameObject.FindGameObjectsWithTag("Vojak");
+        var playerSoldiers = GameObject.FindGameObjectsWithTag("Vojak");
         soldier_id = Random.Range(0, playerSoldiers.Length);
         var player = playerSoldiers[soldier_id];
 
@@ -39,7 +36,6 @@ public class Enemy : MonoBehaviour
             var shooter = weapon.GetComponent<Shooter>();
             shooter.EnemyShoot();       // TODO: raycasting inside EnemyShoot method
         }
-
         GameManager.Instance.SetPlayerTurnMode();
     }
 }

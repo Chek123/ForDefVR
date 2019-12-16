@@ -21,24 +21,24 @@ public class HealthControl : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
 
             if (this.tag == "EnemySoldier")
             {
-                int currentCount = GameManager.Instance.GetSoldiersCount("EnemySoldier");
-                GameManager.Instance.SetSoldiersCount(currentCount - 1,"EnemySoldier");
-                Debug.Log("Enemy soldiers count " + GameManager.Instance.GetSoldiersCount("EnemySoldier"));
+                int currentCount = GameManager.Instance.GetEnemySoldiersCount();
+                GameManager.Instance.SetEnemySoldiersCount(currentCount - 1);
+                Debug.Log("Enemy soldiers count " + GameManager.Instance.GetEnemySoldiersCount());
 
                 GameManager.Instance.CheckWinner();
             }
             else if (this.tag == "Vojak")  //TODO: Rename to PlayerSoldier tag
             {
-                int currentCount = GameManager.Instance.GetSoldiersCount("PlayerSoldier");
-                GameManager.Instance.SetSoldiersCount(currentCount - 1, "PlayerSoldier");
-                Debug.Log("Player soldiers count " + GameManager.Instance.GetSoldiersCount("PlayerSoldier"));
+                int currentCount = GameManager.Instance.GetPlayerSoldiersCount();
+                GameManager.Instance.SetPlayerSoldiersCount(currentCount - 1);
+                Debug.Log("Player soldiers count " + GameManager.Instance.GetPlayerSoldiersCount());
 
                 GameManager.Instance.CheckWinner();
             }
+            Destroy(gameObject);
         }
     }
 

@@ -35,8 +35,6 @@ public class EnemyDataController : MonoBehaviour
     [SerializeField]
     private Transform enemyPlayground;
 
-    private int enemySoldierCounter = 0;
-
     public void LoadData()
     {
         string path = "Assets/Database/data.json";
@@ -49,6 +47,8 @@ public class EnemyDataController : MonoBehaviour
         Level level = data.levels[0];
         int grid_id = Random.Range(0, level.grids.Length);
         Square[] square = level.grids[grid_id].square;
+
+        int enemySoldierCounter = 0;
 
         foreach (var obj in square)
         {
@@ -64,6 +64,6 @@ public class EnemyDataController : MonoBehaviour
                 enemySoldierCounter++;
             }
         }
-        GameManager.Instance.SetSoldiersCount(enemySoldierCounter, "EnemySoldier");
+        GameManager.Instance.SetEnemySoldiersCount(enemySoldierCounter);
     }
 }

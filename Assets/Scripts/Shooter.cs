@@ -41,8 +41,6 @@ public class Shooter : MonoBehaviour
         GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += ObjectUngrabbed;
         originalBulletCount = bulletCount;
 
-        GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += ObjectUngrabbed;
-
         materialsOriginal = new Material[meshRenderer.materials.Length];
         materialsDisabled = new Material[meshRenderer.materials.Length];
         

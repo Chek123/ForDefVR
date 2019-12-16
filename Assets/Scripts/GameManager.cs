@@ -148,28 +148,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetSoldiersCount(int newValue, string soldierType)
+    public void SetPlayerSoldiersCount(int newValue)
     {
-        if (soldierType == "EnemySoldier")
-        {
-            this.enemySoldiersCount = newValue;
-        }
-        else
-        {
-            this.playerSoldiersCount = newValue;
-        }
+        playerSoldiersCount = newValue;
     }
 
-    public int GetSoldiersCount(string soldierType)
+    public void SetEnemySoldiersCount(int newValue)
     {
-        if (soldierType == "EnemySoldier")
-        {
-            return enemySoldiersCount;
-        }
-        else
-        {
-            return playerSoldiersCount;
-        }
+        enemySoldiersCount = newValue;
+    }
+
+    public int GetPlayerSoldiersCount()
+    {
+        return playerSoldiersCount;
+    }
+
+    public int GetEnemySoldiersCount()
+    {
+        return enemySoldiersCount;
     }
 
     // Start is called before the first frame update
