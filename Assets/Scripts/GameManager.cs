@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour
         LAYOUTING, //TODO: vymysliet lepsi nazov pre rozkladanie panacikou po hracej ploche
         PLAYER_TURN,
         ENEMY_TURN,
-        ROLEPLAYING
+        ROLEPLAYING,
+        MENU
     }
 
     public void StartLevel()
@@ -127,25 +128,23 @@ public class GameManager : MonoBehaviour
         if (enemySoldiersCount == 0)
         {
             Debug.Log("Player wins");
-
-
-
+            
+            // enable winning animation
             wall.GetComponent<Animator>().SetBool("GameFinished", true);
             wall.GetComponent<Animator>().SetBool("WinLevel", true);
-            //
 
-
-            gamemode = GameMode.ROLEPLAYING;
+            gamemode = GameMode.MENU;
 
         }
         else if (playerSoldiersCount == 0)
         {
             Debug.Log("Enemy wins");
 
+            // enable losing annimation
             wall.GetComponent<Animator>().SetBool("GameFinished", true);
             wall.GetComponent<Animator>().SetBool("LoseLevel", false);
 
-            gamemode = GameMode.ROLEPLAYING;
+            gamemode = GameMode.MENU;
         }
     }
 

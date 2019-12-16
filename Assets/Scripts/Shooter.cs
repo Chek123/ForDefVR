@@ -15,7 +15,7 @@ public class Shooter : MonoBehaviour
     private float bulletSpeed;
 
     [SerializeField]
-    private int bulletCount = 1;
+    private int bulletCount = 3;
 
     [SerializeField]
     private PlayableObject playableObject;

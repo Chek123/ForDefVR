@@ -48,7 +48,6 @@ public class PlayableObject : MonoBehaviour
 
     public void AfterFinishedAction()
     {
-        GameManager.Instance.SetEnemyTurnMode();
         sceneObjects.localScale /= 3 / PlayAreaRealSize.GetFactor();
         VRTK_DeviceFinder.PlayAreaTransform().position = Vector3.zero;
         soldierModel.SetActive(true);
@@ -59,7 +58,10 @@ public class PlayableObject : MonoBehaviour
         weapon.GetComponent<Shooter>().ResetWeapon();
         weaponController.collider.enabled = false; // disabling collider to avoid disabling a weapon when collider is moving around the playground
 
-        GetComponent<Enemy>().EnemyController();
+        if (GameManager.Instance.gamemode != GameManager.GameMode.MENU)
+        {
+            GetComponent<Enemy>().EnemyController();
+        }
     }
 }
 
