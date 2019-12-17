@@ -12,6 +12,9 @@ public class PlayableObject : MonoBehaviour
     [Tooltip("Weapon or medkit object")]
     private GameObject UsableItem;
 
+    [SerializeField]
+    private GameObject soldierCollider;
+
     public WeaponController weaponController;
 
     private Vector3 originalItemPosition;
@@ -39,8 +42,8 @@ public class PlayableObject : MonoBehaviour
             sceneObjects.localScale *= 3 * PlayAreaRealSize.GetFactor();
             VRTK_DeviceFinder.PlayAreaTransform().position = transform.position; //teleport to soldier place 
             soldierModel.SetActive(false);
+            soldierCollider.SetActive(false);
             UsableItem.GetComponent<VRTK_InteractableObject>().isGrabbable = true;
-
             weaponController.setPosition(transform.position.x, transform.position.z);
             weaponController.collider.enabled = true; // collider control
 
@@ -52,11 +55,12 @@ public class PlayableObject : MonoBehaviour
         sceneObjects.localScale /= 3 / PlayAreaRealSize.GetFactor();
         VRTK_DeviceFinder.PlayAreaTransform().position = Vector3.zero;
         soldierModel.SetActive(true);
+        soldierCollider.SetActive(true);
         UsableItem.GetComponent<VRTK_InteractableObject>().isGrabbable = false;
         UsableItem.transform.position = originalItemPosition;
         UsableItem.transform.rotation = originalItemRotation;
 
-        UsableItem.GetComponent<Shooter>().ResetWeapon();
+        UsableItem.GetComponent<Shooter>()?.ResetWeapon(); //TODO: genericky pre hocijaky item
         weaponController.collider.enabled = false; // disabling collider to avoid disabling a weapon when collider is moving around the playground
 
         // if gamemode is MENU (= level ended), enemy turn cannot be executed

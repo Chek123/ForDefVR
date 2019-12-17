@@ -398,7 +398,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soldierModel: {fileID: 0}
-  weapon: {fileID: 0}
+  UsableItem: {fileID: 0}
+  soldierCollider: {fileID: 866407317087237170}
   weaponController: {fileID: 0}
 --- !u!114 &1323612547496051902
 MonoBehaviour:
