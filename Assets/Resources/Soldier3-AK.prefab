@@ -87,11 +87,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6371775396528692643, guid: 198f440b22694f5448c34d634767ab44,
-        type: 3}
-      propertyPath: m_Name
-      value: Soldier3-AK
-      objectReference: {fileID: 0}
     - target: {fileID: 6371775396528692640, guid: 198f440b22694f5448c34d634767ab44,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -157,6 +152,11 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 1166558994869351990}
+    - target: {fileID: 6371775396528692643, guid: 198f440b22694f5448c34d634767ab44,
+        type: 3}
+      propertyPath: m_Name
+      value: Soldier3-AK
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 198f440b22694f5448c34d634767ab44, type: 3}
 --- !u!4 &1979885266955330594 stripped
@@ -232,6 +232,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: db722f4d0b41bc4459efb22fb72f3a38, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: dbee036939730d3448c01a2af02f8231, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db722f4d0b41bc4459efb22fb72f3a38, type: 3}
 --- !u!1 &6086400811775328735 stripped
