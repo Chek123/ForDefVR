@@ -39,7 +39,7 @@ public class EnemyDataController : MonoBehaviour
 
     public void LoadData()
     {
-        string path = "Database/data";
+        string path = "Database/test_data";
 
         var textAsset = Resources.Load(path) as TextAsset;
         string json = textAsset.text;
