@@ -2440,6 +2440,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupyingObject: {fileID: 0}
+--- !u!1 &733722130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8800418133577390453, guid: 886882924b7893749adb02893d609f4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1812504748}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &761656613
 GameObject:
   m_ObjectHideFlags: 0
@@ -6432,6 +6438,16 @@ PrefabInstance:
       propertyPath: weaponController
       value: 
       objectReference: {fileID: 1738844963}
+    - target: {fileID: 3185147864291899586, guid: 886882924b7893749adb02893d609f4c,
+        type: 3}
+      propertyPath: soldierModel
+      value: 
+      objectReference: {fileID: 733722130}
+    - target: {fileID: 8800418133577390453, guid: 886882924b7893749adb02893d609f4c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 886882924b7893749adb02893d609f4c, type: 3}
 --- !u!4 &1812504749 stripped

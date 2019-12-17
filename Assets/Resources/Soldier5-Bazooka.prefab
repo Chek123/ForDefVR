@@ -137,11 +137,46 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 7695089692289308499, guid: 874d1c2f01daad54480bde456356f65f,
+        type: 3}
+      propertyPath: m_Name
+      value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695089692289308500, guid: 874d1c2f01daad54480bde456356f65f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695089692289308500, guid: 874d1c2f01daad54480bde456356f65f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695089692289308500, guid: 874d1c2f01daad54480bde456356f65f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695089692289308500, guid: 874d1c2f01daad54480bde456356f65f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695089692289308500, guid: 874d1c2f01daad54480bde456356f65f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.221
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695089692289308500, guid: 874d1c2f01daad54480bde456356f65f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.109
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 874d1c2f01daad54480bde456356f65f, type: 3}
---- !u!1 &6141203623603113695 stripped
+--- !u!1 &2482402586250046252 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2125910789887488672, guid: 874d1c2f01daad54480bde456356f65f,
+  m_CorrespondingSourceObject: {fileID: 7695089692289308499, guid: 874d1c2f01daad54480bde456356f65f,
     type: 3}
   m_PrefabInstance: {fileID: 5240273182239063167}
   m_PrefabAsset: {fileID: 0}
@@ -216,7 +251,7 @@ PrefabInstance:
         type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 6141203623603113695}
+      objectReference: {fileID: 2482402586250046252}
     - target: {fileID: 6371775396528692643, guid: 198f440b22694f5448c34d634767ab44,
         type: 3}
       propertyPath: m_Name

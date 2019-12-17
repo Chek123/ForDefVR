@@ -10,16 +10,7 @@ public class Shooter : MonoBehaviour
     private GameObject shootPoint;
 
     [SerializeField]
-    private GameObject bulletPrefab;
-
-    [SerializeField]
-    private float bulletSpeed;
-
-    [SerializeField]
     private int bulletCount = 1;
-
-    [SerializeField]
-    private PlayableObject playableObject;
 
     [SerializeField]
     private MeshRenderer meshRenderer;
@@ -35,6 +26,9 @@ public class Shooter : MonoBehaviour
 
     [SerializeField]
     private int damage;
+
+
+    private PlayableObject playableObject;
 
     private bool shootingEnabled = true;
     private Material[] materialsOriginal;
@@ -65,6 +59,8 @@ public class Shooter : MonoBehaviour
         }
 
         grabMechansm = GetComponent<TriggerGrabAndUse>();
+
+        playableObject = GetComponentInParent<PlayableObject>();
     }
 
     public void Shoot()
