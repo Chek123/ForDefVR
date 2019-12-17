@@ -93,6 +93,23 @@ public class Shooter : MonoBehaviour
             grabMechansm.ActionFinished();
         }
     }
+
+    public bool TestShoot()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(shootPoint.transform.position, shootPoint.transform.forward, out hit, 100, layerMask))
+        {
+            if (hit.transform.tag == "EnemySoldier")  //TODO: get rid of constant
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
   
     void Update()
     {

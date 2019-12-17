@@ -9,6 +9,52 @@ public class Enemy : MonoBehaviour
         Invoke("DoEnemyTurn", 5.0f);
     }
 
+    private GameObject CountTurnEffectiveness()
+    {
+        var enemySoldiers = GameObject.FindGameObjectsWithTag("EnemySoldier");
+        var playerSoldiers = GameObject.FindGameObjectsWithTag("Vojak");
+
+        List<GameObject, GameObject, int> shootInteraction = new List<GameObject, GameObject, int>();
+        //EnemySoldier, PlayerSoldier, effectiveness
+
+        // 1. step
+        // Every enemy soldier tries to shoot on every player soldier.
+        // If 
+        foreach (var enemy in enemySoldiers)
+        {
+            var teamHit = 0;
+            //1. Try raycast. each enemy on each player. 
+            var weapon = enemy.transform.Find("Weapon");
+            if (weapon)
+            {
+                foreach (var player in playerSoldiers) {
+                    var weaponRotation = weapon.rotation;
+                    weapon.LookAt(player.transform);
+                    var shooter = weapon.GetComponent<Shooter>();
+                    if (shooter.TestShoot())
+                    {
+                        teamHit++;
+                    }
+                    weapon.rotation = weaponRotation;
+                }
+            }
+            Debug.Log("Player on position");
+            Debug.Log(enemy.transform.localPosition);
+            Debug.Log("Team hits");
+            Debug.Log(teamHit);
+            if (teamHit == playerSoldiers.Length)
+            {
+                // every shot was team hit. This soldier cannot make a move
+                //shootInteraction.Add(0);
+            }
+
+        }
+
+
+        int soldier_id = Random.Range(0, enemySoldiers.Length);
+        return enemySoldiers[soldier_id];
+    }
+
     private void DoEnemyTurn()
     {
         Debug.Log("Its enemy turn :)");
@@ -16,12 +62,10 @@ public class Enemy : MonoBehaviour
         //Random choose enemy soldier and target
         //TODO: More intelligent solution
 
-        var enemySoldiers = GameObject.FindGameObjectsWithTag("EnemySoldier");
-        int soldier_id = Random.Range(0, enemySoldiers.Length);
-        var enemy = enemySoldiers[soldier_id];
+        var enemy = CountTurnEffectiveness();
 
         var playerSoldiers = GameObject.FindGameObjectsWithTag("Vojak");
-        soldier_id = Random.Range(0, playerSoldiers.Length);
+        int soldier_id = Random.Range(0, playerSoldiers.Length);
         var player = playerSoldiers[soldier_id];
 
 
@@ -40,5 +84,9 @@ public class Enemy : MonoBehaviour
             Debug.LogError("Unable to find childred with name Weapon");
         }
         GameManager.Instance.SetPlayerTurnMode();
+    }
+
+    private class List<T1, T2, T3>
+    {
     }
 }
