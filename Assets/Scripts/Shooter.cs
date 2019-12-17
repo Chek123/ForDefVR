@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK; 
 
+[RequireComponent(typeof(TriggerGrabAndUse))]
 public class Shooter : MonoBehaviour
 {
     [SerializeField]
@@ -43,6 +44,7 @@ public class Shooter : MonoBehaviour
 
     private int layerMask = 1 << 8;
 
+    private TriggerGrabAndUse grabMechansm;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +64,7 @@ public class Shooter : MonoBehaviour
             materialsOriginal[i] = meshRenderer.materials[i];
         }
 
+        grabMechansm = GetComponent<TriggerGrabAndUse>();
     }
 
     public void Shoot()
@@ -88,6 +91,11 @@ public class Shooter : MonoBehaviour
         {
             //TODO: upozornenie ze uz nema naboje a mal by pustit zbran
         }
+
+        if(bulletCount == 0)
+        {
+            grabMechansm.ActionFinished();
+        }
     }
   
     void Update()
@@ -102,6 +110,8 @@ public class Shooter : MonoBehaviour
             playableObject.AfterFinishedAction();
             ControlShooting(true);
         }
+
+
     }
 
     public void ResetWeapon() {

@@ -24,6 +24,7 @@ TagManager:
   - ShootControl
   - EnemySoldier
   - EnemySoldierBody
+  - Controller
   layers:
   - Default
   - TransparentFX
