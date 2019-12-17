@@ -581,8 +581,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fancyAnimationTriggers:
   - Floss
-  chance: 15
-  delayAfterAnimation: 15
+  - Celebrate
+  chance: 50
+  delayAfterAnimation: 4
   delayWithoutAnimation: 5.3
 --- !u!1 &368670947
 GameObject:
@@ -1557,8 +1558,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fancyAnimationTriggers:
   - Floss
-  chance: 15
-  delayAfterAnimation: 15
+  - Celebrate
+  chance: 50
+  delayAfterAnimation: 4
   delayWithoutAnimation: 4.8
 --- !u!1 &385640896
 GameObject:
@@ -2257,8 +2259,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fancyAnimationTriggers:
   - Floss
-  chance: 15
-  delayAfterAnimation: 15
+  - Celebrate
+  chance: 50
+  delayAfterAnimation: 4
   delayWithoutAnimation: 4.9
 --- !u!1 &405168039
 GameObject:
@@ -3566,8 +3569,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fancyAnimationTriggers:
   - Floss
-  chance: 15
-  delayAfterAnimation: 15
+  - Celebrate
+  chance: 50
+  delayAfterAnimation: 4
   delayWithoutAnimation: 5.2
 --- !u!1 &552553794
 GameObject:
@@ -4475,8 +4479,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fancyAnimationTriggers:
   - Floss
-  chance: 15
-  delayAfterAnimation: 15
+  - Celebrate
+  chance: 50
+  delayAfterAnimation: 4
   delayWithoutAnimation: 5
 --- !u!1 &677897182
 GameObject:
@@ -5282,8 +5287,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fancyAnimationTriggers:
   - Floss
-  chance: 15
-  delayAfterAnimation: 15
+  - Celebrate
+  chance: 50
+  delayAfterAnimation: 4
   delayWithoutAnimation: 4.7
 --- !u!1 &878623335
 GameObject:
@@ -6299,8 +6305,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fancyAnimationTriggers:
   - Floss
-  chance: 15
-  delayAfterAnimation: 15
+  - Celebrate
+  chance: 50
+  delayAfterAnimation: 4
   delayWithoutAnimation: 5.1
 --- !u!1 &1796153722
 GameObject:

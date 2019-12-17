@@ -35,9 +35,11 @@ public class EnemyDataController : MonoBehaviour
     [SerializeField]
     private Transform enemyPlayground;
 
+    public GameObject[] soldierTypes;
+
     public void LoadData()
     {
-        string path = "Database/data";
+        string path = "Database/test_data";
 
         var textAsset = Resources.Load(path) as TextAsset;
         string json = textAsset.text;
@@ -49,17 +51,23 @@ public class EnemyDataController : MonoBehaviour
         int grid_id = Random.Range(0, level.grids.Length);
         Square[] square = level.grids[grid_id].square;
 
+        int enemySoldierCounter = 0;
+
         foreach (var obj in square)
         {
             if (obj.vojak != 0)
             {
-                var prefab = Resources.Load("VojakModel" + obj.vojak, typeof(GameObject)) as GameObject;
+                var prefab = Resources.Load(soldierTypes[obj.vojak].name, typeof(GameObject)) as GameObject;
                 GameObject soldier = GameManager.InstantateScaled(prefab, enemyPlayground);
                 soldier.transform.localPosition = new Vector3(obj.x, 0.05f, obj.z);
                 soldier.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 soldier.transform.localScale *= 5;
+                soldier.tag = "EnemySoldier";
+                soldier.GetComponent<HealthControl>().enabled = true;
                 soldier.GetComponent<PlacableObject>().setIsScaled(true);
+                enemySoldierCounter++;
             }
         }
+        GameManager.Instance.SetEnemySoldiersCount(enemySoldierCounter);
     }
 }
