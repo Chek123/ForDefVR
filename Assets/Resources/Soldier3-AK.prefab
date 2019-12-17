@@ -147,6 +147,11 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 6073255451942200224}
+    - target: {fileID: 6371775396528692641, guid: 198f440b22694f5448c34d634767ab44,
+        type: 3}
+      propertyPath: UsableItem
+      value: 
+      objectReference: {fileID: 6073255451942200224}
     - target: {fileID: 6371775396528692643, guid: 198f440b22694f5448c34d634767ab44,
         type: 3}
       propertyPath: m_Name
