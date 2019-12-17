@@ -4721,6 +4721,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1001327458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3185147864291899584, guid: 886882924b7893749adb02893d609f4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1812504748}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1001752936
 GameObject:
   m_ObjectHideFlags: 0
@@ -6767,8 +6773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vojakSpawnPocetnost: 2
   pocetnostCounter: {fileID: 1379761270}
-  lastVojakSpawned: {fileID: 3185147864291899584, guid: 886882924b7893749adb02893d609f4c,
-    type: 3}
+  lastVojakSpawned: {fileID: 1001327458}
   vojakPrefab: {fileID: 3185147864291899584, guid: 886882924b7893749adb02893d609f4c,
     type: 3}
   weaponController: {fileID: 1738844963}
