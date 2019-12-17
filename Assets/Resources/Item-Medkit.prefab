@@ -78,6 +78,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3654760287068885691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5589746891790736422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9a54e6b84b9e44eaa1dd1b191cabcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1629263944819008715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5589746891790736422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a67d997e78012b488dcd77fb44302cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healPower: 2
 --- !u!1001 &8905889344261453452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89,6 +114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Item-Medkit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894160136056613551, guid: 8e44ca547dbeb764b9645ef91005a90e,
+        type: 3}
+      propertyPath: holdButtonToGrab
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3894160136056613549, guid: 8e44ca547dbeb764b9645ef91005a90e,
         type: 3}
@@ -182,6 +212,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e44ca547dbeb764b9645ef91005a90e, type: 3}
+--- !u!1 &5589746891790736422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3894160136056613546, guid: 8e44ca547dbeb764b9645ef91005a90e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8905889344261453452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5589746891790736417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3894160136056613549, guid: 8e44ca547dbeb764b9645ef91005a90e,
