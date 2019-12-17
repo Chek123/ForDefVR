@@ -17,6 +17,9 @@ public class PlayableObject : MonoBehaviour
 
     public WeaponController weaponController;
 
+    [SerializeField]
+    private bool canBeChosenToPlay = true;
+
     private Vector3 originalItemPosition;
     private Quaternion originalItemRotation;
 
@@ -35,7 +38,7 @@ public class PlayableObject : MonoBehaviour
 
     private void ObjectChoosenToPlay(object sender, InteractableObjectEventArgs e)
     {
-        if (GameManager.Instance.gamemode == GameManager.GameMode.PLAYER_TURN)
+        if (GameManager.Instance.gamemode == GameManager.GameMode.PLAYER_TURN && canBeChosenToPlay)
         {
             Debug.Log("Player turn");
             GameManager.Instance.SetRolePlayMode();
