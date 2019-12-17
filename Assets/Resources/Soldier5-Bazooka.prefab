@@ -222,6 +222,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier5-Bazooka
       objectReference: {fileID: 0}
+    - target: {fileID: 8774563970777645616, guid: 198f440b22694f5448c34d634767ab44,
+        type: 3}
+      propertyPath: soldierAnimator
+      value: 
+      objectReference: {fileID: 8800418133569972919}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 198f440b22694f5448c34d634767ab44, type: 3}
 --- !u!4 &3185147864291899587 stripped
@@ -249,13 +254,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3185147864291899587}
     m_Modifications:
-    - target: {fileID: 100046, guid: 61cdb13a252efe04cb63dadc70745888, type: 3}
-      propertyPath: m_Name
-      value: Soldier5
-      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 61cdb13a252efe04cb63dadc70745888, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100046, guid: 61cdb13a252efe04cb63dadc70745888, type: 3}
+      propertyPath: m_Name
+      value: Soldier5
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 61cdb13a252efe04cb63dadc70745888, type: 3}
       propertyPath: m_LocalPosition.x
@@ -307,3 +312,9 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: dbee036939730d3448c01a2af02f8231, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61cdb13a252efe04cb63dadc70745888, type: 3}
+--- !u!95 &8800418133569972919 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: 61cdb13a252efe04cb63dadc70745888,
+    type: 3}
+  m_PrefabInstance: {fileID: 8800418133577359319}
+  m_PrefabAsset: {fileID: 0}

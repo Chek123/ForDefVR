@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 6371775396528692641}
   - component: {fileID: 1323612547496051902}
   - component: {fileID: 5522058930749478767}
+  - component: {fileID: 8774563970777645616}
   m_Layer: 8
   m_Name: SoldierParent
   m_TagString: Vojak
@@ -424,6 +425,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8fba6d85335b0648aa82c5f3b081af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8774563970777645616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371775396528692643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e1c43a089662a4d97eccda8895c8b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soldierAnimator: {fileID: 0}
+  fancyAnimationTriggers:
+  - Floss
+  - Celebrate
+  chance: 5
+  delayAfterAnimation: 30
+  delayWithoutAnimation: 10
 --- !u!1 &6371775396856631876
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,21 +526,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6371775396528692640}
     m_Modifications:
-    - target: {fileID: 3424729991071120440, guid: 8d3ab48a0c61d47479f0371b140e14a5,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 3424729991071120440, guid: 8d3ab48a0c61d47479f0371b140e14a5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3424729991071120440, guid: 8d3ab48a0c61d47479f0371b140e14a5,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 3424729991071120447, guid: 8d3ab48a0c61d47479f0371b140e14a5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -575,6 +580,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424729991071120440, guid: 8d3ab48a0c61d47479f0371b140e14a5,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424729991071120440, guid: 8d3ab48a0c61d47479f0371b140e14a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424729991071120440, guid: 8d3ab48a0c61d47479f0371b140e14a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3424729991050223181, guid: 8d3ab48a0c61d47479f0371b140e14a5,
         type: 3}

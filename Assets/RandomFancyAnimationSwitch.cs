@@ -8,9 +8,10 @@ using UnityEngine;
  *      Desynchronizacia Idle animacie
  *      Lepśi pocit z vojakov - su zivsi
  */
-[RequireComponent(typeof(Animator))]
 public class RandomFancyAnimationSwitch : MonoBehaviour
 {
+    [SerializeField]
+    private Animator soldierAnimator;
 
     [SerializeField]
     private List<string> fancyAnimationTriggers;
@@ -24,14 +25,8 @@ public class RandomFancyAnimationSwitch : MonoBehaviour
     [SerializeField]
     private float delayWithoutAnimation = 2;
 
-    private Animator anim;
-    private bool isRunning = false;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        anim = GetComponent<Animator>();
-    }
+    private bool isRunning = false;
 
     private void ResolveAnimation()
     {
@@ -47,7 +42,7 @@ public class RandomFancyAnimationSwitch : MonoBehaviour
             Debug.Log("StartFancyAnimation, delay " + delayAfterAnimation + " seconds");
 
             var state = Random.Range(0, fancyAnimationTriggers.Count);
-            anim.SetTrigger(fancyAnimationTriggers[state]);
+            soldierAnimator.SetTrigger(fancyAnimationTriggers[state]);
 
             Invoke("ResolveAnimation", delayAfterAnimation);
 
