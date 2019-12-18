@@ -42,24 +42,26 @@ public class Enemy : MonoBehaviour
                     weapon.LookAt(player.transform);
                     var shooter = weapon.GetComponent<Shooter>();
                     
-                    if (!shooter.TeamHit())   // enemy soldier didnt hit teammate. Valuable player :)      
+                    if (!shooter.TeamHit())   // enemy soldier didnt hit teammate. Valuable soldier :)      
                     {
 
-                        // Atribute 1: test raycast shoot to each player soldier
-                        // if any player is hit, effectiveness is based on (maxSoldierHP (per game) - current HP of hit soldier) multiplied by factor 2
+                        // Atribute 1: find out possible damage of hit player.
+                        // Effectiveness is based on possible player damage multiplied by factor 2.2
 
-                        var HP = player.GetComponent<HealthControl>().health;    
-                        double efficiency = (GameManager.Instance.GetMaxSoldierHP() - HP) * 2;   
+                        double efficiency = player.GetComponent<Shooter>().GetWeaponDamage() * 2.2;
 
-                        // Atribute 2: find out hp of current enemy soldier
-                        // Effectiveneess is based on (maxSoldierHP (per game) - current HP of enemy soldier) multiplied by factor 1.5
+                        // Atribute 2: find out current hp of player soldier
+                        // Effectiveneess is based on (maxSoldierHP (per game) - current HP of player soldier) multiplied by factor 1.7
 
-                        HP = enemy.GetComponent<HealthControl>().health;                    //TODO: do get function (during health bar refactor)
-                        efficiency += (GameManager.Instance.GetMaxSoldierHP() - HP) * 1.5;
+                        var HP = player.GetComponent<HealthControl>().health;                //TODO: do get function (during health bar refactor)
+                        efficiency += (GameManager.Instance.GetMaxSoldierHP() - HP) * 1.7;
 
+                        // Atribute 3: find out damage of current enemy soldier
+                        // Effectiveness is based on enemy damage multiplied by factor 1.3
+                        efficiency += weapon.GetComponent<Shooter>().GetWeaponDamage() * 1.3;
 
-                        // Atribute 3: find out weapon damage of current enemy soldier
-                        // Damage of weapon is added to current efficiency 
+                        // Atribute 4: find out current hp of enemy soldier
+                        // Effectiveneess is based on (maxSoldierHP (per game) - current HP of enemy soldier) multiplied by factor 1
                         efficiency += weapon.GetComponent<Shooter>().GetWeaponDamage();
 
                         // Store <EnemySoldier, PlayerSoldier, efficiency> interaction
