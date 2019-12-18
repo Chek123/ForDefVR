@@ -74,7 +74,10 @@ public class EnemyDataController : MonoBehaviour
                 }
             }
         }
+        // global settings
         GameManager.Instance.SetMaxSoldierHP(maxSoldierHP);
+        GameManager.Instance.SetStartEnemySoldiersCount(enemySoldierCounter);
+
         GameManager.Instance.SetEnemySoldiersCount(enemySoldierCounter);
     }
 }

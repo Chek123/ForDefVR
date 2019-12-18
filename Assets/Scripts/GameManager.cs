@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     private int playerSoldiersCount;
     private int enemySoldiersCount;
+    private int startEnemySoldiersCount;
     private int maxSoldierHP;
     private int currentLevel = 1;
 
@@ -162,6 +163,11 @@ public class GameManager : MonoBehaviour
         maxSoldierHP = newValue;
     }
 
+    public void SetStartEnemySoldiersCount(int newValue)
+    {
+        startEnemySoldiersCount = newValue;
+    }
+
     public int GetPlayerSoldiersCount()
     {
         return playerSoldiersCount;
@@ -175,6 +181,11 @@ public class GameManager : MonoBehaviour
     public int GetMaxSoldierHP()
     {
         return maxSoldierHP;
+    }
+
+    public int GetStartEnemySoldiersCount()
+    {
+        return startEnemySoldiersCount;
     }
 
     // Start is called before the first frame update

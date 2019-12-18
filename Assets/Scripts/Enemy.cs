@@ -48,7 +48,12 @@ public class Enemy : MonoBehaviour
                         // Atribute 1: find out possible damage of hit player.
                         // Effectiveness is based on possible player damage multiplied by factor 2.2
 
-                        double efficiency = player.GetComponent<Shooter>().GetWeaponDamage() * 2.2;
+                        var playerWeapon = player.transform.Find("Weapon");
+                        double efficiency = 0;
+                        if (playerWeapon)
+                        {
+                            efficiency += playerWeapon.GetComponent<Shooter>().GetWeaponDamage() * 2.2;
+                        }
 
                         // Atribute 2: find out current hp of player soldier
                         // Effectiveneess is based on (maxSoldierHP (per game) - current HP of player soldier) multiplied by factor 1.7
@@ -70,6 +75,14 @@ public class Enemy : MonoBehaviour
                     weapon.rotation = weaponRotation;       //set weapon rotation to old state
                 }
             }
+            else   //effectiveness of medics are counted by different strategy
+            {
+                var medkit = enemy.transform.Find("Item-Medkit");
+                if (medkit)
+                {
+
+                }
+            }
         }
 
         if (shootInteractions.Count == 0)   //team hit
@@ -79,8 +92,13 @@ public class Enemy : MonoBehaviour
         else
         {
             shootInteractions.Sort((a, b) => a.efficiency.CompareTo(b.efficiency));  // sort interaction ascending based on efficiency 
-            var random_interaction = UnityEngine.Random.Range(0, Math.Min(2, shootInteractions.Count));
-            return shootInteractions[random_interaction];
+
+            // final enemy-player interaction will be chosen from best efficiencies randomly. How many interactions should be considered
+            // is based on number of enemy soldiers in current level.
+
+           int randomRange = (int)Math.Round(GameManager.Instance.GetStartEnemySoldiersCount() / 4.5);
+           var random_interaction = UnityEngine.Random.Range(0, Math.Min(randomRange, shootInteractions.Count));
+           return shootInteractions[random_interaction];
         }
     }
 
