@@ -111,6 +111,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1139292476165719949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520945976424958300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead843138c846c641a77bac2aab39a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootPoint: {fileID: 3400878549170515630}
+  bulletCount: 1
+  meshRenderer: {fileID: 4589802941492166945}
+  disabledColor: {fileID: 2100000, guid: 82b7ac99985e797469000ed12ec965b4, type: 2}
+  shotParticles: {fileID: 4650677046901742043}
+  shotTrajectileAnimator: {fileID: 2667228108967990568}
+  damage: 3
+--- !u!114 &6255015675517795887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520945976424958300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b79f9b51d8030454d97bfbf6c8de2186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3400878549170515630
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +184,7 @@ GameObject:
   - component: {fileID: 4589802941493167073}
   - component: {fileID: 4589802941492166945}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,6 +322,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e44ca547dbeb764b9645ef91005a90e, type: 3}
+--- !u!1 &2520945976424958300 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3894160136056613546, guid: 8e44ca547dbeb764b9645ef91005a90e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1510646516260709366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2520945976424958299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3894160136056613549, guid: 8e44ca547dbeb764b9645ef91005a90e,
@@ -418,3 +455,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b4cc2728d8cec499fad63ba93785a4, type: 3}
+--- !u!198 &4650677046901742043 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19800004, guid: 30b4cc2728d8cec499fad63ba93785a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4650677046883255839}
+  m_PrefabAsset: {fileID: 0}
