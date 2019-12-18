@@ -7,7 +7,7 @@ class ShootInteraction
 {
     public GameObject enemySoldier { get; set; }
     public GameObject playerSoldier { get; set; }
-    public int efficiency { get; set; }
+    public double efficiency { get; set; }
 }
 
 public class Enemy : MonoBehaviour
@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
         Invoke("DoEnemyTurn", 5.0f);
     }
 
-    private GameObject CountTurnEffectiveness()
+    private ShootInteraction CountTurnEffectiveness()
     {
         var enemySoldiers = GameObject.FindGameObjectsWithTag("EnemySoldier");
         var playerSoldiers = GameObject.FindGameObjectsWithTag("Vojak");
@@ -49,46 +49,50 @@ public class Enemy : MonoBehaviour
 
         }
 
-        // DEBUG
-        foreach(var interaction in shootInteractions)
-        {
-            Debug.Log(interaction.enemySoldier + "," + interaction.playerSoldier + "," + interaction.efficiency);
-        }
-
         //2. step 
         // Get HP of each enemy soldier and calculate efficient parameter.
 
         foreach (var interaction in shootInteractions)
         {
-            //var enemy = interaction.Item1.GetComponent<HealthControl>().health;  //do get function
+            var enemyHP = interaction.enemySoldier.GetComponent<HealthControl>().health;  //do get function
+            var new_efficiency = (GameManager.Instance.GetMaxSoldierHP() - enemyHP) * 1.5;
+            interaction.efficiency += new_efficiency; 
+        }
 
+        //3. step
+        //get weapon power of enemy soldier
+
+        foreach (var interaction in shootInteractions)
+        {
+            var enemy = interaction.enemySoldier;
+            var weapon = enemy.transform.Find("Weapon");  //tu uz musia mat weapon, inak by to nepreslo stepom 1.
+            var weaponDamage = weapon.GetComponent<Shooter>().GetWeaponDamage();
+            interaction.efficiency += weaponDamage;
+        }
+
+        // sort all results
+        shootInteractions.Sort((a, b) => a.efficiency.CompareTo(b.efficiency));
+
+        foreach (var interaction in shootInteractions)
+        {
+            Debug.Log(interaction.enemySoldier + "," + interaction.playerSoldier + "," + interaction.efficiency);
         }
 
 
-        //Debug.Log(shootInteractions);
-
-
-        int soldier_id = UnityEngine.Random.Range(0, enemySoldiers.Length);
-        return enemySoldiers[soldier_id];
+        //random z prvych 3 vysledkov
+        var random_interaction = UnityEngine.Random.Range(0, 2);
+        return shootInteractions[random_interaction];
     }
 
     private void DoEnemyTurn()
     {
         Debug.Log("Its enemy turn :)");
 
-        //Random choose enemy soldier and target
-        //TODO: More intelligent solution
-
-        var enemy = CountTurnEffectiveness();
-
-        var playerSoldiers = GameObject.FindGameObjectsWithTag("Vojak");
-        int soldier_id = UnityEngine.Random.Range(0, playerSoldiers.Length);
-        var player = playerSoldiers[soldier_id];
-
+        var interaction = CountTurnEffectiveness();
+        var enemy = interaction.enemySoldier;
+        var player = interaction.playerSoldier;
 
         // Find weapon of chosen enemy soldier
-
-
         var weapon = enemy.transform.Find("Weapon");
         if (weapon)
         {

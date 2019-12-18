@@ -140,4 +140,9 @@ public class Shooter : MonoBehaviour
             meshRenderer.materials = value ? materialsOriginal : materialsDisabled;
         }
     }
+
+    public int GetWeaponDamage()
+    {
+        return damage;
+    }
 }
