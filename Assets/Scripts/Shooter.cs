@@ -27,6 +27,8 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private int damage;
 
+    [SerializeField]
+    private bool raycastShoot;
 
     private PlayableObject playableObject;
 
@@ -44,7 +46,7 @@ public class Shooter : MonoBehaviour
     void Start()
     {
         shotParticles.Stop();
-        GetComponent<VRTK_InteractableObject>().InteractableObjectUsed += (object sender, InteractableObjectEventArgs e) => { Shoot(); };
+        GetComponent<VRTK_InteractableObject>().InteractableObjectUsed += (object sender, InteractableObjectEventArgs e) => { Shoot(raycastShoot); };
 
         GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += ObjectUngrabbed;
         originalBulletCount = bulletCount;
@@ -63,7 +65,7 @@ public class Shooter : MonoBehaviour
         playableObject = GetComponentInParent<PlayableObject>();
     }
 
-    public void Shoot()
+    public void Shoot(bool raycastShoot)
     {
         if (bulletCount > 0 && shootingEnabled)
         {
@@ -71,17 +73,25 @@ public class Shooter : MonoBehaviour
 
             shotTrajectileAnimator.Play("Trajectile");
 
-            RaycastHit hit;
-
-            if (Physics.Raycast(shootPoint.transform.position, shootPoint.transform.forward, out hit, 100, layerMask))
+            if (raycastShoot)
             {
-                HealthControl healthControl = hit.transform.GetComponent<HealthControl>();
-                if (healthControl != null)
+                RaycastHit hit;
+
+                if (Physics.Raycast(shootPoint.transform.position, shootPoint.transform.forward, out hit, 100, layerMask))
                 {
-                    healthControl.TakeDamage(damage);
+                    HealthControl healthControl = hit.transform.GetComponent<HealthControl>();
+                    if (healthControl != null)
+                    {
+                        healthControl.TakeDamage(damage);
+                    }
+                    bulletCount--;
                 }
+
             }
-            bulletCount--;
+            else   //not raycast shoot
+            {
+                Debug.Log(this);
+            }
         }
         else
         {
