@@ -882,6 +882,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier1-Sniper
       objectReference: {fileID: 0}
+    - target: {fileID: 1323612547496051902, guid: 198f440b22694f5448c34d634767ab44,
+        type: 3}
+      propertyPath: health
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6371775396528692640, guid: 198f440b22694f5448c34d634767ab44,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -70,9 +70,9 @@ public class EnemyDataController : MonoBehaviour
 
                 soldier.GetComponent<RandomFancyAnimationSwitch>().soldierAnimator.SetBool("Static", false);
 
-                if (soldier.GetComponent<HealthControl>().health > maxSoldierHP)  //TODO: GetFunction on Health.
+                if (soldier.GetComponent<HealthControl>().GetHealth() > maxSoldierHP)
                 {
-                    maxSoldierHP = soldier.GetComponent<HealthControl>().health;
+                    maxSoldierHP = soldier.GetComponent<HealthControl>().GetHealth();
                 }
             }
         }

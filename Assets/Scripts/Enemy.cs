@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
                         // Atribute 2: find out current hp of player soldier
                         // Effectiveneess is based on (maxSoldierHP (per game) - current HP of player soldier) multiplied by factor 1.7
 
-                        var HP = player.GetComponent<HealthControl>().health;                //TODO: do get function (during health bar refactor)
+                        var HP = player.GetComponent<HealthControl>().GetHealth();
                         efficiency += (GameManager.Instance.GetMaxSoldierHP() - HP) * 1.7;
 
                         // Atribute 3: find out damage of current enemy soldier
