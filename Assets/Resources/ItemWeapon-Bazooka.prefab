@@ -28,9 +28,10 @@ Transform:
   m_LocalRotation: {x: -0.6986299, y: -0.109162554, z: -0.109162554, w: 0.69862974}
   m_LocalPosition: {x: 0.00056990987, y: -0.0018843412, z: -0.040829863}
   m_LocalScale: {x: 0.82733643, y: 1.2214347, z: 0.7974688}
-  m_Children: []
+  m_Children:
+  - {fileID: 7028481486656568616}
   m_Father: {fileID: 1409049825085216370}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &849894045375816233
 MeshFilter:
@@ -95,8 +96,9 @@ MonoBehaviour:
   meshRenderer: {fileID: 849894045374816489}
   disabledColor: {fileID: 2100000, guid: 82b7ac99985e797469000ed12ec965b4, type: 2}
   shotParticles: {fileID: 2422140530862562818}
-  shotTrajectileAnimator: {fileID: 5640532553245267410}
+  shotTrajectileAnimator: {fileID: 0}
   damage: 5
+  raycastShoot: 0
 --- !u!114 &5767644090596588210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +153,6 @@ GameObject:
   - component: {fileID: 7028481486657862922}
   - component: {fileID: 7028481486658994122}
   - component: {fileID: 7405218497300350365}
-  - component: {fileID: 5640532553245267410}
   m_Layer: 0
   m_Name: Trajectile
   m_TagString: Untagged
@@ -166,12 +167,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7028481486656725256}
-  m_LocalRotation: {x: 0.000000029802315, y: -0, z: -0.15437914, w: 0.98801166}
-  m_LocalPosition: {x: 0, y: 0.002, z: 0.441}
-  m_LocalScale: {x: 0.6, y: 0.75, z: 0.4}
+  m_LocalRotation: {x: 0.673402, y: 0.21570773, z: 0.000000014901158, w: 0.70710665}
+  m_LocalPosition: {x: 0.187, y: -0.396, z: 0.005}
+  m_LocalScale: {x: 0.7079979, y: 0.9347834, z: 0.3420009}
   m_Children: []
-  m_Father: {fileID: 1409049825085216370}
-  m_RootOrder: 5
+  m_Father: {fileID: 849894045377110537}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7028481486657862922
 MeshFilter:
@@ -227,29 +228,10 @@ BoxCollider:
   m_GameObject: {fileID: 7028481486656725256}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.096977666, y: 0.07139665, z: 0.49975383}
   m_Center: {x: -0.0022576114, y: 0.0066324784, z: -0.0751921}
---- !u!95 &5640532553245267410
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7028481486656725256}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a1f0e91368785904eb53faac56b0cf67, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2422140530877891010
 PrefabInstance:
   m_ObjectHideFlags: 0

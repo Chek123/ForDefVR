@@ -35,6 +35,7 @@ public class Shooter : MonoBehaviour
     private bool shootingEnabled = true;
     private Material[] materialsOriginal;
     private Material[] materialsDisabled;
+    private Rigidbody rb;
 
     private int originalBulletCount;
 
@@ -71,10 +72,9 @@ public class Shooter : MonoBehaviour
         {
             shotParticles.Play();
 
-            shotTrajectileAnimator.Play("Trajectile");
-
             if (raycastShoot)
             {
+                shotTrajectileAnimator.Play("Trajectile");
                 RaycastHit hit;
 
                 if (Physics.Raycast(shootPoint.transform.position, shootPoint.transform.forward, out hit, 100, layerMask))
@@ -84,14 +84,18 @@ public class Shooter : MonoBehaviour
                     {
                         healthControl.TakeDamage(damage);
                     }
-                    bulletCount--;
                 }
 
             }
             else   //not raycast shoot
             {
-                Debug.Log(this);
+                var trajectile = GameObject.Find("Trajectile");
+                var bullet = GameManager.InstantateScaled(trajectile, shootPoint.transform.position, shootPoint.transform.rotation);
+                rb = gameObject.AddComponent<Rigidbody>();
+                bullet.GetComponent<Rigidbody>().velocity += transform.forward * 5;
+
             }
+            bulletCount--;
         }
         else
         {
