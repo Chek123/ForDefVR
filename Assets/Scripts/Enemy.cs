@@ -3,6 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+class ShootInteraction
+{
+    public GameObject enemySoldier { get; set; }
+    public GameObject playerSoldier { get; set; }
+    public int efficiency { get; set; }
+}
+
 public class Enemy : MonoBehaviour
 {
     public void EnemyController()
@@ -15,11 +22,7 @@ public class Enemy : MonoBehaviour
         var enemySoldiers = GameObject.FindGameObjectsWithTag("EnemySoldier");
         var playerSoldiers = GameObject.FindGameObjectsWithTag("Vojak");
 
-        List<Tuple<GameObject, GameObject, int>> shootInteractions = new List<Tuple<GameObject, GameObject, int>>();
-        //EnemySoldier object, PlayerSoldier object, effectiveness integer
-
-        Debug.Log("Max Soldier HP");
-        Debug.Log(GameManager.Instance.GetMaxSoldierHP());
+        List<ShootInteraction> shootInteractions = new List<ShootInteraction>();
 
         // 1. step
         // Every enemy soldier (with weapon) tries to shoot on every player soldier.
@@ -37,7 +40,8 @@ public class Enemy : MonoBehaviour
                     { 
                         var hitHP = player.GetComponent<HealthControl>().health;
                         var efficiency = (GameManager.Instance.GetMaxSoldierHP() - hitHP) * 2;
-                        shootInteractions.Add(new Tuple<GameObject, GameObject, int>(enemy, player, efficiency));
+                        //shootInteractions.Add(new Tuple<GameObject, GameObject, int>(enemy, player, efficiency));
+                        shootInteractions.Add(new ShootInteraction { enemySoldier = enemy, playerSoldier = player, efficiency = efficiency});
                     }
                     weapon.rotation = weaponRotation;   //set weapon rotation to old state
                 }
@@ -48,11 +52,20 @@ public class Enemy : MonoBehaviour
         // DEBUG
         foreach(var interaction in shootInteractions)
         {
-            Debug.Log(interaction.Item1 + "," + interaction.Item2 + "," + interaction.Item3);
+            Debug.Log(interaction.enemySoldier + "," + interaction.playerSoldier + "," + interaction.efficiency);
+        }
+
+        //2. step 
+        // Get HP of each enemy soldier and calculate efficient parameter.
+
+        foreach (var interaction in shootInteractions)
+        {
+            //var enemy = interaction.Item1.GetComponent<HealthControl>().health;  //do get function
+
         }
 
 
-        Debug.Log(shootInteractions);
+        //Debug.Log(shootInteractions);
 
 
         int soldier_id = UnityEngine.Random.Range(0, enemySoldiers.Length);
