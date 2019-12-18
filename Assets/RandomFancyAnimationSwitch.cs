@@ -35,11 +35,9 @@ public class RandomFancyAnimationSwitch : MonoBehaviour
             isRunning = false;
             return;
         }
-        Debug.Log("ResolveAnimation");
 
         if (Random.Range(0, 100) < chance)
         {
-            Debug.Log("StartFancyAnimation, delay " + delayAfterAnimation + " seconds");
 
             var state = Random.Range(0, fancyAnimationTriggers.Count);
             soldierAnimator.SetTrigger(fancyAnimationTriggers[state]);

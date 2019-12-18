@@ -93,6 +93,23 @@ public class Shooter : MonoBehaviour
             grabMechansm.ActionFinished();
         }
     }
+
+    public bool TeamHit()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(shootPoint.transform.position, shootPoint.transform.forward, out hit, 100, layerMask))
+        {
+            if (hit.transform.tag == "EnemySoldier")    //team hit
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;   //im not sure
+    }
   
     void Update()
     {
@@ -122,5 +139,10 @@ public class Shooter : MonoBehaviour
             shootingEnabled = value;
             meshRenderer.materials = value ? materialsOriginal : materialsDisabled;
         }
+    }
+
+    public int GetWeaponDamage()
+    {
+        return damage;
     }
 }
