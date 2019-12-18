@@ -51,7 +51,11 @@ public class GameManager : MonoBehaviour
         //DestroyPolickaObjects();
         HidePolickaObjects();
 
-        foreach (var go in GameObject.FindGameObjectsWithTag("Vojak"))
+        GameObject[] soldiers = GameObject.FindGameObjectsWithTag("Vojak");
+
+        CheckSoldiers(soldiers);
+
+        foreach (var go in soldiers)
         {
             Debug.Log("Changing object: " + go.name);
             Debug.Log(go.GetComponent<PlacableObject>().getIsScaled());
@@ -69,6 +73,40 @@ public class GameManager : MonoBehaviour
 
             playerSoldiersCount++;
         }
+    }
+
+    private bool CheckSoldiers(GameObject[] soldiers)
+    {
+        bool noSoldiersPlaced = true;
+        bool soldiersRemaining = false;
+        
+        foreach(var soldier in soldiers)
+        {
+            PlacableObject placableObject = soldier.GetComponent<PlacableObject>();
+            if (!placableObject.getIsScaled())
+            {
+                if (!placableObject.GetIsInSpawningArea())
+                {
+                    placableObject.WrongPlacement();
+                }
+                soldiersRemaining = true;
+            }
+            else {
+                noSoldiersPlaced = false;
+            }
+        }
+
+        if (noSoldiersPlaced)
+        {
+            Debug.Log("No soldiers placed");
+        }
+        else if (soldiersRemaining)
+        {
+            Debug.Log("Some soldiers remaining");
+        }
+
+
+        return true;
     }
 
     public void SetPlayerTurnMode()

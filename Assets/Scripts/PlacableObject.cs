@@ -12,6 +12,7 @@ public class PlacableObject : MonoBehaviour
     private bool isScaled = false;
     private bool wasDestroyed = false;
     private bool enteredSpawningArea = false;
+    private bool isInSpawningArea = true;
 
    //private Transform lastCollisionObj;
 
@@ -42,6 +43,17 @@ public class PlacableObject : MonoBehaviour
     public void setIsScaled(bool isScaled)
     {
         this.isScaled = isScaled;
+    }
+
+    public bool GetIsInSpawningArea()
+    {
+        return this.isInSpawningArea;
+    }
+
+    public void WrongPlacement()
+    {
+        spawning.onWrongPlacement(gameObject);
+        Destroy(this.gameObject);
     }
 
     private void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
@@ -96,6 +108,7 @@ public class PlacableObject : MonoBehaviour
         if (other.gameObject.tag == "Spawning")
         {
             enteredSpawningArea = true;
+            isInSpawningArea = true;
         }
     }
 
@@ -104,6 +117,7 @@ public class PlacableObject : MonoBehaviour
         if (other.gameObject == spawning.gameObject)
         {
             enteredSpawningArea = false;
+            isInSpawningArea = false;
         }
     }
 
