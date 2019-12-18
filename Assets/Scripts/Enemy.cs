@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public class Enemy : MonoBehaviour
         var enemySoldiers = GameObject.FindGameObjectsWithTag("EnemySoldier");
         var playerSoldiers = GameObject.FindGameObjectsWithTag("Vojak");
 
-        List<GameObject, GameObject, int> shootInteraction = new List<GameObject, GameObject, int>();
+        List<Tuple<GameObject, GameObject, int>> shootInteractions = new List<Tuple<GameObject, GameObject, int>>();
         //EnemySoldier object, PlayerSoldier object, effectiveness integer
 
         Debug.Log("Max Soldier HP");
@@ -24,7 +25,6 @@ public class Enemy : MonoBehaviour
         // Every enemy soldier (with weapon) tries to shoot on every player soldier.
         foreach (var enemy in enemySoldiers)
         {
-            var teamHit = 0;
             var weapon = enemy.transform.Find("Weapon");
             if (weapon)
             {
@@ -32,27 +32,30 @@ public class Enemy : MonoBehaviour
                     var weaponRotation = weapon.rotation;  //store old weapon rotation
                     weapon.LookAt(player.transform);
                     var shooter = weapon.GetComponent<Shooter>();
-                    if (shooter.TestShoot())   
-                    {
-                        teamHit++;
+
+                    if (!shooter.TestShoot())
+                    { 
+                        var hitHP = player.GetComponent<HealthControl>().health;
+                        var efficiency = (GameManager.Instance.GetMaxSoldierHP() - hitHP) * 2;
+                        shootInteractions.Add(new Tuple<GameObject, GameObject, int>(enemy, player, efficiency));
                     }
                     weapon.rotation = weaponRotation;   //set weapon rotation to old state
                 }
             }
-            Debug.Log("Player on position");
-            Debug.Log(enemy.transform.localPosition);
-            Debug.Log("Team hits");
-            Debug.Log(teamHit);
-            if (teamHit == playerSoldiers.Length)
-            {
-                // every shot was team hit. This soldier cannot make a move
-                //shootInteraction.Add(0);
-            }
 
         }
 
+        // DEBUG
+        foreach(var interaction in shootInteractions)
+        {
+            Debug.Log(interaction.Item1 + "," + interaction.Item2 + "," + interaction.Item3);
+        }
 
-        int soldier_id = Random.Range(0, enemySoldiers.Length);
+
+        Debug.Log(shootInteractions);
+
+
+        int soldier_id = UnityEngine.Random.Range(0, enemySoldiers.Length);
         return enemySoldiers[soldier_id];
     }
 
@@ -66,7 +69,7 @@ public class Enemy : MonoBehaviour
         var enemy = CountTurnEffectiveness();
 
         var playerSoldiers = GameObject.FindGameObjectsWithTag("Vojak");
-        int soldier_id = Random.Range(0, playerSoldiers.Length);
+        int soldier_id = UnityEngine.Random.Range(0, playerSoldiers.Length);
         var player = playerSoldiers[soldier_id];
 
 
@@ -85,9 +88,5 @@ public class Enemy : MonoBehaviour
             Debug.LogError("Unable to find childred with name Weapon");
         }
         GameManager.Instance.SetPlayerTurnMode();
-    }
-
-    private class List<T1, T2, T3>
-    {
     }
 }
