@@ -99,9 +99,11 @@ public class Enemy : MonoBehaviour
             weapon.LookAt(player.transform);
             var shooter = weapon.GetComponent<Shooter>();
             shooter.Shoot();
+            shooter.ResetWeapon();
         }
         else
         {
+            Debug.Log("Medic turn?");
             // ITS MEDIC TURN
             //TODO: Add behaviour for medic here.
         }
