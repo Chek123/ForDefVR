@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 class ShootInteraction
@@ -8,11 +9,6 @@ class ShootInteraction
     public GameObject enemySoldier { get; set; }
     public GameObject playerSoldier { get; set; }
     public double efficiency { get; set; }
-
-    public void IsEmpty()
-    {
-
-    }
 }
 
 public class Enemy : MonoBehaviour
@@ -26,20 +22,27 @@ public class Enemy : MonoBehaviour
     {
         var enemySoldiers = GameObject.FindGameObjectsWithTag("EnemySoldier");
         var playerSoldiers = GameObject.FindGameObjectsWithTag("Vojak");
+        ShootInteraction randomInteraction = null;
 
         List<ShootInteraction> shootInteractions = new List<ShootInteraction>();
 
         foreach (var enemy in enemySoldiers)
         {
             var weapon = enemy.transform.Find("Weapon");
-            if (weapon)                                     //Baits and medics dont pass this condition => no chance to choose them.
-            {
+            if (weapon)                                     //baits and medics dont pass this condition => no chance to choose them.
+            {                                                                                          
                 foreach (var player in playerSoldiers) {
+                    if (randomInteraction == null)
+                    {
+                        //just in case if noone can shoot player. This enemy soldier will be chosen and hit his own teammate :) What an idiot lol!
+                        randomInteraction = new ShootInteraction { enemySoldier = enemy, playerSoldier = player, efficiency = 0 };
+                    }
+              
                     var weaponRotation = weapon.rotation;   //store old weapon rotation
                     weapon.LookAt(player.transform);
                     var shooter = weapon.GetComponent<Shooter>();
                     
-                    if (!shooter.TeamHit())               
+                    if (!shooter.TeamHit())   // enemy soldier didnt hit teammate. Valuable player :)      
                     {
 
                         // Atribute 1: test raycast shoot to each player soldier
@@ -67,18 +70,22 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        // Sort interaction ascending based on efficiency 
-        shootInteractions.Sort((a, b) => a.efficiency.CompareTo(b.efficiency));
-
         // Just debug print
         foreach (var interaction in shootInteractions)
         {
             Debug.Log(interaction.enemySoldier + "," + interaction.playerSoldier + "," + interaction.efficiency);
         }
 
-        // Choose random interaction from first 2 results
-        var random_interaction = UnityEngine.Random.Range(0, 1);
-        return shootInteractions[random_interaction];
+        if (shootInteractions.Count == 0)   //team hit
+        {
+            return randomInteraction;
+        }
+        else
+        {
+            shootInteractions.Sort((a, b) => a.efficiency.CompareTo(b.efficiency));  // sort interaction ascending based on efficiency 
+            var random_interaction = UnityEngine.Random.Range(0, Math.Min(2, shootInteractions.Count));
+            return shootInteractions[random_interaction];
+        }
     }
 
     private void DoEnemyTurn()
@@ -92,10 +99,18 @@ public class Enemy : MonoBehaviour
 
         // Find weapon of chosen enemy soldier
         var weapon = enemy.transform.Find("Weapon");
-        weapon.localPosition = new Vector3(-0.3f, 0.5f, 0);  // Set weapon little bit higher - TODO: animation. 
-        weapon.LookAt(player.transform);
-        var shooter = weapon.GetComponent<Shooter>();
-        shooter.Shoot();
+        if (weapon)
+        {
+            weapon.localPosition = new Vector3(-0.3f, 0.5f, 0);  // Set weapon little bit higher - TODO: animation. 
+            weapon.LookAt(player.transform);
+            var shooter = weapon.GetComponent<Shooter>();
+            shooter.Shoot();
+        }
+        else
+        {
+            // ITS MEDIC TURN
+            //TODO: Add behaviour for medic here.
+        }
         GameManager.Instance.SetPlayerTurnMode();
     }
 }
