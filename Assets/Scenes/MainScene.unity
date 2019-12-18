@@ -2136,6 +2136,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1812504748}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &772523487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4525199571279501636, guid: 9a1fe57a2a2aac54f97ca507e921d6c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4525199571070100613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &791551870
 GameObject:
   m_ObjectHideFlags: 0
@@ -4044,6 +4050,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &991783130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5330836217330480340, guid: 9a1fe57a2a2aac54f97ca507e921d6c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4525199571070100613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1001327458 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3185147864291899584, guid: 886882924b7893749adb02893d609f4c,
@@ -4226,6 +4238,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupyingObject: {fileID: 0}
+--- !u!1 &1081196236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7195178243590644082, guid: 9a1fe57a2a2aac54f97ca507e921d6c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4525199571070100613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1083909557 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3914079753077399964, guid: 6f6cb80650558334098a011690689150,
@@ -5535,6 +5553,10 @@ MonoBehaviour:
   gamemode: 0
   wall: {fileID: 1915168}
   sceneObjects: {fileID: 1375112422}
+  standardMenu: {fileID: 772523487}
+  noSoldiersPlacedMenu: {fileID: 991783130}
+  someSoldiersLeftMenu: {fileID: 1081196236}
+  polickoGridSize: 25
 --- !u!4 &1671262551
 Transform:
   m_ObjectHideFlags: 0
@@ -6909,6 +6931,46 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1671262550}
+    - target: {fileID: 6493519524428850782, guid: 9a1fe57a2a2aac54f97ca507e921d6c9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1671262550}
+    - target: {fileID: 6493519524428850782, guid: 9a1fe57a2a2aac54f97ca507e921d6c9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297728711713666028, guid: 9a1fe57a2a2aac54f97ca507e921d6c9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524160780938653024, guid: 9a1fe57a2a2aac54f97ca507e921d6c9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4166124817989933369, guid: 9a1fe57a2a2aac54f97ca507e921d6c9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536156800867228302, guid: 9a1fe57a2a2aac54f97ca507e921d6c9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3737295895543779463, guid: 9a1fe57a2a2aac54f97ca507e921d6c9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1671262550}
+    - target: {fileID: 3737295895543779463, guid: 9a1fe57a2a2aac54f97ca507e921d6c9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartLevel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a1fe57a2a2aac54f97ca507e921d6c9, type: 3}
 --- !u!1001 &6239762510764988954
