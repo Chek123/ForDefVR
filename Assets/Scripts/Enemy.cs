@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
 {
     public void EnemyController()
     {
-        Invoke("DoEnemyTurn", 5.0f);
+        Invoke("DoEnemyTurn", 2.0f);
     }
 
     private ShootInteraction CountTurnEffectiveness()
@@ -68,12 +68,6 @@ public class Enemy : MonoBehaviour
                     weapon.rotation = weaponRotation;       //set weapon rotation to old state
                 }
             }
-        }
-
-        // Just debug print
-        foreach (var interaction in shootInteractions)
-        {
-            Debug.Log(interaction.enemySoldier + "," + interaction.playerSoldier + "," + interaction.efficiency);
         }
 
         if (shootInteractions.Count == 0)   //team hit
