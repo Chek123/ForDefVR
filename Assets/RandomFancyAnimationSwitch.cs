@@ -56,7 +56,7 @@ public class RandomFancyAnimationSwitch : MonoBehaviour
     {
         if (!isRunning)
         {
-            ResolveAnimation();
+            Invoke("ResolveAnimation",((float)Random.Range(0, delayWithoutAnimation*1000))/1000);
             isRunning = true;
         }
     }

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private int enemySoldiersCount;
     private int startEnemySoldiersCount;
     private int maxSoldierHP;
-    private int currentLevel = 1;
+    private static int currentLevel = 1;
 
     private static GameManager instance = null;
 
@@ -29,6 +29,12 @@ public class GameManager : MonoBehaviour
             }
             return instance;
         }
+    }
+
+    public static void Reset(int level)
+    {
+        instance = null;
+        currentLevel = level;
     }
 
     public enum GameMode

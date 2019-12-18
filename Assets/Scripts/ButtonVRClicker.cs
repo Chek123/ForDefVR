@@ -27,22 +27,34 @@ public class ButtonVRClicker : MonoBehaviour {
 
     private void ObjectUsed(object sender, InteractableObjectEventArgs e)
     {
-        button.image.color = button.colors.pressedColor;
+        if (button.interactable)
+        {
+            button.image.color = button.colors.pressedColor;
+        }
     }
 
     private void ObjectUnused(object sender, InteractableObjectEventArgs e)
     {
-        button.image.color = button.colors.highlightedColor;
-        button.onClick.Invoke();
+        if (button.interactable)
+        {
+            button.image.color = button.colors.highlightedColor;
+            button.onClick.Invoke();
+        }
     }
 
     private void ObjectTouched(object sender, InteractableObjectEventArgs e)
     {
-        button.image.color = button.colors.highlightedColor;
+        if (button.interactable)
+        {
+            button.image.color = button.colors.highlightedColor;
+        }
     }
 
     private void ObjectUntouched(object sender, InteractableObjectEventArgs e)
     {
-        button.image.color = button.colors.normalColor;
+        if (button.interactable)
+        {
+            button.image.color = button.colors.normalColor;
+        }
     }
 }
