@@ -11,7 +11,7 @@ using UnityEngine;
 public class RandomFancyAnimationSwitch : MonoBehaviour
 {
     [SerializeField]
-    private Animator soldierAnimator;
+    public Animator soldierAnimator;
 
     [SerializeField]
     private List<string> fancyAnimationTriggers;

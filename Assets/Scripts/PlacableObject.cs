@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
+[RequireComponent(typeof(RandomFancyAnimationSwitch))]
 [RequireComponent(typeof(Rigidbody))]
 public class PlacableObject : MonoBehaviour
 {
     [SerializeField]
     public Spawning spawning;
+
+
+    private Animator modelAnimator;
+
 
     private bool isScaled = false;
     private bool wasDestroyed = false;
@@ -22,9 +27,16 @@ public class PlacableObject : MonoBehaviour
 
     private Rigidbody rigidBody;
 
+    [HideInInspector]
     public bool isGrabbed = false;
+
+    [HideInInspector]
     public Transform lastCollisionObj;
+
+    [HideInInspector]
     public GameObject targetPolicko;
+
+    [HideInInspector]
     public bool onCollision = false;
 
     // Start is called before the first frame update
@@ -33,6 +45,7 @@ public class PlacableObject : MonoBehaviour
         GetComponent<VRTK_InteractableObject>().InteractableObjectGrabbed += ObjectGrabbed;
         GetComponent<VRTK_InteractableObject>().InteractableObjectUngrabbed += ObjectUnGrabbed;
         rigidBody = GetComponent<Rigidbody>();
+        modelAnimator = GetComponent<RandomFancyAnimationSwitch>().soldierAnimator;
     }
 
     public bool getIsScaled()
@@ -64,6 +77,8 @@ public class PlacableObject : MonoBehaviour
             isScaled = false;
         }
         isGrabbed = true;
+        modelAnimator.SetBool("Static", true);
+
         //snappedOn?.GetComponentInChildren<CubeHighlighter>()?.HighLight();
     }
 
@@ -135,9 +150,12 @@ public class PlacableObject : MonoBehaviour
             {
                 cubeHighlighter.ResetColor();
             }
+
                 
             isScaled = true;
             snappedOn = lastCollisionObj;
+
+            modelAnimator.SetBool("Static", false);
         }
     }
 }

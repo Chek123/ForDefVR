@@ -8,10 +8,14 @@ public class HealthControl : MonoBehaviour
     public GameObject healthBar;
     private float hit_scale;
 
+    private Animator modelAnim;
+
     void Start()
     {
         healthBar.SetActive(true);
         hit_scale = healthBar.transform.localScale.z / health;
+
+        modelAnim = GetComponentInParent<RandomFancyAnimationSwitch>().soldierAnimator;
     }
 
     void Update()
@@ -53,5 +57,10 @@ public class HealthControl : MonoBehaviour
     {
         health -= hit;
         healthBar.transform.localScale -= new Vector3(0, 0, hit * hit_scale);
+
+        if (hit > 0) 
+        {
+            modelAnim.SetTrigger("TakeDamage");
+        }
     }
 }

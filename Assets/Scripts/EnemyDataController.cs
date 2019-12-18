@@ -68,6 +68,8 @@ public class EnemyDataController : MonoBehaviour
                 soldier.GetComponent<PlacableObject>().setIsScaled(true);
                 enemySoldierCounter++;
 
+                soldier.GetComponent<RandomFancyAnimationSwitch>().soldierAnimator.SetBool("Static", false);
+
                 if (soldier.GetComponent<HealthControl>().health > maxSoldierHP)  //TODO: GetFunction on Health.
                 {
                     maxSoldierHP = soldier.GetComponent<HealthControl>().health;
