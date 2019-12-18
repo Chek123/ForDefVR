@@ -167,8 +167,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7028481486656725256}
   m_LocalRotation: {x: 0.000000029802315, y: -0, z: -0.15437914, w: 0.98801166}
-  m_LocalPosition: {x: 0.005, y: 0, z: 0.4310941}
-  m_LocalScale: {x: 0.42553937, y: 0.62824327, z: 0.41017714}
+  m_LocalPosition: {x: 0, y: 0.002, z: 0.441}
+  m_LocalScale: {x: 0.6, y: 0.75, z: 0.4}
   m_Children: []
   m_Father: {fileID: 1409049825085216370}
   m_RootOrder: 5
@@ -260,6 +260,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 8eaaa4f553116f44b8459bc24201c514, type: 3}
       propertyPath: m_Name
       value: WFX_MF BAZOOKA
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8eaaa4f553116f44b8459bc24201c514, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8eaaa4f553116f44b8459bc24201c514, type: 3}
       propertyPath: m_LocalPosition.x
