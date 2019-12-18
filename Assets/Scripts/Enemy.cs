@@ -8,6 +8,11 @@ class ShootInteraction
     public GameObject enemySoldier { get; set; }
     public GameObject playerSoldier { get; set; }
     public double efficiency { get; set; }
+
+    public void IsEmpty()
+    {
+
+    }
 }
 
 public class Enemy : MonoBehaviour
@@ -24,63 +29,55 @@ public class Enemy : MonoBehaviour
 
         List<ShootInteraction> shootInteractions = new List<ShootInteraction>();
 
-        // 1. step
-        // Every enemy soldier (with weapon) tries to shoot on every player soldier.
         foreach (var enemy in enemySoldiers)
         {
             var weapon = enemy.transform.Find("Weapon");
-            if (weapon)
+            if (weapon)                                     //Baits and medics dont pass this condition => no chance to choose them.
             {
                 foreach (var player in playerSoldiers) {
-                    var weaponRotation = weapon.rotation;  //store old weapon rotation
+                    var weaponRotation = weapon.rotation;   //store old weapon rotation
                     weapon.LookAt(player.transform);
                     var shooter = weapon.GetComponent<Shooter>();
+                    
+                    if (!shooter.TeamHit())               
+                    {
 
-                    if (!shooter.TestShoot())
-                    { 
-                        var hitHP = player.GetComponent<HealthControl>().health;
-                        var efficiency = (GameManager.Instance.GetMaxSoldierHP() - hitHP) * 2;
-                        //shootInteractions.Add(new Tuple<GameObject, GameObject, int>(enemy, player, efficiency));
+                        // Atribute 1: test raycast shoot to each player soldier
+                        // if any player is hit, effectiveness is based on (maxSoldierHP (per game) - current HP of hit soldier) multiplied by factor 2
+
+                        var HP = player.GetComponent<HealthControl>().health;    
+                        double efficiency = (GameManager.Instance.GetMaxSoldierHP() - HP) * 2;   
+
+                        // Atribute 2: find out hp of current enemy soldier
+                        // Effectiveneess is based on (maxSoldierHP (per game) - current HP of enemy soldier) multiplied by factor 1.5
+
+                        HP = enemy.GetComponent<HealthControl>().health;                    //TODO: do get function (during health bar refactor)
+                        efficiency += (GameManager.Instance.GetMaxSoldierHP() - HP) * 1.5;
+
+
+                        // Atribute 3: find out weapon damage of current enemy soldier
+                        // Damage of weapon is added to current efficiency 
+                        efficiency += weapon.GetComponent<Shooter>().GetWeaponDamage();
+
+                        // Store <EnemySoldier, PlayerSoldier, efficiency> interaction
                         shootInteractions.Add(new ShootInteraction { enemySoldier = enemy, playerSoldier = player, efficiency = efficiency});
                     }
-                    weapon.rotation = weaponRotation;   //set weapon rotation to old state
+                    weapon.rotation = weaponRotation;       //set weapon rotation to old state
                 }
             }
-
         }
 
-        //2. step 
-        // Get HP of each enemy soldier and calculate efficient parameter.
-
-        foreach (var interaction in shootInteractions)
-        {
-            var enemyHP = interaction.enemySoldier.GetComponent<HealthControl>().health;  //do get function
-            var new_efficiency = (GameManager.Instance.GetMaxSoldierHP() - enemyHP) * 1.5;
-            interaction.efficiency += new_efficiency; 
-        }
-
-        //3. step
-        //get weapon power of enemy soldier
-
-        foreach (var interaction in shootInteractions)
-        {
-            var enemy = interaction.enemySoldier;
-            var weapon = enemy.transform.Find("Weapon");  //tu uz musia mat weapon, inak by to nepreslo stepom 1.
-            var weaponDamage = weapon.GetComponent<Shooter>().GetWeaponDamage();
-            interaction.efficiency += weaponDamage;
-        }
-
-        // sort all results
+        // Sort interaction ascending based on efficiency 
         shootInteractions.Sort((a, b) => a.efficiency.CompareTo(b.efficiency));
 
+        // Just debug print
         foreach (var interaction in shootInteractions)
         {
             Debug.Log(interaction.enemySoldier + "," + interaction.playerSoldier + "," + interaction.efficiency);
         }
 
-
-        //random z prvych 3 vysledkov
-        var random_interaction = UnityEngine.Random.Range(0, 2);
+        // Choose random interaction from first 2 results
+        var random_interaction = UnityEngine.Random.Range(0, 1);
         return shootInteractions[random_interaction];
     }
 
@@ -92,18 +89,13 @@ public class Enemy : MonoBehaviour
         var enemy = interaction.enemySoldier;
         var player = interaction.playerSoldier;
 
+
         // Find weapon of chosen enemy soldier
         var weapon = enemy.transform.Find("Weapon");
-        if (weapon)
-        {
-            weapon.LookAt(player.transform);
-            weapon.localPosition = new Vector3(-0.3f, 0.5f, 0);  // Set weapon little bit higher - TODO: animation. 
-            var shooter = weapon.GetComponent<Shooter>();
-            shooter.Shoot();
-        } else
-        {
-            Debug.LogError("Unable to find childred with name Weapon");
-        }
+        weapon.localPosition = new Vector3(-0.3f, 0.5f, 0);  // Set weapon little bit higher - TODO: animation. 
+        weapon.LookAt(player.transform);
+        var shooter = weapon.GetComponent<Shooter>();
+        shooter.Shoot();
         GameManager.Instance.SetPlayerTurnMode();
     }
 }

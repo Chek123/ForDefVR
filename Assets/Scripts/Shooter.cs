@@ -94,12 +94,12 @@ public class Shooter : MonoBehaviour
         }
     }
 
-    public bool TestShoot()
+    public bool TeamHit()
     {
         RaycastHit hit;
         if (Physics.Raycast(shootPoint.transform.position, shootPoint.transform.forward, out hit, 100, layerMask))
         {
-            if (hit.transform.tag == "EnemySoldier")  //TODO: get rid of constant
+            if (hit.transform.tag == "EnemySoldier")    //team hit
             {
                 return true;
             }
