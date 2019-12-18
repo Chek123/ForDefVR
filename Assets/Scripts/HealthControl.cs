@@ -18,30 +18,7 @@ public class HealthControl : MonoBehaviour
         modelAnim = GetComponentInParent<RandomFancyAnimationSwitch>().soldierAnimator;
     }
 
-    void Update()
-    {
-        if (health <= 0)
-        {
 
-            if (this.tag == "EnemySoldier")
-            {
-                int currentCount = GameManager.Instance.GetEnemySoldiersCount();
-                GameManager.Instance.SetEnemySoldiersCount(currentCount - 1);
-                Debug.Log("Enemy soldiers count " + GameManager.Instance.GetEnemySoldiersCount());
-
-                GameManager.Instance.CheckWinner();
-            }
-            else if (this.tag == "Vojak")
-            {
-                int currentCount = GameManager.Instance.GetPlayerSoldiersCount();
-                GameManager.Instance.SetPlayerSoldiersCount(currentCount - 1);
-                Debug.Log("Player soldiers count " + GameManager.Instance.GetPlayerSoldiersCount());
-
-                GameManager.Instance.CheckWinner();
-            }
-            Destroy(gameObject);
-        }
-    }
 
 /*
     private void OnCollisionEnter(Collision collision)
@@ -62,5 +39,12 @@ public class HealthControl : MonoBehaviour
         {
             modelAnim.SetTrigger("TakeDamage");
         }
+
+        if (health <= 0)
+        {
+            modelAnim.SetTrigger("Death");
+
+        }
+
     }
 }
