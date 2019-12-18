@@ -108,7 +108,7 @@ public class Shooter : MonoBehaviour
                 return false;
             }
         }
-        return true;
+        return true;   //im not sure
     }
   
     void Update()

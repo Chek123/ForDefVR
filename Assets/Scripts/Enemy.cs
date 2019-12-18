@@ -15,27 +15,28 @@ public class Enemy : MonoBehaviour
         var playerSoldiers = GameObject.FindGameObjectsWithTag("Vojak");
 
         List<GameObject, GameObject, int> shootInteraction = new List<GameObject, GameObject, int>();
-        //EnemySoldier, PlayerSoldier, effectiveness
+        //EnemySoldier object, PlayerSoldier object, effectiveness integer
+
+        Debug.Log("Max Soldier HP");
+        Debug.Log(GameManager.Instance.GetMaxSoldierHP());
 
         // 1. step
-        // Every enemy soldier tries to shoot on every player soldier.
-        // If 
+        // Every enemy soldier (with weapon) tries to shoot on every player soldier.
         foreach (var enemy in enemySoldiers)
         {
             var teamHit = 0;
-            //1. Try raycast. each enemy on each player. 
             var weapon = enemy.transform.Find("Weapon");
             if (weapon)
             {
                 foreach (var player in playerSoldiers) {
-                    var weaponRotation = weapon.rotation;
+                    var weaponRotation = weapon.rotation;  //store old weapon rotation
                     weapon.LookAt(player.transform);
                     var shooter = weapon.GetComponent<Shooter>();
-                    if (shooter.TestShoot())
+                    if (shooter.TestShoot())   
                     {
                         teamHit++;
                     }
-                    weapon.rotation = weaponRotation;
+                    weapon.rotation = weaponRotation;   //set weapon rotation to old state
                 }
             }
             Debug.Log("Player on position");

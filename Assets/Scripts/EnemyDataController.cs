@@ -52,6 +52,7 @@ public class EnemyDataController : MonoBehaviour
         Square[] square = level.grids[grid_id].square;
 
         int enemySoldierCounter = 0;
+        int maxSoldierHP = 0;
 
         foreach (var obj in square)
         {
@@ -66,8 +67,14 @@ public class EnemyDataController : MonoBehaviour
                 soldier.GetComponent<HealthControl>().enabled = true;
                 soldier.GetComponent<PlacableObject>().setIsScaled(true);
                 enemySoldierCounter++;
+
+                if (soldier.GetComponent<HealthControl>().health > maxSoldierHP)  //TODO: GetFunction on Health.
+                {
+                    maxSoldierHP = soldier.GetComponent<HealthControl>().health;
+                }
             }
         }
+        GameManager.Instance.SetMaxSoldierHP(maxSoldierHP);
         GameManager.Instance.SetEnemySoldiersCount(enemySoldierCounter);
     }
 }

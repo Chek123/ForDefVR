@@ -4,8 +4,6 @@ using UnityEngine;
 using System.Linq;
 using VRTK;
 
-
-
 [RequireComponent(typeof(EnemyDataController))]
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     private int playerSoldiersCount;
     private int enemySoldiersCount;
+    private int maxSoldierHP;
     private int currentLevel = 1;
 
     private static GameManager instance = null;
@@ -158,6 +157,11 @@ public class GameManager : MonoBehaviour
         enemySoldiersCount = newValue;
     }
 
+    public void SetMaxSoldierHP(int newValue)
+    {
+        maxSoldierHP = newValue;
+    }
+
     public int GetPlayerSoldiersCount()
     {
         return playerSoldiersCount;
@@ -166,6 +170,11 @@ public class GameManager : MonoBehaviour
     public int GetEnemySoldiersCount()
     {
         return enemySoldiersCount;
+    }
+
+    public int GetMaxSoldierHP()
+    {
+        return maxSoldierHP;
     }
 
     // Start is called before the first frame update
