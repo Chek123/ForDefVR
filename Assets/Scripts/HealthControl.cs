@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
 
 public class HealthControl : MonoBehaviour
 {
@@ -35,10 +36,12 @@ public class HealthControl : MonoBehaviour
         if (actualBar.localScale.z < hit * hit_scale)
         {
             actualBar.localScale = Vector3.zero;
+            //DecreaseHealthBar((int)(hit * hit_scale * 100));
         }
         else
         {
-            actualBar.localScale -= new Vector3(0, 0, hit * hit_scale);
+            //TODO: animation
+            DecreaseHealthBar((int)(hit * hit_scale * 100));
         }
         ChangeColor();
 
@@ -62,6 +65,14 @@ public class HealthControl : MonoBehaviour
             Debug.Log("Changing color");
             var barSprite = actualBar.Find("BarSprite");
             barSprite.GetComponent<SpriteRenderer>().color = Color.red;
+        }
+    }
+
+    private void DecreaseHealthBar(int scale_factor)
+    {
+        for (int i = 0; i < scale_factor; i++)
+        {
+            actualBar.localScale -= new Vector3(0, 0, 0.01f);
         }
     }
 
