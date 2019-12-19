@@ -882,6 +882,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier1-Sniper
       objectReference: {fileID: 0}
+    - target: {fileID: 1323612547496051902, guid: 198f440b22694f5448c34d634767ab44,
+        type: 3}
+      propertyPath: health
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323612547496051902, guid: 198f440b22694f5448c34d634767ab44,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 5182723327350591608}
     - target: {fileID: 6371775396528692640, guid: 198f440b22694f5448c34d634767ab44,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -957,8 +967,19 @@ PrefabInstance:
       propertyPath: soldierAnimator
       value: 
       objectReference: {fileID: 8309586907660592435}
+    - target: {fileID: 6059726161730679152, guid: 198f440b22694f5448c34d634767ab44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 198f440b22694f5448c34d634767ab44, type: 3}
+--- !u!1 &5182723327350591608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6059726161730679152, guid: 198f440b22694f5448c34d634767ab44,
+    type: 3}
+  m_PrefabInstance: {fileID: 1437989404898877704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5447618632122072232 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6371775396528692640, guid: 198f440b22694f5448c34d634767ab44,

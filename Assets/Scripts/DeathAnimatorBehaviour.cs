@@ -13,7 +13,11 @@ public class DeathAnimatorBehaviour : StateMachineBehaviour
         if (soldierObject.tag == "EnemySoldier")
         {
             int currentCount = GameManager.Instance.GetEnemySoldiersCount();
-            GameManager.Instance.SetEnemySoldiersCount(currentCount - 1);
+            var weapon = soldierObject.transform.Find("Weapon");
+            if (weapon)
+            {
+                GameManager.Instance.SetEnemySoldiersCount(currentCount - 1);
+            }
             Debug.Log("Enemy soldiers count " + GameManager.Instance.GetEnemySoldiersCount());
 
             GameManager.Instance.CheckWinner();
@@ -21,7 +25,11 @@ public class DeathAnimatorBehaviour : StateMachineBehaviour
         else if (soldierObject.tag == "Vojak")
         {
             int currentCount = GameManager.Instance.GetPlayerSoldiersCount();
-            GameManager.Instance.SetPlayerSoldiersCount(currentCount - 1);
+            var weapon = soldierObject.transform.Find("Weapon");
+            if (weapon)
+            {
+                GameManager.Instance.SetPlayerSoldiersCount(currentCount - 1);
+            }
             Debug.Log("Player soldiers count " + GameManager.Instance.GetPlayerSoldiersCount());
 
             GameManager.Instance.CheckWinner();

@@ -1,39 +1,78 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthControl : MonoBehaviour
 {
-    public int health = 5; // TODO: set this variable from scene
+    [SerializeField]
+    private int health;
+    private float animationSpeed = 1.5f;
+
+    private Transform actualBar;
+    private int maxHealth;
+    private bool animate = false;
+    private int expectedHealthBarScale;
+
     public GameObject healthBar;
     private float hit_scale;
-
     private Animator modelAnim;
 
     void Start()
     {
         healthBar.SetActive(true);
-        hit_scale = healthBar.transform.localScale.z / health;
+        actualBar = healthBar.transform.Find("ActualBar");
+        hit_scale = actualBar.localScale.z / health;
+        maxHealth = health;
 
         modelAnim = GetComponentInParent<RandomFancyAnimationSwitch>().soldierAnimator;
     }
 
-
-
-/*
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        if (collision.collider.tag == "Bullet_M4")
+        if (animate)
         {
-            health -= hit;
-            healthBar.transform.localScale -= new Vector3(0, 0, hit * hit_scale);
+            if ((actualBar.localScale.z * 100) >= expectedHealthBarScale)
+            {
+                Debug.Log(animationSpeed);
+                actualBar.localScale -= new Vector3(0, 0, animationSpeed * Time.deltaTime);
+                ChangeColor();
+            }
+            else
+            {
+                animate = false;
+            }
         }
     }
-    */
+
     public void TakeDamage(int hit)
     {
-        health -= hit;
-        healthBar.transform.localScale -= new Vector3(0, 0, hit * hit_scale);
+        int newHealth = health - hit;
+
+        // to avoid healing soldier over maximum hp
+
+        if (newHealth > maxHealth)
+        {
+            health = maxHealth;
+        }
+        else
+        {
+            health = newHealth;
+        }
+
+        animate = true;
+
+        //to avoid scaling bar into negative numbers 
+
+        if (actualBar.localScale.z < hit * hit_scale)
+        {
+            expectedHealthBarScale = 0;
+        }
+        else
+        {
+            expectedHealthBarScale = (int)((actualBar.localScale.z * 100) - (hit * hit_scale * 100));
+        }
+
 
         if (hit > 0) 
         {
@@ -45,6 +84,19 @@ public class HealthControl : MonoBehaviour
             modelAnim.SetTrigger("Death");
 
         }
+    }
 
+    private void ChangeColor()
+    {
+        if (actualBar.localScale.z <= 0.4)
+        {
+            var barSprite = actualBar.Find("BarSprite");
+            barSprite.GetComponent<SpriteRenderer>().color = Color.red;
+        }
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 }

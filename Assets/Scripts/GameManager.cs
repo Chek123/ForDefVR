@@ -76,7 +76,6 @@ public class GameManager : MonoBehaviour
             wall.GetComponent<Animator>().enabled = true;
             wall.GetComponent<AudioScript>().source.Play();
 
-            //DestroyPolickaObjects();
             HidePolickaObjects();
 
             foreach (var go in soldiers)
@@ -95,7 +94,11 @@ public class GameManager : MonoBehaviour
                 var interactable = go.GetComponent<VRTK_InteractableObject>();
                 interactable.isGrabbable = false;
 
-                playerSoldiersCount++;
+                var weapon = go.transform.Find("Weapon");
+                if (weapon)
+                {
+                    playerSoldiersCount++;
+                }
             }            
         }
     }
@@ -177,17 +180,6 @@ public class GameManager : MonoBehaviour
             interactable.isGrabbable = true;
         }
     }
-
-    /*private void DestroyPolickaObjects()
-    {
-        // couldnt find a way to refactor more :(
-        Destroy(GameObject.Find("Policka").gameObject);
-        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Spawning");
-        for (var i = 0; i < gameObjects.Length; i++)
-        {
-            Destroy(gameObjects[i]);
-        }
-    }*/
 
     private void HidePolickaObjects()
     {

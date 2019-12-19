@@ -66,13 +66,18 @@ public class EnemyDataController : MonoBehaviour
                 soldier.tag = "EnemySoldier";
                 soldier.GetComponent<HealthControl>().enabled = true;
                 soldier.GetComponent<PlacableObject>().setIsScaled(true);
-                enemySoldierCounter++;
+
+                var weapon = soldier.transform.Find("Weapon");
+                if (weapon)
+                {
+                    enemySoldierCounter++;
+                }
 
                 soldier.GetComponent<RandomFancyAnimationSwitch>().soldierAnimator.SetBool("Static", false);
 
-                if (soldier.GetComponent<HealthControl>().health > maxSoldierHP)  //TODO: GetFunction on Health.
+                if (soldier.GetComponent<HealthControl>().GetHealth() > maxSoldierHP)
                 {
-                    maxSoldierHP = soldier.GetComponent<HealthControl>().health;
+                    maxSoldierHP = soldier.GetComponent<HealthControl>().GetHealth();
                 }
             }
         }
