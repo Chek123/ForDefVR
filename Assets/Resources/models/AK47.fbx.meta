@@ -1,55 +1,16 @@
 fileFormatVersion: 2
-guid: 9432582dd081996449d03917529baf20
+guid: b046ac4ac12481a4cbf5567e29749674
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Body
-    100004: Cube.058
-    100006: Head
-    100008: Head_end
-    100010: L Arm
-    100012: L Fingers
-    100014: L Fingers_end
-    100016: L Foot
-    100018: L Foot_end
-    100020: L Hand
-    100022: L Leg
-    100024: R Arm
-    100026: R Fingers
-    100028: R Fingers_end
-    100030: R Foot
-    100032: R Foot_end
-    100034: R Hand
-    100036: R Leg
-    100038: WS2.016
     400000: //RootNode
-    400002: Body
-    400004: Cube.058
-    400006: Head
-    400008: Head_end
-    400010: L Arm
-    400012: L Fingers
-    400014: L Fingers_end
-    400016: L Foot
-    400018: L Foot_end
-    400020: L Hand
-    400022: L Leg
-    400024: R Arm
-    400026: R Fingers
-    400028: R Fingers_end
-    400030: R Foot
-    400032: R Foot_end
-    400034: R Hand
-    400036: R Leg
-    400038: WS2.016
     2100000: Material.086
     2100002: Material.087
     2100004: Material.088
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: Cube.058
-    9500000: //RootNode
-    13700000: Cube.058
-    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -102,8 +63,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -130,7 +91,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
