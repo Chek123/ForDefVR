@@ -11,6 +11,9 @@ public class HealthControl : MonoBehaviour
 
     private Transform actualBar;
     private int maxHealth;
+    private bool animate = false;
+    private int maxAnimationLength;
+    private int currentAnimationLength;
 
     public GameObject healthBar;
     private float hit_scale;
@@ -26,9 +29,27 @@ public class HealthControl : MonoBehaviour
         modelAnim = GetComponentInParent<RandomFancyAnimationSwitch>().soldierAnimator;
     }
 
+    private void Update()
+    {
+        if (animate)
+        {
+            if (currentAnimationLength <= maxAnimationLength)
+            {
+                actualBar.localScale -= new Vector3(0, 0, 0.01f);
+                ChangeColor();
+                currentAnimationLength += 1;
+            }
+            else
+            {
+                animate = false;
+            }
+        }
+    }
+
     public void TakeDamage(int hit)
     {
         int newHealth = health - hit;
+
         if (newHealth > maxHealth)
         {
             health = maxHealth;
@@ -38,19 +59,19 @@ public class HealthControl : MonoBehaviour
             health = newHealth;
         }
 
+        animate = true;
+        currentAnimationLength = 0;
 
         //to avoid scaling bar into negative numbers 
         if (actualBar.localScale.z < hit * hit_scale)
         {
-            actualBar.localScale = Vector3.zero;
-            //DecreaseHealthBar((int)(hit * hit_scale * 100));
+            maxAnimationLength = (int)(actualBar.localScale.z * 100);
+            Debug.Log(maxAnimationLength);
         }
         else
         {
-            //TODO: animation
-            DecreaseHealthBar((int)(hit * hit_scale * 100));
+            maxAnimationLength = (int)(hit * hit_scale * 100);
         }
-        ChangeColor();
 
         if (hit > 0) 
         {
@@ -67,19 +88,10 @@ public class HealthControl : MonoBehaviour
 
     private void ChangeColor()
     {
-        if (health <= maxHealth * 0.4)
+        if (actualBar.localScale.z <= 0.4)
         {
-            Debug.Log("Changing color");
             var barSprite = actualBar.Find("BarSprite");
             barSprite.GetComponent<SpriteRenderer>().color = Color.red;
-        }
-    }
-
-    private void DecreaseHealthBar(int scale_factor)
-    {
-        for (int i = 0; i < scale_factor; i++)
-        {
-            actualBar.localScale -= new Vector3(0, 0, 0.01f);
         }
     }
 
