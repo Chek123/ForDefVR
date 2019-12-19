@@ -28,8 +28,15 @@ public class HealthControl : MonoBehaviour
 
     public void TakeDamage(int hit)
     {
-        health -= hit;
-        Debug.Log(actualBar.localScale);
+        int newHealth = health - hit;
+        if (newHealth > maxHealth)
+        {
+            health = maxHealth;
+        }
+        else
+        {
+            health = newHealth;
+        }
 
 
         //to avoid scaling bar into negative numbers 
