@@ -66,7 +66,12 @@ public class EnemyDataController : MonoBehaviour
                 soldier.tag = "EnemySoldier";
                 soldier.GetComponent<HealthControl>().enabled = true;
                 soldier.GetComponent<PlacableObject>().setIsScaled(true);
-                enemySoldierCounter++;
+
+                var weapon = soldier.transform.Find("Weapon");
+                if (weapon)
+                {
+                    enemySoldierCounter++;
+                }
 
                 soldier.GetComponent<RandomFancyAnimationSwitch>().soldierAnimator.SetBool("Static", false);
 
