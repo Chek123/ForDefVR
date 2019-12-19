@@ -116,17 +116,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier4
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 51a7056660138184d9625dc963d4dc50, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: dbee036939730d3448c01a2af02f8231, type: 2}
     - target: {fileID: 400046, guid: 51a7056660138184d9625dc963d4dc50, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 51a7056660138184d9625dc963d4dc50, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.381
+      value: 0.742
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 51a7056660138184d9625dc963d4dc50, type: 3}
       propertyPath: m_LocalPosition.z
@@ -164,6 +160,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400046, guid: 51a7056660138184d9625dc963d4dc50, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400046, guid: 51a7056660138184d9625dc963d4dc50, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400046, guid: 51a7056660138184d9625dc963d4dc50, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 51a7056660138184d9625dc963d4dc50, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: dbee036939730d3448c01a2af02f8231, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51a7056660138184d9625dc963d4dc50, type: 3}
 --- !u!95 &3329655836072431431 stripped
