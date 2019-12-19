@@ -7,6 +7,9 @@ public class HealthControl : MonoBehaviour
     [SerializeField]
     private int health;
 
+    private Transform actualBar;
+    private int maxHealth;
+
     public GameObject healthBar;
     private float hit_scale;
     private Animator modelAnim;
@@ -14,8 +17,9 @@ public class HealthControl : MonoBehaviour
     void Start()
     {
         healthBar.SetActive(true);
-        var actualBar = healthBar.transform.Find("ActualBar");
+        actualBar = healthBar.transform.Find("ActualBar");
         hit_scale = actualBar.localScale.z / health;
+        maxHealth = health;
 
         modelAnim = GetComponentInParent<RandomFancyAnimationSwitch>().soldierAnimator;
     }
@@ -23,8 +27,8 @@ public class HealthControl : MonoBehaviour
     public void TakeDamage(int hit)
     {
         health -= hit;
-        var actualBar = healthBar.transform.Find("ActualBar");
         actualBar.localScale -= new Vector3(0, 0, hit * hit_scale);
+        ChangeColor();
 
         if (hit > 0) 
         {
@@ -36,6 +40,16 @@ public class HealthControl : MonoBehaviour
             Debug.Log("Death");
             modelAnim.SetTrigger("Death");
 
+        }
+    }
+
+    private void ChangeColor()
+    {
+        if (health <= maxHealth * 0.4)
+        {
+            Debug.Log("Changing color");
+            var barSprite = actualBar.Find("BarSprite");
+            barSprite.GetComponent<SpriteRenderer>().color = Color.red;
         }
     }
 
