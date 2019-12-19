@@ -14,7 +14,8 @@ public class HealthControl : MonoBehaviour
     void Start()
     {
         healthBar.SetActive(true);
-        hit_scale = healthBar.transform.localScale.z / health;
+        var actualBar = healthBar.transform.Find("ActualBar");
+        hit_scale = actualBar.localScale.z / health;
 
         modelAnim = GetComponentInParent<RandomFancyAnimationSwitch>().soldierAnimator;
     }
@@ -22,7 +23,8 @@ public class HealthControl : MonoBehaviour
     public void TakeDamage(int hit)
     {
         health -= hit;
-        healthBar.transform.localScale -= new Vector3(0, 0, hit * hit_scale);
+        var actualBar = healthBar.transform.Find("ActualBar");
+        actualBar.localScale -= new Vector3(0, 0, hit * hit_scale);
 
         if (hit > 0) 
         {
@@ -31,6 +33,7 @@ public class HealthControl : MonoBehaviour
 
         if (health <= 0)
         {
+            Debug.Log("Death");
             modelAnim.SetTrigger("Death");
 
         }
