@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,7 +28,18 @@ public class HealthControl : MonoBehaviour
     public void TakeDamage(int hit)
     {
         health -= hit;
-        actualBar.localScale -= new Vector3(0, 0, hit * hit_scale);
+        Debug.Log(actualBar.localScale);
+
+
+        //to avoid scaling bar into negative numbers 
+        if (actualBar.localScale.z < hit * hit_scale)
+        {
+            actualBar.localScale = Vector3.zero;
+        }
+        else
+        {
+            actualBar.localScale -= new Vector3(0, 0, hit * hit_scale);
+        }
         ChangeColor();
 
         if (hit > 0) 
