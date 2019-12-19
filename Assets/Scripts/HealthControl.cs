@@ -50,6 +50,8 @@ public class HealthControl : MonoBehaviour
     {
         int newHealth = health - hit;
 
+        // to avoid healing soldier over maximum hp
+
         if (newHealth > maxHealth)
         {
             health = maxHealth;
@@ -63,15 +65,16 @@ public class HealthControl : MonoBehaviour
         currentAnimationLength = 0;
 
         //to avoid scaling bar into negative numbers 
+
         if (actualBar.localScale.z < hit * hit_scale)
         {
             maxAnimationLength = (int)(actualBar.localScale.z * 100);
-            Debug.Log(maxAnimationLength);
         }
         else
         {
             maxAnimationLength = (int)(hit * hit_scale * 100);
         }
+
 
         if (hit > 0) 
         {
