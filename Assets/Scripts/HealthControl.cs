@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Threading;
 
 public class HealthControl : MonoBehaviour
 {
@@ -83,7 +82,6 @@ public class HealthControl : MonoBehaviour
 
         if (health <= 0)
         {
-            Debug.Log("Death");
             modelAnim.SetTrigger("Death");
 
         }
