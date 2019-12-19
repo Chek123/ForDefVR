@@ -7,12 +7,12 @@ public class HealthControl : MonoBehaviour
 {
     [SerializeField]
     private int health;
+    private float animationSpeed = 1.5f;
 
     private Transform actualBar;
     private int maxHealth;
     private bool animate = false;
-    private int maxAnimationLength;
-    private int currentAnimationLength;
+    private int expectedHealthBarScale;
 
     public GameObject healthBar;
     private float hit_scale;
@@ -32,11 +32,11 @@ public class HealthControl : MonoBehaviour
     {
         if (animate)
         {
-            if (currentAnimationLength <= maxAnimationLength)
+            if ((actualBar.localScale.z * 100) >= expectedHealthBarScale)
             {
-                actualBar.localScale -= new Vector3(0, 0, 0.01f);
+                Debug.Log(animationSpeed);
+                actualBar.localScale -= new Vector3(0, 0, animationSpeed * Time.deltaTime);
                 ChangeColor();
-                currentAnimationLength += 1;
             }
             else
             {
@@ -61,17 +61,16 @@ public class HealthControl : MonoBehaviour
         }
 
         animate = true;
-        currentAnimationLength = 0;
 
         //to avoid scaling bar into negative numbers 
 
         if (actualBar.localScale.z < hit * hit_scale)
         {
-            maxAnimationLength = (int)(actualBar.localScale.z * 100);
+            expectedHealthBarScale = 0;
         }
         else
         {
-            maxAnimationLength = (int)(hit * hit_scale * 100);
+            expectedHealthBarScale = (int)((actualBar.localScale.z * 100) - (hit * hit_scale * 100));
         }
 
 
