@@ -31,7 +31,7 @@ Transform:
   - {fileID: 8309586907668302551}
   - {fileID: 8309586907668302567}
   m_Father: {fileID: 5447618632122072232}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &8309586907660592435
 Animator:
@@ -694,9 +694,9 @@ SkinnedMeshRenderer:
   - {fileID: 2100004, guid: 34c8717d9c425c64e93a457ba3f6bd01, type: 3}
   - {fileID: 2100006, guid: 34c8717d9c425c64e93a457ba3f6bd01, type: 3}
   - {fileID: 2100008, guid: 34c8717d9c425c64e93a457ba3f6bd01, type: 3}
-  - {fileID: 2100010, guid: 34c8717d9c425c64e93a457ba3f6bd01, type: 3}
-  - {fileID: 2100012, guid: 34c8717d9c425c64e93a457ba3f6bd01, type: 3}
-  - {fileID: 2100014, guid: 34c8717d9c425c64e93a457ba3f6bd01, type: 3}
+  - {fileID: 2100008, guid: 34c8717d9c425c64e93a457ba3f6bd01, type: 3}
+  - {fileID: 2100004, guid: 34c8717d9c425c64e93a457ba3f6bd01, type: 3}
+  - {fileID: 2100000, guid: e2fb02ec95c91ad42ab095051fa5eb51, type: 2}
   - {fileID: 2100016, guid: 34c8717d9c425c64e93a457ba3f6bd01, type: 3}
   - {fileID: 2100018, guid: 34c8717d9c425c64e93a457ba3f6bd01, type: 3}
   m_StaticBatchInfo:
@@ -1011,12 +1011,12 @@ PrefabInstance:
     - target: {fileID: 2520945976424958299, guid: 08f676ad14855e1479c632141ff60a95,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.257
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2520945976424958299, guid: 08f676ad14855e1479c632141ff60a95,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.139
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2520945976424958299, guid: 08f676ad14855e1479c632141ff60a95,
         type: 3}
@@ -1041,7 +1041,7 @@ PrefabInstance:
     - target: {fileID: 2520945976424958299, guid: 08f676ad14855e1479c632141ff60a95,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2520945976424958299, guid: 08f676ad14855e1479c632141ff60a95,
         type: 3}
