@@ -42,7 +42,7 @@ public class PlayableObject : MonoBehaviour
         {
             Debug.Log("Player turn");
             GameManager.Instance.SetRolePlayMode();
-            sceneObjects.localScale *= 2.5f * PlayAreaRealSize.GetFactor();
+            sceneObjects.localScale *= 2.5f / PlayAreaRealSize.GetFactor();
             VRTK_DeviceFinder.PlayAreaTransform().position = transform.position; //teleport to soldier place 
             soldierModel.SetActive(false);
             soldierCollider.SetActive(false);
