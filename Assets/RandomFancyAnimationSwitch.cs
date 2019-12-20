@@ -11,7 +11,7 @@ using UnityEngine;
 public class RandomFancyAnimationSwitch : MonoBehaviour
 {
     [SerializeField]
-    private Animator soldierAnimator;
+    public Animator soldierAnimator;
 
     [SerializeField]
     private List<string> fancyAnimationTriggers;
@@ -35,11 +35,9 @@ public class RandomFancyAnimationSwitch : MonoBehaviour
             isRunning = false;
             return;
         }
-        Debug.Log("ResolveAnimation");
 
         if (Random.Range(0, 100) < chance)
         {
-            Debug.Log("StartFancyAnimation, delay " + delayAfterAnimation + " seconds");
 
             var state = Random.Range(0, fancyAnimationTriggers.Count);
             soldierAnimator.SetTrigger(fancyAnimationTriggers[state]);
@@ -58,7 +56,7 @@ public class RandomFancyAnimationSwitch : MonoBehaviour
     {
         if (!isRunning)
         {
-            ResolveAnimation();
+            Invoke("ResolveAnimation",((float)Random.Range(0, delayWithoutAnimation*1000))/1000);
             isRunning = true;
         }
     }

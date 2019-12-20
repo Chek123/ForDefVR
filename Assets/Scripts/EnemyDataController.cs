@@ -39,7 +39,7 @@ public class EnemyDataController : MonoBehaviour
 
     public void LoadData()
     {
-        string path = "Database/test_data";
+        string path = "Database/data";
 
         var textAsset = Resources.Load(path) as TextAsset;
         string json = textAsset.text;
@@ -52,6 +52,7 @@ public class EnemyDataController : MonoBehaviour
         Square[] square = level.grids[grid_id].square;
 
         int enemySoldierCounter = 0;
+        int maxSoldierHP = 0;
 
         foreach (var obj in square)
         {
@@ -65,9 +66,25 @@ public class EnemyDataController : MonoBehaviour
                 soldier.tag = "EnemySoldier";
                 soldier.GetComponent<HealthControl>().enabled = true;
                 soldier.GetComponent<PlacableObject>().setIsScaled(true);
-                enemySoldierCounter++;
+
+                var weapon = soldier.transform.Find("Weapon");
+                if (weapon)
+                {
+                    enemySoldierCounter++;
+                }
+
+                soldier.GetComponent<RandomFancyAnimationSwitch>().soldierAnimator.SetBool("Static", false);
+
+                if (soldier.GetComponent<HealthControl>().GetHealth() > maxSoldierHP)
+                {
+                    maxSoldierHP = soldier.GetComponent<HealthControl>().GetHealth();
+                }
             }
         }
+        // global settings
+        GameManager.Instance.SetMaxSoldierHP(maxSoldierHP);
+        GameManager.Instance.SetStartEnemySoldiersCount(enemySoldierCounter);
+
         GameManager.Instance.SetEnemySoldiersCount(enemySoldierCounter);
     }
 }

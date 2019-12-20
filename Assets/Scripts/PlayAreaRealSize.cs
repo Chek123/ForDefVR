@@ -26,7 +26,7 @@ public static class PlayAreaRealSize
                 + Mathf.Abs(convertValveVector(rect.vCorners1).z)
                 + Mathf.Abs(convertValveVector(rect.vCorners2).z)
                 + Mathf.Abs(convertValveVector(rect.vCorners3).z);
-            Debug.Log("Counting scaleFactor; sum: x=" + (countx / 2) / optimalPlayAreaSize.x + ", y=" + (countz / 2) / optimalPlayAreaSize.z);
+            // Debug.Log("Counting scaleFactor; sum: x=" + (countx / 2) / optimalPlayAreaSize.x + ", y=" + (countz / 2) / optimalPlayAreaSize.z);
 
             return Mathf.Min((countx / 2) / optimalPlayAreaSize.x, (countz / 2) / optimalPlayAreaSize.z);
         }

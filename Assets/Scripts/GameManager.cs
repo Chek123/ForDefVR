@@ -4,21 +4,28 @@ using UnityEngine;
 using System.Linq;
 using VRTK;
 
-
-
 [RequireComponent(typeof(EnemyDataController))]
 public class GameManager : MonoBehaviour
 {
     public GameMode gamemode = GameMode.LAYOUTING;
     public GameObject wall;
     public GameObject sceneObjects;
+    public GameObject standardMenu;
+    public GameObject noSoldiersPlacedMenu;
+    public GameObject someSoldiersLeftMenu;
+    public int polickoGridSize;
     private EnemyDataController edc;
 
     private int playerSoldiersCount;
     private int enemySoldiersCount;
-    private int currentLevel = 1;
+    private int startEnemySoldiersCount;
+    private int maxSoldierHP;
+    private static int currentLevel = 1;
 
     private static GameManager instance = null;
+
+    private SoldierCheckState currentSoldierCheckState = SoldierCheckState.OK;
+    private bool confirmedToContinue = false;
 
     public static GameManager Instance
     {
@@ -31,6 +38,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public static void Reset(int level)
+    {
+        instance = null;
+        currentLevel = level;
+    }
+
     public enum GameMode
     {
         LAYOUTING, //TODO: vymysliet lepsi nazov pre rozkladanie panacikou po hracej ploche
@@ -40,35 +53,102 @@ public class GameManager : MonoBehaviour
         MENU
     }
 
+    enum SoldierCheckState
+    {
+        NoSoldierPlaced,
+        SomeSoldiersLeft,
+        OK
+    }
+
     public void StartLevel()
     {
-        edc.LoadData();
-        gamemode = GameMode.PLAYER_TURN;
+        GameObject[] soldiers = GameObject.FindGameObjectsWithTag("Vojak");
 
-        wall.GetComponent<Animator>().enabled = true;
-        wall.GetComponent<AudioScript>().source.Play();
+        confirmedToContinue = currentSoldierCheckState == SoldierCheckState.SomeSoldiersLeft ? true : false;
 
-        //DestroyPolickaObjects();
-        HidePolickaObjects();
+        currentSoldierCheckState = CheckSoldiers(soldiers);
 
-        foreach (var go in GameObject.FindGameObjectsWithTag("Vojak"))
+        if (currentSoldierCheckState == SoldierCheckState.OK || (currentSoldierCheckState == SoldierCheckState.SomeSoldiersLeft && confirmedToContinue))
         {
-            Debug.Log("Changing object: " + go.name);
-            Debug.Log(go.GetComponent<PlacableObject>().getIsScaled());
-            if (!go.GetComponent<PlacableObject>().getIsScaled())
-            {
-                //Destroy(go.gameObject);
-                go.gameObject.SetActive(false);
-                continue;
-            }
-            go.GetComponent<PlacableObject>().enabled = false;
-            go.GetComponent<PlayableObject>().enabled = true;
-            go.GetComponent<HealthControl>().enabled = true;
-            var interactable = go.GetComponent<VRTK_InteractableObject>();
-            interactable.isGrabbable = false;
+            edc.LoadData();
+            gamemode = GameMode.PLAYER_TURN;
 
-            playerSoldiersCount++;
+            wall.GetComponent<Animator>().enabled = true;
+            wall.GetComponent<AudioScript>().source.Play();
+
+            HidePolickaObjects();
+
+            foreach (var go in soldiers)
+            {
+                Debug.Log("Changing object: " + go.name);
+                Debug.Log(go.GetComponent<PlacableObject>().getIsScaled());
+                if (!go.GetComponent<PlacableObject>().getIsScaled())
+                {
+                    //Destroy(go.gameObject);
+                    go.gameObject.SetActive(false);
+                    continue;
+                }
+                go.GetComponent<PlacableObject>().enabled = false;
+                go.GetComponent<PlayableObject>().enabled = true;
+                go.GetComponent<HealthControl>().enabled = true;
+                var interactable = go.GetComponent<VRTK_InteractableObject>();
+                interactable.isGrabbable = false;
+
+                var weapon = go.transform.Find("Weapon");
+                if (weapon)
+                {
+                    playerSoldiersCount++;
+                }
+            }            
         }
+    }
+
+    private SoldierCheckState CheckSoldiers(GameObject[] soldiers)
+    {
+        bool noSoldiersPlaced = true;
+        bool soldiersRemaining = false;
+        int scaledSoldiersCounter = 0;
+        
+        foreach(var soldier in soldiers)
+        {
+            PlacableObject placableObject = soldier.GetComponent<PlacableObject>();
+            if (!placableObject.getIsScaled())
+            {
+                if (!placableObject.GetIsInSpawningArea())
+                {
+                    placableObject.WrongPlacement();
+                }
+                soldiersRemaining = true;
+            }
+            else {
+                noSoldiersPlaced = false;
+                scaledSoldiersCounter++;
+            }
+        }
+
+        if (scaledSoldiersCounter == polickoGridSize)
+        {
+            return SoldierCheckState.OK;
+        }
+
+        if (noSoldiersPlaced)
+        {
+            Debug.Log("No soldiers placed");
+            standardMenu.SetActive(false);
+            noSoldiersPlacedMenu.SetActive(true);
+            someSoldiersLeftMenu.SetActive(false);
+            return SoldierCheckState.NoSoldierPlaced;
+        }
+        if (soldiersRemaining)
+        {
+            Debug.Log("Some soldiers remaining");
+            standardMenu.SetActive(false);
+            noSoldiersPlacedMenu.SetActive(false);
+            someSoldiersLeftMenu.SetActive(true);
+            return SoldierCheckState.SomeSoldiersLeft;
+        }
+        
+        return SoldierCheckState.OK;
     }
 
     public void SetPlayerTurnMode()
@@ -100,17 +180,6 @@ public class GameManager : MonoBehaviour
             interactable.isGrabbable = true;
         }
     }
-
-    /*private void DestroyPolickaObjects()
-    {
-        // couldnt find a way to refactor more :(
-        Destroy(GameObject.Find("Policka").gameObject);
-        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Spawning");
-        for (var i = 0; i < gameObjects.Length; i++)
-        {
-            Destroy(gameObjects[i]);
-        }
-    }*/
 
     private void HidePolickaObjects()
     {
@@ -158,6 +227,16 @@ public class GameManager : MonoBehaviour
         enemySoldiersCount = newValue;
     }
 
+    public void SetMaxSoldierHP(int newValue)
+    {
+        maxSoldierHP = newValue;
+    }
+
+    public void SetStartEnemySoldiersCount(int newValue)
+    {
+        startEnemySoldiersCount = newValue;
+    }
+
     public int GetPlayerSoldiersCount()
     {
         return playerSoldiersCount;
@@ -166,6 +245,16 @@ public class GameManager : MonoBehaviour
     public int GetEnemySoldiersCount()
     {
         return enemySoldiersCount;
+    }
+
+    public int GetMaxSoldierHP()
+    {
+        return maxSoldierHP;
+    }
+
+    public int GetStartEnemySoldiersCount()
+    {
+        return startEnemySoldiersCount;
     }
 
     // Start is called before the first frame update
