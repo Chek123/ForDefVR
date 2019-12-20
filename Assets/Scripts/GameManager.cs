@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public AudioSource winningSound;
     public AudioSource loosingSound;
+    public AudioSource backgroundMusic;
 
     private EnemyDataController edc;
 
@@ -207,6 +208,7 @@ public class GameManager : MonoBehaviour
             wall.GetComponent<Animator>().SetBool("WinLevel", true);
             gamemode = GameMode.MENU;
 
+            backgroundMusic.Stop();
             winningSound.Play(0);
 
         }
@@ -220,6 +222,7 @@ public class GameManager : MonoBehaviour
 
             gamemode = GameMode.MENU;
 
+            backgroundMusic.Stop();
             loosingSound.Play(0);
         }
     }
