@@ -7,6 +7,10 @@ public class HealthControl : MonoBehaviour
 {
     [SerializeField]
     private int health;
+
+    [SerializeField]
+    private AudioSource deathSound;
+
     private float animationSpeed = 1.5f;
 
     private Transform actualBar;
@@ -76,6 +80,7 @@ public class HealthControl : MonoBehaviour
         if (hit > 0) 
         {
             modelAnim.SetTrigger("TakeDamage");
+            deathSound.Play(0);
         }
 
         if (health <= 0)
