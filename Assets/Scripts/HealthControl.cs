@@ -34,7 +34,6 @@ public class HealthControl : MonoBehaviour
         {
             if ((actualBar.localScale.z * 100) >= expectedHealthBarScale)
             {
-                Debug.Log(animationSpeed);
                 actualBar.localScale -= new Vector3(0, 0, animationSpeed * Time.deltaTime);
                 ChangeColor();
             }
