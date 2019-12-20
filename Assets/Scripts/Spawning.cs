@@ -43,8 +43,8 @@ public class Spawning : MonoBehaviour
                 vojakSpawnPocetnost = GameManager.Instance.levelData.soldier_6;
                 break;
             default:
-                Debug.LogError("Unable to load soldier with id" + soldierId);
-                vojakSpawnPocetnost = 0;
+                Debug.LogWarning("Unable to load soldier with id " + soldierId);
+                vojakSpawnPocetnost = 1;
                 break;
         }
 
