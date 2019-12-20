@@ -50,6 +50,12 @@ public class Menu : MonoBehaviour
         SceneManager.LoadSceneAsync("MainScene");
     }
 
+    public void ReturnToMenuScene()
+    {
+        SceneManager.LoadSceneAsync("MainMenuScene");
+
+    }
+
     public void CheckLevels()
     {
         levelButtons[0].interactable = true;
