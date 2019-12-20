@@ -32,6 +32,11 @@ public class GameManager : MonoBehaviour
     public GameObject noSoldiersPlacedMenu;
     public GameObject someSoldiersLeftMenu;
     public int polickoGridSize;
+
+    public AudioSource winningSound;
+    public AudioSource loosingSound;
+    public AudioSource backgroundMusic;
+
     private EnemyDataController edc;
 
     private int playerSoldiersCount;
@@ -222,6 +227,9 @@ public class GameManager : MonoBehaviour
             // enable winning animation
             wall.GetComponent<Animator>().SetBool("GameFinished", true);
             wall.GetComponent<Animator>().SetBool("WinLevel", true);
+    
+            backgroundMusic.Stop();
+            winningSound.Play(0);
 
             gamemode = GameMode.MENU;
 
@@ -237,6 +245,10 @@ public class GameManager : MonoBehaviour
             wall.GetComponent<Animator>().SetBool("LoseLevel", false);
 
             gamemode = GameMode.MENU;
+
+            backgroundMusic.Stop();
+            loosingSound.Play(0);
+
         }
     }
 
