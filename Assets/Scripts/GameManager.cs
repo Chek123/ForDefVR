@@ -100,7 +100,6 @@ public class GameManager : MonoBehaviour
             gamemode = GameMode.PLAYER_TURN;
 
             wall.GetComponent<Animator>().enabled = true;
-            wall.GetComponent<AudioScript>().source.Play();
 
             HidePolickaObjects();
 
