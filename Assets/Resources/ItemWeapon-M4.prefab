@@ -293,6 +293,11 @@ PrefabInstance:
       propertyPath: shootSound
       value: 
       objectReference: {fileID: 9176363884399821500}
+    - target: {fileID: 615943979620394947, guid: ff411901d197eb04fa2c82d2f2090179,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff411901d197eb04fa2c82d2f2090179, type: 3}
 --- !u!1 &7520987013700883698 stripped

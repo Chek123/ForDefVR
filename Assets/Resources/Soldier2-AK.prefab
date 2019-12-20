@@ -92,6 +92,12 @@ PrefabInstance:
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1323612547496051902, guid: 198f440b22694f5448c34d634767ab44,
+        type: 3}
+      propertyPath: border
+      value: 
+      objectReference: {fileID: 132775096627870184, guid: e8d992704e4df814ba1d7cdccd4ae55a,
+        type: 3}
     - target: {fileID: 6371775396528692640, guid: 198f440b22694f5448c34d634767ab44,
         type: 3}
       propertyPath: m_LocalPosition.x
