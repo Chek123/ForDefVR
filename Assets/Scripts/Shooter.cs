@@ -27,6 +27,8 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private int damage;
 
+    [SerializeField]
+    private AudioSource shootSound;
 
     private PlayableObject playableObject;
 
@@ -68,6 +70,10 @@ public class Shooter : MonoBehaviour
         if (bulletCount > 0 && shootingEnabled)
         {
             shotParticles.Play();
+            if (shootSound != null)
+            {
+                shootSound.Play(0);
+            }
 
             shotTrajectileAnimator.Play("Trajectile");
 
