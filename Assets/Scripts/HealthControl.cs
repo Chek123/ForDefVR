@@ -63,6 +63,13 @@ public class HealthControl : MonoBehaviour
             health = newHealth;
         }
 
+        //heal
+        if(hit < 0)
+        {
+            actualBar.localScale = Vector3.one;
+            health = maxHealth;
+        }
+
         animate = true;
 
         //to avoid scaling bar into negative numbers 
