@@ -2,7 +2,6 @@
 
 public class Spawning : MonoBehaviour
 {
-    [SerializeField]
     private int vojakSpawnPocetnost;
 
     [SerializeField]
@@ -15,10 +14,46 @@ public class Spawning : MonoBehaviour
     private GameObject vojakPrefab;
 
     [SerializeField]
+    private int soldierId = 0;
+
+    [SerializeField]
     private WeaponController weaponController;
 
     void Start()
     {
+        Debug.Log(GameManager.Instance.levelData);
+        switch(soldierId)
+        {
+            case 1:
+                vojakSpawnPocetnost = GameManager.Instance.levelData.soldier_1;
+                break;
+            case 2:
+                vojakSpawnPocetnost = GameManager.Instance.levelData.soldier_2;
+                break;
+            case 3:
+                vojakSpawnPocetnost = GameManager.Instance.levelData.soldier_3;
+                break;
+            case 4:
+                vojakSpawnPocetnost = GameManager.Instance.levelData.soldier_4;
+                break;
+            case 5:
+                vojakSpawnPocetnost = GameManager.Instance.levelData.soldier_5;
+                break;
+            case 6:
+                vojakSpawnPocetnost = GameManager.Instance.levelData.soldier_6;
+                break;
+            default:
+                Debug.LogWarning("Unable to load soldier with id " + soldierId);
+                vojakSpawnPocetnost = 1;
+                break;
+        }
+
+        if(vojakSpawnPocetnost == 0)
+        {
+            GameObject.Destroy(lastVojakSpawned);
+            GameObject.Destroy(gameObject);
+        }
+
         pocetnostCounter.text = "" + vojakSpawnPocetnost;
     }
 

@@ -7,6 +7,10 @@ public class HealthControl : MonoBehaviour
 {
     [SerializeField]
     private int health;
+
+    [SerializeField]
+    private AudioSource deathSound;
+
     private float animationSpeed = 1.5f;
 
     private Transform actualBar;
@@ -59,6 +63,13 @@ public class HealthControl : MonoBehaviour
             health = newHealth;
         }
 
+        //heal
+        if(hit < 0)
+        {
+            actualBar.localScale = Vector3.one;
+            health = maxHealth;
+        }
+
         animate = true;
 
         //to avoid scaling bar into negative numbers 
@@ -76,6 +87,7 @@ public class HealthControl : MonoBehaviour
         if (hit > 0) 
         {
             modelAnim.SetTrigger("TakeDamage");
+            deathSound.Play(0);
         }
 
         if (health <= 0)

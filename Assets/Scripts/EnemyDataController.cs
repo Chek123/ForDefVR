@@ -39,7 +39,7 @@ public class EnemyDataController : MonoBehaviour
 
     public void LoadData()
     {
-        string path = "Database/data";
+        string path = "Database/enemy_data";
 
         var textAsset = Resources.Load(path) as TextAsset;
         string json = textAsset.text;
@@ -47,7 +47,7 @@ public class EnemyDataController : MonoBehaviour
 
         // treba mat premennu current_level, potom nacitanie:
         //Debug.Log(data.levels[current_level - 1])
-        Level level = data.levels[0];
+        Level level = data.levels[GameManager.currentLevel-1];
         int grid_id = Random.Range(0, level.grids.Length);
         Square[] square = level.grids[grid_id].square;
 

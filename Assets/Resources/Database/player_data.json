@@ -1,0 +1,49 @@
+{
+  "levels": [
+    {
+		"level_id": 1,
+		"soldier_1": 2,
+		"soldier_2": 1,
+		"soldier_3": 0,
+		"soldier_4": 0,
+		"soldier_5": 0,
+		"soldier_6": 5
+    },
+	{
+		"level_id": 2,
+		"soldier_1": 3,
+		"soldier_2": 2,
+		"soldier_3": 1,
+		"soldier_4": 0,
+		"soldier_5": 1,
+		"soldier_6": 5
+    },
+	{
+		"level_id": 3,
+		"soldier_1": 3,
+		"soldier_2": 3,
+		"soldier_3": 2,
+		"soldier_4": 2,
+		"soldier_5": 1,
+		"soldier_6": 7
+    },
+	{
+		"level_id": 4,
+		"soldier_1": 3,
+		"soldier_2": 3,
+		"soldier_3": 3,
+		"soldier_4": 2,
+		"soldier_5": 2,
+		"soldier_6": 7
+    },
+	{
+		"level_id": 5,
+		"soldier_1": 2,
+		"soldier_2": 4,
+		"soldier_3": 4,
+		"soldier_4": 2,
+		"soldier_5": 2,
+		"soldier_6": 9
+    }
+	]
+}

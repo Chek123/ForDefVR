@@ -10,6 +10,8 @@ public class PlacableObject : MonoBehaviour
     [SerializeField]
     public Spawning spawning;
 
+    [SerializeField]
+    public AudioSource SnapSound;
 
     private Animator modelAnimator;
 
@@ -151,7 +153,7 @@ public class PlacableObject : MonoBehaviour
                 cubeHighlighter.ResetColor();
             }
 
-                
+            SnapSound.Play(0);    
             isScaled = true;
             snappedOn = lastCollisionObj;
 
