@@ -7,6 +7,24 @@ using VRTK;
 [RequireComponent(typeof(EnemyDataController))]
 public class GameManager : MonoBehaviour
 {
+
+    [System.Serializable]
+    public class Level
+    {
+        public int level_id;
+        public int soldier_1;
+        public int soldier_2;
+        public int soldier_3;
+        public int soldier_4;
+        public int soldier_5;
+        public int soldier_6;
+    }
+
+    [System.Serializable]
+    public class PlayerData
+    {
+        public Level[] levels;
+    }
     public GameMode gamemode = GameMode.LAYOUTING;
     public GameObject wall;
     public GameObject sceneObjects;
@@ -21,6 +39,8 @@ public class GameManager : MonoBehaviour
     private int startEnemySoldiersCount;
     private int maxSoldierHP;
     private static int currentLevel = 1;
+
+    public Level levelData;
 
     private static GameManager instance = null;
 
@@ -262,6 +282,10 @@ public class GameManager : MonoBehaviour
     {
         edc = GetComponent<EnemyDataController>();
         sceneObjects.transform.localScale = PlayAreaRealSize.GetScaleFactor();
+
+        var playerData = JsonUtility.FromJson<PlayerData>((Resources.Load("Database/player_data") as TextAsset).text);
+
+        levelData = playerData.levels.Where(x => x.level_id == currentLevel).FirstOrDefault();
     }
 
     public static GameObject InstantateScaled(GameObject prefab, Transform parent)
