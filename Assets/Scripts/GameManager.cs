@@ -233,6 +233,7 @@ public class GameManager : MonoBehaviour
 
             gamemode = GameMode.MENU;
 
+            PlayerPrefs.SetInt("finishedLvl" +(GameManager.currentLevel-1), 1);
 
         }
         else if (playerSoldiersCount == 0)
