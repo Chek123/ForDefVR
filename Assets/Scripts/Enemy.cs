@@ -115,7 +115,6 @@ public class Enemy : MonoBehaviour
         var weapon = enemy.transform.Find("Weapon");
         if (weapon)
         {
-            weapon.localPosition = new Vector3(-0.3f, 0.5f, 0);  // Set weapon little bit higher - TODO: animation. 
             weapon.LookAt(player.transform);
             var shooter = weapon.GetComponent<Shooter>();
             shooter.Shoot();

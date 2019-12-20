@@ -880,7 +880,7 @@ PrefabInstance:
     - target: {fileID: 6371775396528692643, guid: 198f440b22694f5448c34d634767ab44,
         type: 3}
       propertyPath: m_Name
-      value: Soldier1-Sniper
+      value: Soldier3-Sniper
       objectReference: {fileID: 0}
     - target: {fileID: 1323612547496051902, guid: 198f440b22694f5448c34d634767ab44,
         type: 3}
@@ -967,15 +967,15 @@ PrefabInstance:
       propertyPath: soldierAnimator
       value: 
       objectReference: {fileID: 8309586907660592435}
-    - target: {fileID: 1073965004522572732, guid: 198f440b22694f5448c34d634767ab44,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.8
-      objectReference: {fileID: 0}
     - target: {fileID: 6059726161730679152, guid: 198f440b22694f5448c34d634767ab44,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073965004522572732, guid: 198f440b22694f5448c34d634767ab44,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 198f440b22694f5448c34d634767ab44, type: 3}

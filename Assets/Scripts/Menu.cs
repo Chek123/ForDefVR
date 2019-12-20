@@ -45,7 +45,7 @@ public class Menu : MonoBehaviour
     }
     public void LoadLevel(int level)
     {
-        GameManager.Reset(level);
+        GameManager.Reset(level+1);
 
         SceneManager.LoadSceneAsync("MainScene");
     }

@@ -7,6 +7,24 @@ using VRTK;
 [RequireComponent(typeof(EnemyDataController))]
 public class GameManager : MonoBehaviour
 {
+
+    [System.Serializable]
+    public class Level
+    {
+        public int level_id;
+        public int soldier_1;
+        public int soldier_2;
+        public int soldier_3;
+        public int soldier_4;
+        public int soldier_5;
+        public int soldier_6;
+    }
+
+    [System.Serializable]
+    public class PlayerData
+    {
+        public Level[] levels;
+    }
     public GameMode gamemode = GameMode.LAYOUTING;
     public GameObject wall;
     public GameObject sceneObjects;
@@ -14,18 +32,23 @@ public class GameManager : MonoBehaviour
     public GameObject noSoldiersPlacedMenu;
     public GameObject someSoldiersLeftMenu;
     public int polickoGridSize;
+<<<<<<< HEAD
 
     public AudioSource winningSound;
     public AudioSource loosingSound;
     public AudioSource backgroundMusic;
 
+=======
+>>>>>>> e73b6a0d750560ffbdd9d8c4520c4dfc15df5603
     private EnemyDataController edc;
 
     private int playerSoldiersCount;
     private int enemySoldiersCount;
     private int startEnemySoldiersCount;
     private int maxSoldierHP;
-    private static int currentLevel = 1;
+    public static int currentLevel = 1;
+
+    public Level levelData;
 
     private static GameManager instance = null;
 
@@ -45,6 +68,7 @@ public class GameManager : MonoBehaviour
 
     public static void Reset(int level)
     {
+        Debug.Log("setting level:" + level);
         instance = null;
         currentLevel = level;
     }
@@ -206,10 +230,12 @@ public class GameManager : MonoBehaviour
             // enable winning animation
             wall.GetComponent<Animator>().SetBool("GameFinished", true);
             wall.GetComponent<Animator>().SetBool("WinLevel", true);
-            gamemode = GameMode.MENU;
 
             backgroundMusic.Stop();
             winningSound.Play(0);
+
+            gamemode = GameMode.MENU;
+
 
         }
         else if (playerSoldiersCount == 0)
@@ -224,6 +250,7 @@ public class GameManager : MonoBehaviour
 
             backgroundMusic.Stop();
             loosingSound.Play(0);
+
         }
     }
 
@@ -268,10 +295,14 @@ public class GameManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         edc = GetComponent<EnemyDataController>();
         sceneObjects.transform.localScale = PlayAreaRealSize.GetScaleFactor();
+
+        var playerData = JsonUtility.FromJson<PlayerData>((Resources.Load("Database/player_data") as TextAsset).text);
+        Debug.Log("Level" + currentLevel);
+        levelData = playerData.levels.Where(x => x.level_id == currentLevel).FirstOrDefault();
     }
 
     public static GameObject InstantateScaled(GameObject prefab, Transform parent)
