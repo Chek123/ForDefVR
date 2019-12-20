@@ -1179,7 +1179,7 @@ MonoBehaviour:
   lastVojakSpawned: {fileID: 1297573886}
   vojakPrefab: {fileID: 5447618632122072235, guid: d42c54ac9d2c7ee458d79da370918c78,
     type: 3}
-  soldierId: 1
+  soldierId: 0
   weaponController: {fileID: 1738844963}
 --- !u!65 &253860408
 BoxCollider:
@@ -3780,7 +3780,7 @@ MonoBehaviour:
   lastVojakSpawned: {fileID: 285061209}
   vojakPrefab: {fileID: 3185147864291899584, guid: 886882924b7893749adb02893d609f4c,
     type: 3}
-  soldierId: 4
+  soldierId: 0
   weaponController: {fileID: 1738844963}
 --- !u!65 &958212227
 BoxCollider:
@@ -3925,7 +3925,7 @@ MonoBehaviour:
   lastVojakSpawned: {fileID: 1487717100}
   vojakPrefab: {fileID: 5447618632122072235, guid: bf2f5092c621ff742adacf8f2d387b85,
     type: 3}
-  soldierId: 3
+  soldierId: 0
   weaponController: {fileID: 1738844963}
 --- !u!65 &982698239
 BoxCollider:
@@ -5070,7 +5070,7 @@ MonoBehaviour:
   lastVojakSpawned: {fileID: 990789314}
   vojakPrefab: {fileID: 5447618632122072235, guid: 194934db85c4b3346a1af2c5c550bcc9,
     type: 3}
-  soldierId: 6
+  soldierId: 0
   weaponController: {fileID: 1738844963}
 --- !u!65 &1392792847
 BoxCollider:
@@ -5907,6 +5907,9 @@ MonoBehaviour:
   noSoldiersPlacedMenu: {fileID: 991783130}
   someSoldiersLeftMenu: {fileID: 1081196236}
   polickoGridSize: 25
+  winningSound: {fileID: 1671262555}
+  loosingSound: {fileID: 1671262554}
+  backgroundMusic: {fileID: 1671262553}
   levelData:
     level_id: 0
     soldier_1: 0
@@ -6381,7 +6384,7 @@ MonoBehaviour:
   lastVojakSpawned: {fileID: 1416883479}
   vojakPrefab: {fileID: 5447618632122072235, guid: c332a76cece33c34ca72f3bc9abcd467,
     type: 3}
-  soldierId: 5
+  soldierId: 0
   weaponController: {fileID: 1738844963}
 --- !u!65 &1763100722
 BoxCollider:
@@ -6701,7 +6704,7 @@ MonoBehaviour:
   lastVojakSpawned: {fileID: 70249482}
   vojakPrefab: {fileID: 1979885266955330593, guid: 53f95e4b750f2d44eba1ec477988a168,
     type: 3}
-  soldierId: 2
+  soldierId: 0
   weaponController: {fileID: 1738844963}
 --- !u!65 &1838175821
 BoxCollider:
