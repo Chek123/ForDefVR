@@ -32,17 +32,13 @@ public class GameManager : MonoBehaviour
     public GameObject noSoldiersPlacedMenu;
     public GameObject someSoldiersLeftMenu;
     public int polickoGridSize;
-
-    public AudioSource winningSound;
-    public AudioSource loosingSound;
-
     private EnemyDataController edc;
 
     private int playerSoldiersCount;
     private int enemySoldiersCount;
     private int startEnemySoldiersCount;
     private int maxSoldierHP;
-    private static int currentLevel = 1;
+    public static int currentLevel = 1;
 
     public Level levelData;
 
@@ -64,6 +60,7 @@ public class GameManager : MonoBehaviour
 
     public static void Reset(int level)
     {
+        Debug.Log("setting level:" + level);
         instance = null;
         currentLevel = level;
     }
@@ -225,9 +222,8 @@ public class GameManager : MonoBehaviour
             // enable winning animation
             wall.GetComponent<Animator>().SetBool("GameFinished", true);
             wall.GetComponent<Animator>().SetBool("WinLevel", true);
-            gamemode = GameMode.MENU;
 
-            winningSound.Play(0);
+            gamemode = GameMode.MENU;
 
         }
         else if (playerSoldiersCount == 0)
@@ -239,8 +235,6 @@ public class GameManager : MonoBehaviour
             wall.GetComponent<Animator>().SetBool("LoseLevel", false);
 
             gamemode = GameMode.MENU;
-
-            loosingSound.Play(0);
         }
     }
 
@@ -285,13 +279,13 @@ public class GameManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         edc = GetComponent<EnemyDataController>();
         sceneObjects.transform.localScale = PlayAreaRealSize.GetScaleFactor();
 
         var playerData = JsonUtility.FromJson<PlayerData>((Resources.Load("Database/player_data") as TextAsset).text);
-
+        Debug.Log("Level" + currentLevel);
         levelData = playerData.levels.Where(x => x.level_id == currentLevel).FirstOrDefault();
     }
 
