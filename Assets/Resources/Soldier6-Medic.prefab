@@ -434,7 +434,7 @@ Transform:
   - {fileID: 5092613084580037700}
   - {fileID: 5092613084580037758}
   m_Father: {fileID: 5447618632122072232}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &5092613084572330912
 Animator:
@@ -572,14 +572,14 @@ SkinnedMeshRenderer:
   - {fileID: 2100000, guid: 1dc87ea8c6becd74abd8a815425df7eb, type: 3}
   - {fileID: 2100002, guid: 1dc87ea8c6becd74abd8a815425df7eb, type: 3}
   - {fileID: 2100004, guid: 1dc87ea8c6becd74abd8a815425df7eb, type: 3}
-  - {fileID: 2100006, guid: 1dc87ea8c6becd74abd8a815425df7eb, type: 3}
+  - {fileID: 2100000, guid: e59597a04abb6524eb78d710ab91ad75, type: 2}
   - {fileID: 2100008, guid: 1dc87ea8c6becd74abd8a815425df7eb, type: 3}
-  - {fileID: 2100010, guid: 1dc87ea8c6becd74abd8a815425df7eb, type: 3}
+  - {fileID: 2100000, guid: ca96ac439f171204f86f8714970e1fc4, type: 2}
   - {fileID: 2100012, guid: 1dc87ea8c6becd74abd8a815425df7eb, type: 3}
-  - {fileID: 2100014, guid: 1dc87ea8c6becd74abd8a815425df7eb, type: 3}
+  - {fileID: 2100000, guid: f17bd9321563e994eb8562f10cbc4f8b, type: 2}
   - {fileID: 2100016, guid: 1dc87ea8c6becd74abd8a815425df7eb, type: 3}
-  - {fileID: 2100018, guid: 1dc87ea8c6becd74abd8a815425df7eb, type: 3}
-  - {fileID: 2100020, guid: 1dc87ea8c6becd74abd8a815425df7eb, type: 3}
+  - {fileID: 2100000, guid: f17bd9321563e994eb8562f10cbc4f8b, type: 2}
+  - {fileID: 2100000, guid: f17bd9321563e994eb8562f10cbc4f8b, type: 2}
   - {fileID: 2100022, guid: 1dc87ea8c6becd74abd8a815425df7eb, type: 3}
   - {fileID: 2100024, guid: 1dc87ea8c6becd74abd8a815425df7eb, type: 3}
   - {fileID: 2100026, guid: 1dc87ea8c6becd74abd8a815425df7eb, type: 3}
@@ -1188,7 +1188,7 @@ PrefabInstance:
     - target: {fileID: 5589746891790736417, guid: 5fc12af2f06d74e43b9acbb4d9889b30,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5589746891790736417, guid: 5fc12af2f06d74e43b9acbb4d9889b30,
         type: 3}
