@@ -68,6 +68,7 @@ public class HealthControl : MonoBehaviour
         {
             actualBar.localScale = Vector3.one;
             health = maxHealth;
+            ChangeColor();
         }
 
         animate = true;
