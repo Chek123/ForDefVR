@@ -1048,7 +1048,7 @@ PrefabInstance:
     - target: {fileID: 6371775396528692643, guid: 198f440b22694f5448c34d634767ab44,
         type: 3}
       propertyPath: m_Name
-      value: Soldier6-Medic
+      value: Soldier5-Medic
       objectReference: {fileID: 0}
     - target: {fileID: 1323612547496051902, guid: 198f440b22694f5448c34d634767ab44,
         type: 3}
