@@ -1,15 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using VRTK;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
+/**
+ * Allows to click UI button by controller in VR
+ */
 public class ButtonVRClicker : MonoBehaviour {
 
+    // Button to click
     private Button button;
 
-	// Use this for initialization
+	// initialization
 	void Start () {
         GetComponent<VRTK_InteractableObject>().InteractableObjectUsed += ObjectUsed;
         GetComponent<VRTK_InteractableObject>().InteractableObjectUnused += ObjectUnused;
@@ -20,11 +21,11 @@ public class ButtonVRClicker : MonoBehaviour {
 
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
-
+    /**
+     * Sets pressedColor to button 
+     * @param sender controller used
+     * @param e event 
+     */
     private void ObjectUsed(object sender, InteractableObjectEventArgs e)
     {
         if (button.interactable)
@@ -33,6 +34,11 @@ public class ButtonVRClicker : MonoBehaviour {
         }
     }
 
+    /**
+     * Sets highlightedColor to button and invoke button actions
+     * @param sender controller used
+     * @param e event 
+     */
     private void ObjectUnused(object sender, InteractableObjectEventArgs e)
     {
         if (button.interactable)
@@ -42,6 +48,11 @@ public class ButtonVRClicker : MonoBehaviour {
         }
     }
 
+    /**
+     * Sets highlightedColor to button
+     * @param sender controller used
+     * @param e event 
+     */
     private void ObjectTouched(object sender, InteractableObjectEventArgs e)
     {
         if (button.interactable)
@@ -50,6 +61,11 @@ public class ButtonVRClicker : MonoBehaviour {
         }
     }
 
+    /**
+     * Sets normalColor to button
+     * @param sender controller used
+     * @param e event 
+     */
     private void ObjectUntouched(object sender, InteractableObjectEventArgs e)
     {
         if (button.interactable)
