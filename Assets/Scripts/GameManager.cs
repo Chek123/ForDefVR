@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     public enum GameMode
     {
-        LAYOUTING, //TODO: vymysliet lepsi nazov pre rozkladanie panacikou po hracej ploche
+        LAYOUTING, 
         PLAYER_TURN,
         ENEMY_TURN,
         ROLEPLAYING,
@@ -128,7 +128,10 @@ public class GameManager : MonoBehaviour
             }            
         }
     }
-
+    /**
+       * A normal member checking placement of Soldiers as a required process before start of game.
+       * @param array of Soldiers to be checked - GameObject
+       */
     private SoldierCheckState CheckSoldiers(GameObject[] soldiers)
     {
         bool noSoldiersPlaced = true;
