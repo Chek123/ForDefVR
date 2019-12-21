@@ -52,6 +52,9 @@ public static class PlayAreaRealSize
 #endif
     }
 
+    /**
+     * Vrati faktor vo vektorovom stave pre jednoducsie nasobenie scale faktoru
+     */ 
     public static Vector3 GetScaleFactor()
     {
         float factor = GetFactor();
