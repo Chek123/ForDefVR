@@ -32,8 +32,11 @@ public class PlayableObject : MonoBehaviour
         GetComponent<VRTK_InteractableObject>().InteractableObjectUnused += ObjectChoosenToPlay;
 
         sceneObjects = GameObject.FindGameObjectWithTag("SceneObjects").transform;
-        originalItemPosition = UsableItem.transform.position;
-        originalItemRotation = UsableItem.transform.rotation;
+        if (UsableItem)
+        {
+            originalItemPosition = UsableItem.transform.position;
+            originalItemRotation = UsableItem.transform.rotation;
+        }
     }
 
     private void ObjectChoosenToPlay(object sender, InteractableObjectEventArgs e)
