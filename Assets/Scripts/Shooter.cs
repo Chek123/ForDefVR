@@ -30,11 +30,15 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private AudioSource shootSound;
 
+    [SerializeField]
+    private MeshRenderer meshRendererRocket;
+
     private PlayableObject playableObject;
 
     private bool shootingEnabled = true;
     private Material[] materialsOriginal;
     private Material[] materialsDisabled;
+    private Material materialOriginal;
 
     private int originalBulletCount;
 
@@ -53,6 +57,7 @@ public class Shooter : MonoBehaviour
 
         materialsOriginal = new Material[meshRenderer.materials.Length];
         materialsDisabled = new Material[meshRenderer.materials.Length];
+        materialOriginal = meshRendererRocket == null ? null : meshRendererRocket.material;
         
         for (var i = 0; i < meshRenderer.materials.Length; i++)
         {
@@ -63,6 +68,7 @@ public class Shooter : MonoBehaviour
         grabMechansm = GetComponent<TriggerGrabAndUse>();
 
         playableObject = GetComponentInParent<PlayableObject>();
+        
     }
 
     public void Shoot()
@@ -74,8 +80,8 @@ public class Shooter : MonoBehaviour
             {
                 shootSound.Play(0);
             }
-
-            shotTrajectileAnimator.Play("Trajectile");
+            
+            shotTrajectileAnimator.Play(shotTrajectileAnimator.name);
 
             RaycastHit hit;
 
@@ -144,6 +150,10 @@ public class Shooter : MonoBehaviour
         {
             shootingEnabled = value;
             meshRenderer.materials = value ? materialsOriginal : materialsDisabled;
+            if (materialOriginal != null)
+            {
+                meshRendererRocket.material = value ? materialOriginal : disabledColor;
+            }
         }
     }
 
