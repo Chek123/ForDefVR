@@ -368,6 +368,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemWeapon-AK47
       objectReference: {fileID: 0}
+    - target: {fileID: 3894160136056613546, guid: 8e44ca547dbeb764b9645ef91005a90e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 3894160136056613549, guid: 8e44ca547dbeb764b9645ef91005a90e,
         type: 3}
       propertyPath: m_LocalPosition.x
