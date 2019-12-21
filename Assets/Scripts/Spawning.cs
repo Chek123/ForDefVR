@@ -19,6 +19,9 @@ public class Spawning : MonoBehaviour
     [SerializeField]
     private WeaponController weaponController;
 
+    /**
+       * A normal member called on Start - includes loading of number of Soldiers to be available.
+       */
     void Start()
     {
         Debug.Log(GameManager.Instance.levelData);
@@ -57,6 +60,10 @@ public class Spawning : MonoBehaviour
         pocetnostCounter.text = "" + vojakSpawnPocetnost;
     }
 
+    /**
+       * A normal member to detect Soldier is taken out of spawning area.
+       * @param other - Collider.
+       */
     private void OnTriggerExit(Collider other)
     {
         if (other.name == "VojakStred" && other.transform.parent.gameObject.Equals(lastVojakSpawned))
@@ -73,15 +80,18 @@ public class Spawning : MonoBehaviour
         }
     }
 
+    /**
+       * A normal member to be called when Soldier (vojak) is wrongly placed
+       * @param vojak - GameObject.
+       */
     public void onWrongPlacement(GameObject vojak)
     {
-        // ked posledny vojak bol zle umiestneny
         if (vojakSpawnPocetnost == 0)
         {
             spawnVojak();
             increaseCounter();
         }
-        // ked vojak neopustil spawnovaci collider (nevyvolal OnTriggerExit)
+        // if vojak hasn't left spawning collider yet (no OnTriggerExit)
         else if (vojak.Equals(lastVojakSpawned))
         {
             spawnVojak();
@@ -91,18 +101,28 @@ public class Spawning : MonoBehaviour
             increaseCounter();
         }
     }
-
+    /**
+       * A normal member to be called when number of remaining Soldiers (to be taken from spawning area) increases.
+       * (e.g. Soldier was wrongly placed)
+       */
     private void increaseCounter()
     {
         pocetnostCounter.text = "" + (++vojakSpawnPocetnost);
-
     }
 
+    /**
+       * A normal member to be called when number of remaining Soldiers (to be taken from spawning area) decreases.
+       * (e.g. Soldier was taken from spawning area)
+       */
     private void decreaseCounter()
     {
         pocetnostCounter.text = "" + (--vojakSpawnPocetnost);
     }
 
+    /**
+       * A normal member to spawn a new Soldier
+       * (e.g. current soldier was taken from spawning area)
+       */
     private void spawnVojak()
     {
         lastVojakSpawned = GameManager.InstantateScaled(vojakPrefab, transform.position, transform.rotation);
