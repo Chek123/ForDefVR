@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public GameObject sceneObjects;
     public GameObject standardMenu;
     public GameObject noSoldiersPlacedMenu;
+    public GameObject noSoldiersWithWeaponsPlacedMenu;
     public GameObject someSoldiersLeftMenu;
     public int polickoGridSize;
 
@@ -131,11 +132,14 @@ public class GameManager : MonoBehaviour
     private SoldierCheckState CheckSoldiers(GameObject[] soldiers)
     {
         bool noSoldiersPlaced = true;
+        bool noSoldiersWithWeapons = true;
         bool soldiersRemaining = false;
+        
         int scaledSoldiersCounter = 0;
         
         foreach(var soldier in soldiers)
         {
+            Debug.Log(soldier.gameObject.name);
             PlacableObject placableObject = soldier.GetComponent<PlacableObject>();
             if (!placableObject.getIsScaled())
             {
@@ -146,6 +150,12 @@ public class GameManager : MonoBehaviour
                 soldiersRemaining = true;
             }
             else {
+                string name = soldier.gameObject.name;
+                Debug.Log(name);
+                if (!name.Contains("Bait") && !name.Contains("Medic"))
+                {
+                    noSoldiersWithWeapons = false;
+                }
                 noSoldiersPlaced = false;
                 scaledSoldiersCounter++;
             }
@@ -161,14 +171,27 @@ public class GameManager : MonoBehaviour
             Debug.Log("No soldiers placed");
             standardMenu.SetActive(false);
             noSoldiersPlacedMenu.SetActive(true);
+            noSoldiersWithWeaponsPlacedMenu.SetActive(false);
             someSoldiersLeftMenu.SetActive(false);
             return SoldierCheckState.NoSoldierPlaced;
         }
+
+        if (noSoldiersWithWeapons)
+        {
+            Debug.Log("No soldiers with weapons placed");
+            standardMenu.SetActive(false);
+            noSoldiersPlacedMenu.SetActive(false);
+            noSoldiersWithWeaponsPlacedMenu.SetActive(true);
+            someSoldiersLeftMenu.SetActive(false);
+            return SoldierCheckState.NoSoldierPlaced;
+        }
+
         if (soldiersRemaining)
         {
             Debug.Log("Some soldiers remaining");
             standardMenu.SetActive(false);
             noSoldiersPlacedMenu.SetActive(false);
+            noSoldiersWithWeaponsPlacedMenu.SetActive(false);
             someSoldiersLeftMenu.SetActive(true);
             return SoldierCheckState.SomeSoldiersLeft;
         }

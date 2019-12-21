@@ -16904,6 +16904,7 @@ MonoBehaviour:
   sceneObjects: {fileID: 1375112422}
   standardMenu: {fileID: 772523487}
   noSoldiersPlacedMenu: {fileID: 991783130}
+  noSoldiersWithWeaponsPlacedMenu: {fileID: 4525199571070100614}
   someSoldiersLeftMenu: {fileID: 1081196236}
   polickoGridSize: 25
   winningSound: {fileID: 1671262555}
@@ -21094,8 +21095,24 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 8341293396607954299, guid: 9a1fe57a2a2aac54f97ca507e921d6c9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1671262550}
+    - target: {fileID: 8341293396607954299, guid: 9a1fe57a2a2aac54f97ca507e921d6c9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartLevel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a1fe57a2a2aac54f97ca507e921d6c9, type: 3}
+--- !u!1 &4525199571070100614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7234480005637276477, guid: 9a1fe57a2a2aac54f97ca507e921d6c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4525199571070100613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6239762510764988954
 PrefabInstance:
   m_ObjectHideFlags: 0
