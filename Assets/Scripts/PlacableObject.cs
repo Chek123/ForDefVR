@@ -21,12 +21,7 @@ public class PlacableObject : MonoBehaviour
     private bool enteredSpawningArea = false;
     private bool isInSpawningArea = true;
 
-   //private Transform lastCollisionObj;
-
     
-    private Transform snappedOn;
-    
-
     private Rigidbody rigidBody;
 
     [HideInInspector]
@@ -50,27 +45,48 @@ public class PlacableObject : MonoBehaviour
         modelAnimator = GetComponent<RandomFancyAnimationSwitch>().soldierAnimator;
     }
 
+    /**
+       * Getter for IsScaled flag - value based on the fact whether the Soldier is scaled (true) or not (false).
+       * @return value of flag IsScaled.
+       */
     public bool getIsScaled()
     {
         return isScaled;
     }
-
+    
+    /**
+       * Setter for IsScaled flag - value based on the fact whether the Soldier is scaled (true) or not (false).
+       */
     public void setIsScaled(bool isScaled)
     {
         this.isScaled = isScaled;
     }
 
+    /**
+       * Getter for isInSpawningArea flag - value based on the fact whether the Soldier is in spawning area (true) or not (false).
+       * @return value of flag isInSpawningArea.
+       */
     public bool GetIsInSpawningArea()
     {
         return this.isInSpawningArea;
     }
 
+    /**
+       * A normal member called on wrong placement of Soldier
+       * Used during check of soldiers before game start.
+       * (e.g. Soldier was taken from the spawning area and was placed on the playground. If the Soldier is not scaled, he needs to be removed before start).
+       */
     public void WrongPlacement()
     {
         spawning.onWrongPlacement(gameObject);
         Destroy(this.gameObject);
     }
 
+    /**
+       * A normal member used for grabbing a Soldier in VR
+       * @param sender object.
+       * @param e InteractableObjectEventArgs.
+       */
     private void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
         if (isScaled)
@@ -81,9 +97,12 @@ public class PlacableObject : MonoBehaviour
         isGrabbed = true;
         modelAnimator.SetBool("Static", true);
 
-        //snappedOn?.GetComponentInChildren<CubeHighlighter>()?.HighLight();
     }
-
+    /**
+       * A normal member used for ungrabbing a Soldier in VR
+       * @param sender object.
+       * @param e InteractableObjectEventArgs.
+       */
     private void ObjectUnGrabbed(object sender, InteractableObjectEventArgs e)
     {
         isGrabbed = false;
@@ -96,12 +115,15 @@ public class PlacableObject : MonoBehaviour
 
     }
 
+    /**
+       * A normal member used for handling Soldier entering collider of "Policko". It can be potentionally snapped to this "Policko" later on.
+       * @param collision - Collision.
+       * @param e InteractableObjectEventArgs.
+       */
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Policko")
         {
-            CubeHighlighter cubeHighlighter = collision.gameObject.transform.GetChild(0).GetComponent<CubeHighlighter>();
             if (!isGrabbed)
             {
                 if (targetPolicko != null)
@@ -119,7 +141,10 @@ public class PlacableObject : MonoBehaviour
         }
     }
 
-
+    /**
+       * A normal member used for handling Soldier entering collider of Spawning Area.
+       * @param other Collider.
+       */
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Spawning")
@@ -129,6 +154,10 @@ public class PlacableObject : MonoBehaviour
         }
     }
 
+    /**
+       * A normal member used for handling Soldier exiting collider of Spawning Area.
+       * @param other Collider.
+       */
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject == spawning.gameObject)
@@ -138,6 +167,9 @@ public class PlacableObject : MonoBehaviour
         }
     }
 
+    /**
+       * A normal member used for snapping a Soldier to target "Policko".
+       */
     private void SnapToObject()
     {
         if (!isScaled && targetPolicko != null && lastCollisionObj.position == targetPolicko.transform.position)
@@ -155,7 +187,6 @@ public class PlacableObject : MonoBehaviour
 
             SnapSound.Play(0);    
             isScaled = true;
-            snappedOn = lastCollisionObj;
 
             modelAnimator.SetBool("Static", false);
         }
