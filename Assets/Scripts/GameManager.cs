@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Linq;
 using VRTK;
 
+/**
+ * Hlavny organizacny prvok v hre, ktory je zodpovedny hlavne za zmenu stavov a konzistenciu medzi nimi
+ */ 
 [RequireComponent(typeof(EnemyDataController))]
 public class GameManager : MonoBehaviour
 {
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
     private SoldierCheckState currentSoldierCheckState = SoldierCheckState.OK;
     private bool confirmedToContinue = false;
 
+    //Pomocna premenna aby sa lahko a rychlo dalo pristupovat ku objektu v scene 
     public static GameManager Instance
     {
         get {
@@ -64,6 +66,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /**
+     * Restartuje staticku cast GameManager objektu
+     * @param level cislo levelu ktore bude pri nasledujucom nacitani hlavnej sceny pouzity
+     */ 
     public static void Reset(int level)
     {
         Debug.Log("setting level:" + level);
@@ -319,7 +325,7 @@ public class GameManager : MonoBehaviour
         return startEnemySoldiersCount;
     }
 
-    // Start is called before the first frame update
+    // Init
     void Awake()
     {
         edc = GetComponent<EnemyDataController>();
@@ -330,18 +336,28 @@ public class GameManager : MonoBehaviour
         levelData = playerData.levels.Where(x => x.level_id == currentLevel).FirstOrDefault();
     }
 
+    /**
+     * Vytvory objekt z prefabu vo velkosti celej sceny a nastavy mu parent object
+     */ 
     public static GameObject InstantateScaled(GameObject prefab, Transform parent)
     {
         var result = GameObject.Instantiate(prefab, parent) as GameObject;
         return ScaleObject(result);
     }
 
+    /**
+     * Vytvory objekt z prefabu vo velkosti celej sceny na pozadovanej pozicii a v pozadovanej rotacii
+     */
     public static GameObject InstantateScaled(GameObject prefab, Vector3 position, Quaternion rotation)
     {
         var result = GameObject.Instantiate(prefab, position, rotation) as GameObject;
         return ScaleObject(result);
     }
 
+    /**
+     * Pomocna funkcia ktora zmensi / zvacsi objekt podla velkost plochy vo VR 
+     * @param obj objekt ktory bude zmenseny/zvaceny podla velkosti sceny
+     */
     private static GameObject ScaleObject(GameObject obj)
     {
         obj.transform.localScale = Vector3.Scale(obj.transform.localScale, PlayAreaRealSize.GetScaleFactor());
