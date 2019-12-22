@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
+/**
+ * Umozni hodit predmet po tom ako ho hrac pusti z ruky
+ */ 
 [RequireComponent(typeof(VRTK_InteractableObject))]
 public class ThrowableItem : MonoBehaviour
 {
     private Rigidbody rb;
     private bool hasRB = false;
 
-    // Start is called before the first frame update
+    // Init
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,6 +22,10 @@ public class ThrowableItem : MonoBehaviour
         ib.InteractableObjectUngrabbed += Ungrabbed;
     }
 
+    /**
+     * po grabnuti predmetu sa prida rigidbody ak na objekte nieje a nastavi
+     * sa kinematic na true (aby nepadal z ruky)
+     */ 
     private void Grabbed(object sender, InteractableObjectEventArgs e)
     {
         if (!hasRB)
@@ -30,6 +37,9 @@ public class ThrowableItem : MonoBehaviour
 
     }
 
+    /**
+     * po pusteni predmetu sa nastavi kinematic na false (aby predmet mohol letiet)
+     */
     private void Ungrabbed(object sender, InteractableObjectEventArgs e)
     {
         rb.isKinematic = false;

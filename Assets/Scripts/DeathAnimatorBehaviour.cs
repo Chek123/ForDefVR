@@ -1,6 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+/**
+ * Spravanie pre ukonecnie stavu v Animator ovladaci,
+ * po skonceni animacie smrti vojaka sa vymaze objekt 
+ * vojaka a aktualizuje pocty vojakov v GameManager
+ * scripte a skontroluje, ci hrac vyhral alebo prehral.
+ */
 
 public class DeathAnimatorBehaviour : StateMachineBehaviour
 {

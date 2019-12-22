@@ -4,12 +4,25 @@
 using Valve.VR;
 #endif
 
+
+/**
+ * Script pre vypocet scale faktoru pre vsetky objekty v scene
+ */
 public static class PlayAreaRealSize 
 {
 
     //Optimalna velkost plochy vo VR v metroch (3x3 metre)
     private static Vector3 optimalPlayAreaSize = new Vector3(3f, 0f, 3f);
 
+    /**
+     * Funkcia pre vypocet faktoru - ak nieje build premenna USE_STEAMVR definovana, vrati 1 (bez zmeny scale)
+     * pre build so SteamVR vypocita scale faktor nasledovne:
+     * spocita 4 body pre x a pre z suradnice z hracej plochy hraca a vydeli 2 (pretoze obdlznik ma 4 vrcholi a pre zistenie 
+     * velkosti steny nam staci spocitat 2 (len nevieme ktore))
+     * 
+     * nasledne vezme minimum z velkosti x a z suradnice a to je nas faktor (aby sa scena zmestila na hraciu plochu)
+     * 
+     */
     public static float GetFactor()
     {
 #if USE_STEAMVR
@@ -39,6 +52,9 @@ public static class PlayAreaRealSize
 #endif
     }
 
+    /**
+     * Vrati faktor vo vektorovom stave pre jednoducsie nasobenie scale faktoru
+     */ 
     public static Vector3 GetScaleFactor()
     {
         float factor = GetFactor();
@@ -50,6 +66,11 @@ public static class PlayAreaRealSize
     //helpers
 #if USE_STEAMVR
 
+    /**
+     * Konverzia medzi SteamVR a Unity vektormi.
+     * @param vector SteamVR vector3.
+     * @return unity Vector3 
+     */
     private static Vector3 convertValveVector(HmdVector3_t vector)
     {
         return new Vector3(vector.v0, vector.v1, vector.v2);

@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Linq;
 using VRTK;
 
+/**
+ * Hlavny organizacny prvok v hre, ktory je zodpovedny hlavne za zmenu stavov a konzistenciu medzi nimi
+ */ 
 [RequireComponent(typeof(EnemyDataController))]
 public class GameManager : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
     public GameObject sceneObjects;
     public GameObject standardMenu;
     public GameObject noSoldiersPlacedMenu;
+    public GameObject noSoldiersWithWeaponsPlacedMenu;
     public GameObject someSoldiersLeftMenu;
     public int polickoGridSize;
 
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
     private SoldierCheckState currentSoldierCheckState = SoldierCheckState.OK;
     private bool confirmedToContinue = false;
 
+    //Pomocna premenna aby sa lahko a rychlo dalo pristupovat ku objektu v scene 
     public static GameManager Instance
     {
         get {
@@ -63,6 +66,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /**
+     * Restartuje staticku cast GameManager objektu
+     * @param level cislo levelu ktore bude pri nasledujucom nacitani hlavnej sceny pouzity
+     */ 
     public static void Reset(int level)
     {
         Debug.Log("setting level:" + level);
@@ -72,7 +79,7 @@ public class GameManager : MonoBehaviour
 
     public enum GameMode
     {
-        LAYOUTING, //TODO: vymysliet lepsi nazov pre rozkladanie panacikou po hracej ploche
+        LAYOUTING, 
         PLAYER_TURN,
         ENEMY_TURN,
         ROLEPLAYING,
@@ -85,6 +92,10 @@ public class GameManager : MonoBehaviour
         SomeSoldiersLeft,
         OK
     }
+
+ /**
+   * load all important data for starting the level
+   */
 
     public void StartLevel()
     {
@@ -127,15 +138,21 @@ public class GameManager : MonoBehaviour
             }            
         }
     }
-
+    /**
+       * A normal member checking placement of Soldiers as a required process before start of game.
+       * @param array of Soldiers to be checked - GameObject
+       */
     private SoldierCheckState CheckSoldiers(GameObject[] soldiers)
     {
         bool noSoldiersPlaced = true;
+        bool noSoldiersWithWeapons = true;
         bool soldiersRemaining = false;
+        
         int scaledSoldiersCounter = 0;
         
         foreach(var soldier in soldiers)
         {
+            Debug.Log(soldier.gameObject.name);
             PlacableObject placableObject = soldier.GetComponent<PlacableObject>();
             if (!placableObject.getIsScaled())
             {
@@ -146,6 +163,12 @@ public class GameManager : MonoBehaviour
                 soldiersRemaining = true;
             }
             else {
+                string name = soldier.gameObject.name;
+                Debug.Log(name);
+                if (!name.Contains("Bait") && !name.Contains("Medic"))
+                {
+                    noSoldiersWithWeapons = false;
+                }
                 noSoldiersPlaced = false;
                 scaledSoldiersCounter++;
             }
@@ -161,14 +184,27 @@ public class GameManager : MonoBehaviour
             Debug.Log("No soldiers placed");
             standardMenu.SetActive(false);
             noSoldiersPlacedMenu.SetActive(true);
+            noSoldiersWithWeaponsPlacedMenu.SetActive(false);
             someSoldiersLeftMenu.SetActive(false);
             return SoldierCheckState.NoSoldierPlaced;
         }
+
+        if (noSoldiersWithWeapons)
+        {
+            Debug.Log("No soldiers with weapons placed");
+            standardMenu.SetActive(false);
+            noSoldiersPlacedMenu.SetActive(false);
+            noSoldiersWithWeaponsPlacedMenu.SetActive(true);
+            someSoldiersLeftMenu.SetActive(false);
+            return SoldierCheckState.NoSoldierPlaced;
+        }
+
         if (soldiersRemaining)
         {
             Debug.Log("Some soldiers remaining");
             standardMenu.SetActive(false);
             noSoldiersPlacedMenu.SetActive(false);
+            noSoldiersWithWeaponsPlacedMenu.SetActive(false);
             someSoldiersLeftMenu.SetActive(true);
             return SoldierCheckState.SomeSoldiersLeft;
         }
@@ -184,9 +220,6 @@ public class GameManager : MonoBehaviour
     public void SetRolePlayMode()
     {
         gamemode = GameMode.ROLEPLAYING;
-
-        // maybe set actual soldier object..
-
     }
 
     public void SetEnemyTurnMode()
@@ -206,6 +239,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /**
+   * hide all objects which are not needed for second part of level -- fighting
+   */
     private void HidePolickaObjects()
     {
      
@@ -293,7 +329,7 @@ public class GameManager : MonoBehaviour
         return startEnemySoldiersCount;
     }
 
-    // Start is called before the first frame update
+    // Init
     void Awake()
     {
         edc = GetComponent<EnemyDataController>();
@@ -304,18 +340,28 @@ public class GameManager : MonoBehaviour
         levelData = playerData.levels.Where(x => x.level_id == currentLevel).FirstOrDefault();
     }
 
+    /**
+     * Vytvori objekt z prefabu vo velkosti celej sceny a nastavy mu parent object
+     */ 
     public static GameObject InstantateScaled(GameObject prefab, Transform parent)
     {
         var result = GameObject.Instantiate(prefab, parent) as GameObject;
         return ScaleObject(result);
     }
 
+    /**
+     * Vytvori objekt z prefabu vo velkosti celej sceny na pozadovanej pozicii a v pozadovanej rotacii
+     */
     public static GameObject InstantateScaled(GameObject prefab, Vector3 position, Quaternion rotation)
     {
         var result = GameObject.Instantiate(prefab, position, rotation) as GameObject;
         return ScaleObject(result);
     }
 
+    /**
+     * Pomocna funkcia ktora zmensi / zvacsi objekt podla velkost plochy vo VR 
+     * @param obj objekt ktory bude zmenseny/zvaceny podla velkosti sceny
+     */
     private static GameObject ScaleObject(GameObject obj)
     {
         obj.transform.localScale = Vector3.Scale(obj.transform.localScale, PlayAreaRealSize.GetScaleFactor());

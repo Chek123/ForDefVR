@@ -16,6 +16,11 @@ public class CubeHighlighter : MonoBehaviour
         occupyingObject = null;
     }
 
+    /**
+       * A normal member to detect if Soldier is hovering over the "Policko"
+       * "Policko" highlighting depends on whether it is already occupied or not
+       * @param other - Collider.
+       */
     private void OnTriggerEnter(Collider other)
     {
         PlacableObject placableObject;
@@ -35,6 +40,10 @@ public class CubeHighlighter : MonoBehaviour
         }
     }
 
+    /**
+       * A normal member to detect Soldier has left the area of "Policko"
+       * @param other - Collider.
+       */
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "VojakStred")
@@ -50,11 +59,19 @@ public class CubeHighlighter : MonoBehaviour
         
     }
 
+    /**
+       * A normal member to reset color of the "Policko" from highlighted to normal
+       * @param other - Collider.
+       */
     public void ResetColor()
     {
         transform.parent.GetComponent<MeshRenderer>().material.color = originalColor;
     }
 
+    /**
+       * A normal member to set the color of the "Policko" to highlighted
+       * @param other - Collider.
+       */
     public void HighLight()
     {
         transform.parent.GetComponent<MeshRenderer>().material.color = selectedColor;

@@ -39,6 +39,11 @@ public class PlayableObject : MonoBehaviour
         }
     }
 
+    /**
+       * A normal member allowing to choose a Soldier during the gameplay
+       * @param sender object.
+       * @param e InteractableObjectEventArgs.
+       */
     private void ObjectChoosenToPlay(object sender, InteractableObjectEventArgs e)
     {
         if (GameManager.Instance.gamemode == GameManager.GameMode.PLAYER_TURN && canBeChosenToPlay)
@@ -56,6 +61,9 @@ public class PlayableObject : MonoBehaviour
         }
     }
 
+    /**
+       * A normal member to be called after the user is done with playing in the role of the chosen Soldier.
+       */
     public void AfterFinishedAction()
     {
         sceneObjects.localScale /= 2.5f / PlayAreaRealSize.GetFactor();
@@ -66,7 +74,7 @@ public class PlayableObject : MonoBehaviour
         UsableItem.transform.position = originalItemPosition;
         UsableItem.transform.rotation = originalItemRotation;
 
-        UsableItem.GetComponent<Shooter>()?.ResetWeapon(); //TODO: genericky pre hocijaky item
+        UsableItem.GetComponent<Shooter>()?.ResetWeapon(); 
         weaponController.collider.enabled = false; // disabling collider to avoid disabling a weapon when collider is moving around the playground
 
         // if gamemode is MENU (= level ended), enemy turn cannot be executed
