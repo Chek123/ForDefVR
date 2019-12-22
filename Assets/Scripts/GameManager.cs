@@ -93,6 +93,10 @@ public class GameManager : MonoBehaviour
         OK
     }
 
+ /**
+   * load all important data for starting the level
+   */
+
     public void StartLevel()
     {
         GameObject[] soldiers = GameObject.FindGameObjectsWithTag("Vojak");
@@ -216,9 +220,6 @@ public class GameManager : MonoBehaviour
     public void SetRolePlayMode()
     {
         gamemode = GameMode.ROLEPLAYING;
-
-        // maybe set actual soldier object..
-
     }
 
     public void SetEnemyTurnMode()
@@ -238,6 +239,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /**
+   * hide all objects which are not needed for second part of level -- fighting
+   */
     private void HidePolickaObjects()
     {
      
@@ -337,7 +341,7 @@ public class GameManager : MonoBehaviour
     }
 
     /**
-     * Vytvory objekt z prefabu vo velkosti celej sceny a nastavy mu parent object
+     * Vytvori objekt z prefabu vo velkosti celej sceny a nastavy mu parent object
      */ 
     public static GameObject InstantateScaled(GameObject prefab, Transform parent)
     {
@@ -346,7 +350,7 @@ public class GameManager : MonoBehaviour
     }
 
     /**
-     * Vytvory objekt z prefabu vo velkosti celej sceny na pozadovanej pozicii a v pozadovanej rotacii
+     * Vytvori objekt z prefabu vo velkosti celej sceny na pozadovanej pozicii a v pozadovanej rotacii
      */
     public static GameObject InstantateScaled(GameObject prefab, Vector3 position, Quaternion rotation)
     {

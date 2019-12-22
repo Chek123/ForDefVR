@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
+/**
+     * Data structure for storing enemy and player soldier interactions. 
+     * Used during determining which enemy should shoot.
+     */
+
 class ShootInteraction
 {
     public GameObject enemySoldier { get; set; }
@@ -11,13 +17,25 @@ class ShootInteraction
     public double efficiency { get; set; }
 }
 
+/**
+     * Script which controls enemys' soldiers behaviour.
+     */
+
 public class Enemy : MonoBehaviour
 {
+    /**
+     * helper method which calls enemy turn method with 2s delay.
+     */
+
     public void EnemyController()
     {
         Invoke("DoEnemyTurn", 2.0f);
     }
 
+    /**
+     * count effectivness for all enemysoldier-playersoldier permutations. 
+     * @return shoot interaction object
+     */
     private ShootInteraction CountTurnEffectiveness()
     {
         var enemySoldiers = GameObject.FindGameObjectsWithTag("EnemySoldier");
@@ -75,14 +93,6 @@ public class Enemy : MonoBehaviour
                     weapon.rotation = weaponRotation;       //set weapon rotation to old state
                 }
             }
-            else   //effectiveness of medics are counted by different strategy
-            {
-                var medkit = enemy.transform.Find("Item-Medkit");
-                if (medkit)
-                {
-
-                }
-            }
         }
 
         if (shootInteractions.Count == 0)   //team hit
@@ -102,10 +112,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    /**
+   * enemy soldier execute its turn.
+   */
+
     private void DoEnemyTurn()
     {
-        Debug.Log("Its enemy turn :)");
-
         var interaction = CountTurnEffectiveness();
         var enemy = interaction.enemySoldier;
         var player = interaction.playerSoldier;
@@ -119,12 +131,6 @@ public class Enemy : MonoBehaviour
             var shooter = weapon.GetComponent<Shooter>();
             shooter.Shoot();
             shooter.ResetWeapon();
-        }
-        else
-        {
-            Debug.Log("Medic turn?");
-            // ITS MEDIC TURN
-            //TODO: Add behaviour for medic here.
         }
         GameManager.Instance.SetPlayerTurnMode();
     }

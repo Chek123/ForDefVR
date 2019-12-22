@@ -2,6 +2,10 @@
 using System.IO;
 using UnityEngine;
 
+/**
+   * classes for managing enemy data especially loading enemy soldiers from xlsx/json files and spread them in scene.
+   */
+
 [System.Serializable]
 public class Data
 {
@@ -37,6 +41,9 @@ public class EnemyDataController : MonoBehaviour
 
     public GameObject[] soldierTypes;
 
+    /**
+   * load enemy's data, random choose one of the grids and set enemies in scene
+   */
     public void LoadData()
     {
         string path = "Database/enemy_data";
@@ -45,8 +52,6 @@ public class EnemyDataController : MonoBehaviour
         string json = textAsset.text;
         Data data = JsonUtility.FromJson<Data>(json);
 
-        // treba mat premennu current_level, potom nacitanie:
-        //Debug.Log(data.levels[current_level - 1])
         Level level = data.levels[GameManager.currentLevel-1];
         int grid_id = Random.Range(0, level.grids.Length);
         Square[] square = level.grids[grid_id].square;
