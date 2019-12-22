@@ -101,10 +101,6 @@ public class Shooter : MonoBehaviour
             }
             bulletCount--;
         }
-        else
-        {
-            //TODO: upozornenie ze uz nema naboje a mal by pustit zbran
-        }
 
         if(bulletCount == 0)
         {
@@ -112,6 +108,10 @@ public class Shooter : MonoBehaviour
         }
     }
 
+ /**
+   * execute test raycast hit and find out if a teammate was hit or not.
+   * @return boolean -> true if some teammate was hit by shoot.
+   */
     public bool TeamHit()
     {
         RaycastHit hit;
@@ -126,7 +126,7 @@ public class Shooter : MonoBehaviour
                 return false;
             }
         }
-        return true;   //im not sure
+        return true;
     }
 
     /**
