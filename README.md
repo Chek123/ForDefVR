@@ -22,7 +22,7 @@ Hra je určená pre jedného hráča. Jeho cieľom je na začiatku rozmiestniť 
 - **SteamVR** (version 1.2.3), for build to SteamVR platform, not included because of size of package
 [Download](https://github.com/ValveSoftware/steamvr_unity_plugin/releases/download/1.2.3/SteamVR.Plugin.unitypackage)
 - **Soldiers models**
-- **JMO Assets** [Asset Store]()for weapon shooting efects
+- **JMO Assets**  for weapon shooting efects
 - **Village** for enviroment 
 
 
